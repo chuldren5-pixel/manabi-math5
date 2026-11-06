@@ -541,7 +541,26 @@ const missions=[
  {id:'shop',unit:'percent',title:'おかいものに行こう',count:3,
   intro:'セールのお店に来た。割合を使って、3つの品物を買おう。',
   scenes:['かごは空っぽ。1つ目を選ぼう。','1つ入った。つぎの品物へ。','あと1つで買い物おわり。'],
-  done:'3つとも買えた。割合の計算が役に立った。'}];
+  done:'3つとも買えた。割合の計算が役に立った。'},
+ /* 理科・社会のミッション。単元の問題をそのまま使うので、新しい問題は増えない。
+    教科ごとに表示を分けるため、unit からその教科を引く（下で subject を付けている）。 */
+ {id:'lab',unit:'solution',title:'じっけん室をかたづけよう',count:3,
+  intro:'とけたものを取り出して、びんにもどそう。3つの問いに答えて実験をおえよう。',
+  scenes:['ビーカーが3つ並んでいる。1つ目を調べよう。','1つ目がかたづいた。つぎへ。','あと1つで実験はおわり。'],
+  done:'ぜんぶ元にもどせた。とけても、なくなってはいなかった。'},
+ {id:'storm',unit:'weather',title:'あしたの天気をよもう',count:3,
+  intro:'遠足はあしたの朝。雲の動きから、天気を読みとろう。',
+  scenes:['西の空に雲が見える。まず方位を確かめよう。','雲の動きが分かった。つぎへ。','あと1つで予想がまとまる。'],
+  done:'あしたの天気が読めた。雲は西から東へ動いていた。'},
+ {id:'voyage',unit:'land',title:'日本をひとまわりしよう',count:3,
+  intro:'北から南まで、日本の地形と気候をたどる旅に出よう。',
+  scenes:['出発は北の島から。','本州にわたった。つぎへ。','あと1つで旅はおわり。'],
+  done:'日本をひとまわりできた。海に囲まれた、山の多い国だった。'},
+ {id:'factory',unit:'industry',title:'車を1台つくろう',count:3,
+  intro:'組み立て工場に来た。ラインを動かして、1台を完成させよう。',
+  scenes:['車体がラインに乗った。','部品が取りつけられた。つぎへ。','あと1つで完成だ。'],
+  done:'車が1台できあがった。多くの工場が関わっていた。'}];
+
 /* ---- Companions and outfits. Original shapes invented for this app; no existing character is used.
    Outfits open on the marks defined in 00_START_HERE.md section 13, which are capped per question,
    so repeating an easy unit cannot open anything. ---- */
@@ -1230,6 +1249,8 @@ for(const q of questions){
  const partner=q.id.replace(/b$/,'');
  if(questions.some(x=>x.id===partner))q.pairOf=partner;
 }
+/* ミッションは、使う単元の教科に属する。全単元がそろってから割り当てる。 */
+for(const m of missions){const u=units.find(u=>u.id===m.unit);m.subject=u?u.subject:'math';}
 return {groups,subjects,units,questions,companions,outfits,missions,variants,makeVariant,version:2,source:'https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf'};
 })();
 </script><script>/* Pure answer checking + local learning state. No network requests.
@@ -1668,9 +1689,9 @@ function practiceFor(unitId){
   const id=newVariantId(q.id);return id?getQ(id):q;
  });
 }
-return {get questions(){return subjectQuestions()},get units(){return subjectUnits()},get groups(){const s=curSubject();return MathContent.groups.filter(g=>g.subject===s)},allQuestions:questions,allUnits:units,allGroups:MathContent.groups,subjects:MathContent.subjects,get subject(){return curSubject()},subjectUnits,subjectQuestions,byId,KEY,BACKUP_KEY,get state(){return state},get storageOk(){return storageOk},get storageMessage(){return storageMessage},get migrated(){return migrated},
+return {get missions(){const sub=curSubject();return MathContent.missions.filter(m=>m.subject===sub)},get questions(){return subjectQuestions()},get units(){return subjectUnits()},get groups(){const s=curSubject();return MathContent.groups.filter(g=>g.subject===s)},allQuestions:questions,allUnits:units,allGroups:MathContent.groups,subjects:MathContent.subjects,get subject(){return curSubject()},subjectUnits,subjectQuestions,byId,KEY,BACKUP_KEY,get state(){return state},get storageOk(){return storageOk},get storageMessage(){return storageMessage},get migrated(){return migrated},
  normal,rational,equal,diagnose,normalWord,checkWord,judgeOf,shuffled,getQ,unitWeight,weightedOrder,hasVariant,newVariantId,attemptQuestion,hintLevelOf,kindOf,settles,hintText,
- latest,wrong,statusOf,unitStats,achievements,parentReview,outfitsOpen,exportState,exportCsv,importData,missions:MathContent.missions,beginMission,missionProgress,companions:MathContent.companions,outfits:MathContent.outfits,prepared,begin,current,setDraft,setNote,showHint,submit,canRetry,retry,insertNext,insertVariant,basicFor,next,endEarly,setSetting,reset,practiceFor};
+ latest,wrong,statusOf,unitStats,achievements,parentReview,outfitsOpen,exportState,exportCsv,importData,beginMission,missionProgress,companions:MathContent.companions,outfits:MathContent.outfits,prepared,begin,current,setDraft,setNote,showHint,submit,canRetry,retry,insertNext,insertVariant,basicFor,next,endEarly,setSetting,reset,practiceFor};
 })();
 </script><script>'use strict';
 const M=MathEngine,$=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -2114,14 +2135,14 @@ function missionBanner(){
   <div><span class="pill">ミッション</span><h2>${e(m.title)}</h2><p class="muted small">${e(note)}</p>
   <p class="muted small">できた ${p.cleared} / ${m.count}　（まちがえても、もう一度ちょうせんできます）</p></div></section>`;}
 function missionList(){
- return `<div class="section-head"><h2>ミッション</h2><span class="muted small">算数を使って、やりとげる</span></div>
+ return `<div class="section-head"><h2>ミッション</h2><span class="muted small">${subjectNow().name}を使って、やりとげる</span></div>
  <div class="cards" style="grid-template-columns:repeat(2,1fr)">${M.missions.map(m=>{
   const u=unitFor(m.unit);
   return `<section class="card mission-card"><div class="mission-art">${missionScene(m.id,0,m.count)}</div>
    <h3>${e(m.title)}</h3><p class="muted small">${e(m.intro)}</p>
    <p class="muted small">つかう単元：${e(u.title)}・${m.count}問</p>
    ${button('はじめる →','mission',m.id,'btn small')}</section>`;}).join('')}</div>
- <div class="callout">ミッションは、その単元の問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、いまのところ2単元だけです。</div>`;}
+ <div class="callout">ミッションは、その単元の問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、いまのところ、各教科2単元だけです。</div>`;}
 function mapState(info){
  return info.mastered?['しっかり身についた','done2']:info.complete?['ぜんぶできた','done1']:info.done>0?[`${info.done} / ${info.total}問`,'going']:['まだ','todo'];}
 function adventure(){
