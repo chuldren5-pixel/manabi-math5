@@ -109,7 +109,7 @@ body[data-subject="social"]{--accent:#b4571c;--accent-soft:#fae9dc;--accent-ink:
   box-shadow:0 -2px 14px rgba(32,88,71,.07)}
  .tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:7px 2px 5px;
   color:var(--muted);font-size:11px;line-height:1.2;font-weight:700;border-radius:12px;position:relative}
- .tabbar button .ti{font-size:21px;line-height:1}
+ .tabbar button .ti{width:23px;height:23px;display:block}
  .tabbar button[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
  .tabbar button[aria-current="page"] .ti{transform:translateY(-1px)}
  .tabbar .tb-badge{position:absolute;top:2px;right:50%;transform:translateX(26px);background:var(--orange);color:#fff;
@@ -189,7 +189,7 @@ body.in-quiz{padding-bottom:16px}
 .input-help-wrap .input-help{margin:8px 0 0;font-size:13px}
 /* 「ここで終える」は、やめる入口なので小さく、端に */
 .quiz-card .end-here{font-size:12px;opacity:.75}
-</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><span class="ti" aria-hidden="true">🏠</span>ホーム</button><button data-action="units"><span class="ti" aria-hidden="true">📘</span>まなぶ</button><button data-action="review"><span class="ti" aria-hidden="true">🔁</span>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><span class="ti" aria-hidden="true">🗺️</span>ぼうけん</button><button data-action="records"><span class="ti" aria-hidden="true">⭐</span>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -642,6 +642,110 @@ const missions=[
   intro:'セールのお店に来た。割合を使って、3つの品物を買おう。',
   scenes:['かごは空っぽ。1つ目を選ぼう。','1つ入った。つぎの品物へ。','あと1つで買い物おわり。'],
   done:'3つとも買えた。割合の計算が役に立った。'},
+ {id:'market',unit:'place',title:'市場で量りを読もう',count:3,
+  intro:'市場の量りは小数で表示される。3つの品物の重さを正しく読もう。',
+  scenes:['最初の品物が量りにのった。','1つ読めた。つぎの品物へ。','あと1つで買い物がおわる。'],
+  done:'3つとも正しく読めた。位が分かれば、小数はこわくない。'},
+ {id:'ribbon',unit:'multiply',title:'リボンを切り分けよう',count:3,
+  intro:'かざりつけに使うリボンの長さを計算しよう。小数のかけ算を3回使う。',
+  scenes:['1本目の長さを出そう。','1本できた。つぎへ。','あと1本でかざりが完成する。'],
+  done:'ぴったりの長さに切れた。むだが出なかった。'},
+ {id:'share',unit:'divide',title:'ジュースを分けよう',count:3,
+  intro:'みんなで同じ量ずつ分けたい。小数のわり算で1人分を出そう。',
+  scenes:['まず1本目を分ける。','1つ分かった。つぎへ。','あと1つで全員ぶんがそろう。'],
+  done:'全員に同じだけ分けられた。文句が出なかった。'},
+ {id:'teams',unit:'integer',title:'チームを組もう',count:3,
+  intro:'あまりが出ないように人数を分けたい。倍数と約数で考えよう。',
+  scenes:['まず何人ずつに分けられるか調べる。','1つ分かった。つぎへ。','あと1つで組分けが決まる。'],
+  done:'あまりなく分けられた。約数は組分けの道具だった。'},
+ {id:'recipe',unit:'fraction',title:'レシピを直そう',count:3,
+  intro:'分数で書かれたレシピを、小数のはかりで使える形に直そう。',
+  scenes:['1つ目の材料を直す。','1つ直った。つぎへ。','あと1つでレシピが完成。'],
+  done:'はかりで量れる形になった。分数と小数は行き来できる。'},
+ {id:'pizza',unit:'fraction-add',title:'のこりを数えよう',count:3,
+  intro:'切り分けたものが、どれだけ残っているかを分数で出そう。',
+  scenes:['1皿目を数える。','1皿分かった。つぎへ。','あと1皿でぜんぶ分かる。'],
+  done:'のこりが正確に分かった。分母をそろえるのがコツだった。'},
+ {id:'box',unit:'volume',title:'にもつを箱につめよう',count:3,
+  intro:'箱に入る量を計算して、むだなくつめよう。',
+  scenes:['1つ目の箱の体積を出す。','1つ出せた。つぎへ。','あと1つでつめ終わる。'],
+  done:'ぜんぶ入った。体積が分かれば、箱選びをまちがえない。'},
+ {id:'tiles',unit:'congruent',title:'タイルをしきつめよう',count:3,
+  intro:'同じ形のタイルで床をうめたい。ぴったり重なる形な図形を見分けよう。',
+  scenes:['1枚目を置く場所を決める。','1枚決まった。つぎへ。','あと1枚でしきつめ完成。'],
+  done:'すきまなくしきつめられた。ぴったり重なる形を選べた。'},
+ {id:'kite',unit:'angles',title:'たこを作ろう',count:3,
+  intro:'骨組みの角を正しく決めないと、うまく飛ばない。角度を3回求めよう。',
+  scenes:['1つ目の角を決める。','1つ決まった。つぎへ。','あと1つで骨組みができる。'],
+  done:'たこがまっすぐ上がった。角の和がきいていた。'},
+ {id:'wheel',unit:'circle',title:'車輪を作ろう',count:3,
+  intro:'車輪が1回転で進む長さを知りたい。円周を3回求めよう。',
+  scenes:['1つ目の車輪を測る。','1つ分かった。つぎへ。','あと1つで車が走り出す。'],
+  done:'進む距離が読めた。直径と円周率でいつでも出せる。'},
+ {id:'tent',unit:'solid',title:'テントを立てよう',count:3,
+  intro:'テントの形は角柱。面や辺の数を確かめて組み立てよう。',
+  scenes:['骨組みを1つ確認する。','1つできた。つぎへ。','あと1つでテントが立つ。'],
+  done:'テントが立った。底面と側面の見分けがついた。'},
+ {id:'spring',unit:'proportion',title:'ばねの伸びを調べよう',count:3,
+  intro:'おもりを増やすと、ばねはどれだけ伸びるか。変わり方を調べよう。',
+  scenes:['1つ目のおもりをつるす。','1つ分かった。つぎへ。','あと1つできまりが見える。'],
+  done:'比例のきまりが見えた。表にすると規則が分かる。'},
+ {id:'field',unit:'rate',title:'畑の混み具合をくらべよう',count:3,
+  intro:'どの畑がいちばん混んでいるか。1㎡あたりで考えよう。',
+  scenes:['1つ目の畑を調べる。','1つ分かった。つぎへ。','あと1つでくらべ終わる。'],
+  done:'公平にくらべられた。「あたり」にそろえるのがコツだった。'},
+ {id:'race',unit:'speed',title:'どっちが速い？',count:3,
+  intro:'走った距離も時間もちがう。速さにそろえてくらべよう。',
+  scenes:['1人目の速さを出す。','1人分かった。つぎへ。','あと1人でくらべ終わる。'],
+  done:'速い人が分かった。道のり÷時間が効いた。'},
+ {id:'score',unit:'average',title:'記録をならそう',count:3,
+  intro:'日によってばらばらの記録を、平均でならして見よう。',
+  scenes:['1回目の平均を出す。','1つ出せた。つぎへ。','あと1つで記録がまとまる。'],
+  done:'全体の調子が見えた。平均はばらつきをならす道具だった。'},
+ {id:'poster',unit:'graphs',title:'ポスターを作ろう',count:3,
+  intro:'調べたことをグラフにして、ひと目で分かるようにしよう。',
+  scenes:['1つ目の割合を出す。','1つ出せた。つぎへ。','あと1つでポスターが仕上がる。'],
+  done:'ひと目で分かるポスターができた。割合はグラフにすると伝わる。'},
+ {id:'sprout',unit:'seed',title:'たねをまこう',count:3,
+  intro:'芽が出る条件をそろえて、たねをまこう。3つの問いに答えよう。',
+  scenes:['1つ目の条件を確かめる。','1つそろった。つぎへ。','あと1つで芽が出る。'],
+  done:'芽が出た。水・空気・てきとうな温度がそろっていた。'},
+ {id:'clock',unit:'pendulum',title:'ふりこ時計を調整しよう',count:3,
+  intro:'時計が進んだり遅れたりする。ふりこを調べて直そう。',
+  scenes:['1往復の時間を測る。','1つ分かった。つぎへ。','あと1つで時計が合う。'],
+  done:'時計が正しく動いた。長さが時間を決めていた。'},
+ {id:'bank',unit:'river',title:'川ぞいを守ろう',count:3,
+  intro:'どこがけずられやすいか見きわめて、守る場所を決めよう。',
+  scenes:['1つ目の場所を調べる。','1か所きまった。つぎへ。','あと1か所で工事の計画ができる。'],
+  done:'守る場所が決まった。外側は流れが速くけずられる。'},
+ {id:'hatch',unit:'birth',title:'メダカを育てよう',count:3,
+  intro:'たまごから育つようすを調べて、水そうの世話をしよう。',
+  scenes:['1つ目を観察する。','1つ分かった。つぎへ。','あと1つでかえる日が分かる。'],
+  done:'メダカがかえった。受精から育ちまでが分かった。'},
+ {id:'crane',unit:'magnet',title:'クレーンを動かそう',count:3,
+  intro:'電磁石のクレーンで鉄を運ぼう。強さを調整しよう。',
+  scenes:['まず巻いた導線を調べる。','1つ分かった。つぎへ。','あと1つで持ち上がる。'],
+  done:'鉄を運べた。巻き数と電流で強さが決まる。'},
+ {id:'paddy',unit:'rice',title:'田んぼの1年',count:3,
+  intro:'春から秋まで、米づくりの作業を順に進めよう。',
+  scenes:['春の作業から始める。','1つ進んだ。つぎへ。','あと1つで収穫だ。'],
+  done:'稲刈りまでたどりついた。1年がかりの仕事だった。'},
+ {id:'port',unit:'fishery',title:'水あげを市場へ',count:3,
+  intro:'とった魚を、新鮮なまま店まで届けよう。',
+  scenes:['まず漁のしかたを決める。','1つ決まった。つぎへ。','あと1つで店にならぶ。'],
+  done:'新鮮なまま届いた。冷やして運ぶのが決め手だった。'},
+ {id:'ship',unit:'trade',title:'船に積もう',count:3,
+  intro:'何を輸入し、何を輸出するか。運ぶ手段も選ぼう。',
+  scenes:['1つ目の荷物を決める。','1つ積んだ。つぎへ。','あと1つで出港だ。'],
+  done:'船が出た。重いものは船、急ぐものは飛行機。'},
+ {id:'news',unit:'info',title:'ニュースを作ろう',count:3,
+  intro:'取材して、確かめて、伝える。放送までの3つの仕事をしよう。',
+  scenes:['まず情報を集める。','1つできた。つぎへ。','あと1つで放送だ。'],
+  done:'ニュースが流れた。確かめてから伝えるのが大事だった。'},
+ {id:'forest',unit:'env',title:'山を守ろう',count:3,
+  intro:'森林のはたらきを調べて、災害に備えよう。',
+  scenes:['森林のはたらきを1つ調べる。','1つ分かった。つぎへ。','あと1つで備えが整う。'],
+  done:'備えが整った。森林は水をたくわえ、土をささえていた。'},
  /* 理科・社会のミッション。単元の問題をそのまま使うので、新しい問題は増えない。
     教科ごとに表示を分けるため、unit からその教科を引く（下で subject を付けている）。 */
  {id:'lab',unit:'solution',title:'じっけん室をかたづけよう',count:3,
@@ -657,8 +761,8 @@ const missions=[
   scenes:['出発は北の島から。','本州にわたった。つぎへ。','あと1つで旅はおわり。'],
   done:'日本をひとまわりできた。海に囲まれた、山の多い国だった。'},
  {id:'factory',unit:'industry',title:'車を1台つくろう',count:3,
-  intro:'組み立て工場に来た。ラインを動かして、1台を完成させよう。',
-  scenes:['車体がラインに乗った。','部品が取りつけられた。つぎへ。','あと1つで完成だ。'],
+  intro:'組み立て工場に来た。順に部品をつけて、1台を完成させよう。',
+  scenes:['車体がベルトに乗った。','部品が取りつけられた。つぎへ。','あと1つで完成だ。'],
   done:'車が1台できあがった。多くの工場が関わっていた。'}];
 
 /* ---- Companions and outfits. Original shapes invented for this app; no existing character is used.
@@ -2313,7 +2417,7 @@ function missionList(){
    <h3>${e(m.title)}</h3><p class="muted small">${e(m.intro)}</p>
    <p class="muted small">つかう単元：${e(u.title)}・${m.count}問</p>
    ${button('はじめる →','mission',m.id,'btn small')}</section>`;}).join('')}</div>
- <div class="callout">ミッションは、その単元の問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、いまのところ、各教科2単元だけです。</div>`;}
+ <div class="callout">ミッションは、その単元の問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、すべての単元にあります。</div>`;}
 function mapState(info){
  return info.mastered?['しっかり身についた','done2']:info.complete?['ぜんぶできた','done1']:info.done>0?[`${info.done} / ${info.total}問`,'going']:['まだ','todo'];}
 function adventure(){
