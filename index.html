@@ -168,6 +168,27 @@ body[data-subject="social"]{--accent:#b4571c;--accent-soft:#fae9dc;--accent-ink:
 .tabs button{font-size:14px;font-weight:700;padding:9px 18px}
 .unit-card h3{font-size:19px}
 @media(max-width:720px){.unit-card h3{font-size:18px}.tabs button{padding:10px 16px}}
+
+/* ---------- 問題画面 ---------- */
+.qsteps{margin:10px 0 16px}
+.qsteps-row{display:flex;gap:8px;flex-wrap:wrap}
+.qstep{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;
+ background:var(--white);border:2px solid var(--line);color:var(--muted)}
+.qstep.now{background:var(--accent);border-color:var(--accent);color:#fff;transform:scale(1.08)}
+.qstep.ok{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.qstep.ng{background:#fdeee2;border-color:var(--orange);color:#9a5a12}
+.qstep.cur{box-shadow:0 0 0 3px rgba(31,107,82,.18);transform:scale(1.08)}
+/* 解答中は下タブを隠す。1問ごとに外へ出る入口があると、集中が切れる。 */
+body.in-quiz .tabbar{display:none}
+body.in-quiz{padding-bottom:16px}
+/* 入力の決まりは、必要なときだけ開く */
+.input-help-wrap{margin-top:10px}
+.input-help-wrap summary{cursor:pointer;font-size:13px;color:var(--muted);font-weight:700;list-style:none}
+.input-help-wrap summary::-webkit-details-marker{display:none}
+.input-help-wrap summary:before{content:"？ ";font-weight:800}
+.input-help-wrap .input-help{margin:8px 0 0;font-size:13px}
+/* 「ここで終える」は、やめる入口なので小さく、端に */
+.quiz-card .end-here{font-size:12px;opacity:.75}
 </style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><span class="ti" aria-hidden="true">🏠</span>ホーム</button><button data-action="units"><span class="ti" aria-hidden="true">📘</span>まなぶ</button><button data-action="review"><span class="ti" aria-hidden="true">🔁</span>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><span class="ti" aria-hidden="true">🗺️</span>ぼうけん</button><button data-action="records"><span class="ti" aria-hidden="true">⭐</span>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
@@ -1792,14 +1813,17 @@ let route='home',groupFilter='all',openUnit=null,dialogAction=null,testUnits=new
 function storageStatus(){const warning=$('#storage-warning');warning.hidden=M.storageOk;
  if(!M.storageOk)warning.innerHTML=`<strong>${e(M.storageMessage)}</strong> ${button('いますぐバックアップを保存','export-json','','text-button small')}`;else warning.textContent='';const n=M.wrong().length;$('#review-count').textContent=n?String(n):'';
  const tb=$('#tab-review-count');if(tb){tb.textContent=n?String(n):'';if(tb.style)tb.style.display=n?'':'none';}}
-function render(html,nav='home',focus=true){route=nav;$('#app').innerHTML=html;
+function render(html,nav='home',focus=true,inQuiz=false){route=nav;$('#app').innerHTML=html;
  /* The bottom bar holds five tabs; the test lives inside まなぶ and the collection inside
     ぼうけん, so those screens light up their parent tab instead of none at all. */
  const tabOf={test:'units',lesson:'units',quiz:'units',result:'units',dex:'adventure',parent:'records',about:'records'};
  const current=tabOf[nav]||nav;
  for(const b of document.querySelectorAll('nav button')){if(b.dataset.action===current)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');}
  /* The subject colours everything, so a child can see which subject they are in at a glance. */
- if(document.body)document.body.dataset.subject=M.subject;
+ if(document.body){document.body.dataset.subject=M.subject;
+  /* 問題を解いている間は下タブを隠す。1問ごとに外へ出る入口が見えていると集中が切れる。
+     戻る導線は画面上の「← ホームへ戻る（続きは保存）」が受け持つ。 */
+  document.body.classList.toggle('in-quiz',!!inQuiz);}
  storageStatus();window.scrollTo(0,0);if(focus){const h=$('#app h1');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}}}
 function button(label,action,id='',cls='btn'){return `<button class="${cls}" data-action="${action}" ${id?`data-id="${e(id)}"`:''}>${label}</button>`}
 function groupFor(unit){return M.groups.find(g=>g.id===unit.group);}
@@ -2039,7 +2063,7 @@ function hintBlock(q,level){if(!level)return '';const parts=[];if(level>=1)parts
      bring up the number pad on a phone, where kana cannot be typed at all, and the digit
      keypad and the number read-back below the box are both meaningless for a word. */
   const word=q.kind==='word';
-  return `<label class="answer-label" for="answer">あなたの答え</label><div class="answer-entry"><input id="answer" type="text" ${word?'inputmode="text"':'inputmode="decimal"'} enterkeyhint="done" autocomplete="off" spellcheck="false" maxlength="${word?24:40}" value="${e(s.draft)}" aria-describedby="answer-help answer-error" ${locked?'disabled':''}>${q.suffix?`<span class="unit-suffix">${e(q.suffix)}</span>`:''}</div>${word?'':previewHtml(s.draft)}${word||locked?'':keypadHtml()}<p class="input-help" id="answer-help">${word?'文ではなく、ことばだけを書きます。ひらがなでも漢字でもかまいません。':'単位は入力せず、数だけを書きます。分数は3/4、帯分数は1と1/2（1 1/2）。全角数字も使えます。'}</p>`;
+  return `<label class="answer-label" for="answer">あなたの答え</label><div class="answer-entry"><input id="answer" type="text" ${word?'inputmode="text"':'inputmode="decimal"'} enterkeyhint="done" autocomplete="off" spellcheck="false" maxlength="${word?24:40}" value="${e(s.draft)}" aria-describedby="answer-help answer-error" ${locked?'disabled':''}>${q.suffix?`<span class="unit-suffix">${e(q.suffix)}</span>`:''}</div>${word?'':previewHtml(s.draft)}${word||locked?'':keypadHtml()}<details class="input-help-wrap"><summary>書き方のきまり</summary><p class="input-help" id="answer-help">${word?'文ではなく、ことばだけを書きます。ひらがなでも漢字でもかまいません。':'単位は入力せず、数だけを書きます。分数は3/4、帯分数は1と1/2（1 1/2）。全角数字も使えます。'}</p></details>`;
  })();
  }
 function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.ids[s.cursor]);if(!q)return home();const u=unitFor(q.unit);
@@ -2050,14 +2074,20 @@ function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.
  const basic=feedback&&!r.ok?M.basicFor():null,canVariant=feedback&&M.hasVariant(q.base||q.id);
  const headline=!r?'':!r.ok?(again?(again.ok?'解き方を読んで、できました。':'もう一度、例題から確かめよう。'):'考え方を確認して、もう一度。'):kind==='solo'?'正解！ 自分の力でできました。':kind==='hinted'?'正解！ ヒントを使って解けました。':'正解！ 解き方を読んだあとの正解です。';
  render(
-  `<div class="panel">${button('← ホームへ戻る（続きは保存）','home','','text-button back')}<div class="quiz-top"><span class="pill">${mode} · ${e(u.title)}</span><span class="muted">${s.cursor+1} / ${s.ids.length}問${q.variant?' · 類題':''}</span></div><div class="progress" aria-label="${s.ids.length}問中${s.cursor}問完了"><div style="width:${s.cursor/s.ids.length*100}%"></div></div>${missionBanner()}`
+  `<div class="panel">${button('← ホームへ戻る（続きは保存）','home','','text-button back')}<div class="quiz-top"><span class="pill">${mode} · ${e(u.title)}</span><span class="muted">${s.cursor+1} / ${s.ids.length}問${q.variant?' · 類題':''}</span></div>
+  <div class="qsteps" aria-label="${s.ids.length}問中${s.cursor+1}問目"><div class="qsteps-row">${s.ids.map((id,i)=>{
+   const res=s.responses[i];
+   const cls=(res?(res.ok?'ok':'ng'):'yet')+(i===s.cursor&&!res?' now':'')+(i===s.cursor&&res?' cur':'');
+   return `<span class="qstep ${cls}">${i+1}</span>`;}).join('')}</div></div></div>${missionBanner()}`
  +
-  `<section class="card quiz-card"><div class="between"><span class="level">${levelNames[q.level]}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small'):''}</div>`
- +`<h1 class="question-text">${e(q.text)}</h1>${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status"><h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
+  `<section class="card quiz-card"><div class="between"><span class="level">${levelNames[q.level]}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small end-here'):''}</div>`
+ +`<h1 class="question-text">${e(q.text)}</h1>${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status"><h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
  
  +`<details class="scratch"><summary>考え方をメモする（採点の対象外）</summary><label class="visually-hidden" for="note">考え方のメモ</label><textarea id="note" maxlength="2000" placeholder="式や、考えたことを書いてみよう。" ${locked?'disabled':''}>${e(s.note)}</textarea></details><div class="quiz-actions row">${button(feedback?(s.cursor+1===s.ids.length?'結果を見る':'次の問題へ →'):(s.mode==='test'?'回答して次へ →':retrying?'もう一度、答えを確かめる':'答えを確かめる'),feedback?'next':'submit')}</div></section>`
  +`<p class="muted small">${s.mode==='test'?'答えと解説は最後にまとめて表示します。テストを終えると回答が記録されます。':'ヒントや解き方を使った問題は、あとで類題でもう一度確かめます。'}</p></div>`
- ,s.mode==='test'?'test':s.mode==='review'?'review':'units');}
+ ,s.mode==='test'?'test':s.mode==='review'?'review':'units',true,true);
+ if(feedback&&document.getElementById){const fb=document.getElementById('feedback');
+  if(fb&&fb.scrollIntoView)fb.scrollIntoView({block:'center',behavior:'smooth'});}}
 function choose(index){const s=M.state.active;if(!s||s.phase!=='answer')return;const value=s.order?.[Number(index)];if(value===undefined)return;M.setDraft(value);for(const b of document.querySelectorAll('.choice')){const selected=Number(b.dataset.id)===Number(index);b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));}$('#answer-error').textContent='';storageStatus();}
 function submitAnswer(){const out=M.submit();storageStatus();if(out.error){$('#answer-error').textContent=out.error;$('#answer')?.focus();return;}if(out.done)resultPage();else quizPage();}
 function kindLabel(r){if(r.again)return r.again.ok?['解き方を読んで正解（2回目）','orange']:['要復習','orange'];const k=M.kindOf(r);return k==='solo'?['自力で正解','']:k==='hinted'?['ヒントを使って正解','blue']:k==='explained'?['解き方を読んで正解','orange']:['要復習','orange'];}
