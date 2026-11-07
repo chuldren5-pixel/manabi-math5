@@ -89,6 +89,8 @@
 .rv-list li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid #eef1ec}
 .rv-list li:last-child{border-bottom:0}
 @media(max-width:480px){.rv-chart{height:68px}}
+.link-inline{background:none;border:0;padding:0;font:inherit;color:#2f6d57;text-decoration:underline;cursor:pointer}
+.link-inline:hover{color:#1d4a3a}
 </style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
@@ -1430,7 +1432,20 @@ function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOk
 /* ---------- progress ---------- */
 // Latest answer per base question. Answers to similar questions count for their base question.
 function latest(){const map=new Map();for(const a of state.attempts){const b=baseOf(a);if(b)map.set(b,a);}return map;}
-function wrong(){return [...latest()].filter(([,a])=>!settles(a)).map(([b])=>byId.get(b));}
+/* The review list stays inside the subject the child is in, like the test, the records and the
+   collection. Being handed a science question while working on mathematics is confusing, and
+   the child never asked for it. What the other subjects are holding is reported separately, so
+   nothing is hidden — the review screen says so and the child can switch subject to clear it. */
+function wrong(sub=curSubject()){
+ const ids=subjectUnitIds(sub);
+ return [...latest()].filter(([,a])=>!settles(a)).map(([b])=>byId.get(b))
+  .filter(q=>q&&(sub==='all'||ids.has(q.unit)));
+}
+function wrongElsewhere(){
+ const here=curSubject();
+ return MathContent.subjects.filter(s=>s.id!==here)
+  .map(s=>({id:s.id,name:s.name,count:wrong(s.id).length})).filter(x=>x.count>0);
+}
 function statusOf(baseId,map=latest()){const a=map.get(baseId);if(!a)return 'new';return kindOf(a);}
 function unitStats(id){
  const questions=pool;
@@ -1691,7 +1706,7 @@ function practiceFor(unitId){
 }
 return {get missions(){const sub=curSubject();return MathContent.missions.filter(m=>m.subject===sub)},get questions(){return subjectQuestions()},get units(){return subjectUnits()},get groups(){const s=curSubject();return MathContent.groups.filter(g=>g.subject===s)},allQuestions:questions,allUnits:units,allGroups:MathContent.groups,subjects:MathContent.subjects,get subject(){return curSubject()},subjectUnits,subjectQuestions,byId,KEY,BACKUP_KEY,get state(){return state},get storageOk(){return storageOk},get storageMessage(){return storageMessage},get migrated(){return migrated},
  normal,rational,equal,diagnose,normalWord,checkWord,judgeOf,shuffled,getQ,unitWeight,weightedOrder,hasVariant,newVariantId,attemptQuestion,hintLevelOf,kindOf,settles,hintText,
- latest,wrong,statusOf,unitStats,achievements,parentReview,outfitsOpen,exportState,exportCsv,importData,beginMission,missionProgress,companions:MathContent.companions,outfits:MathContent.outfits,prepared,begin,current,setDraft,setNote,showHint,submit,canRetry,retry,insertNext,insertVariant,basicFor,next,endEarly,setSetting,reset,practiceFor};
+ latest,wrong,wrongElsewhere,statusOf,unitStats,achievements,parentReview,outfitsOpen,exportState,exportCsv,importData,beginMission,missionProgress,companions:MathContent.companions,outfits:MathContent.outfits,prepared,begin,current,setDraft,setNote,showHint,submit,canRetry,retry,insertNext,insertVariant,basicFor,next,endEarly,setSetting,reset,practiceFor};
 })();
 </script><script>'use strict';
 const M=MathEngine,$=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1934,7 +1949,12 @@ function resultPage(){const result=M.state.lastResult;if(!result)return home();c
  +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'確認テスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${e(q.text)}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
  
  ,result.mode==='test'?'test':result.mode==='review'?'review':'units');}
-function reviewPage(){const qs=M.wrong();render(`<div class="eyebrow">できるようになるまで、一歩ずつ</div><h1>ふくしゅう</h1><p class="muted">間違えた問題を集めました。次に正解すると一覧から外れます。</p>${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習や確認テストに挑戦してみよう。</p>${button('単元をえらぶ','units')}</section>`}`,'review');}
+function reviewPage(){const qs=M.wrong();
+ /* The list holds this subject only. Say what the other subjects are still holding, so nothing
+    is hidden from the child, and let them switch from here. */
+ const elsewhere=M.wrongElsewhere();
+ const other=elsewhere.length?`<p class="muted">ほかの教科にも復習があります：${elsewhere.map(x=>`<button class="link-inline" data-action="subject" data-id="${x.id}">${e(x.name)} ${x.count}問</button>`).join('、')}</p>`:'';
+ render(`<div class="eyebrow">できるようになるまで、一歩ずつ</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">間違えた問題を集めました。次に正解すると一覧から外れます。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習や確認テストに挑戦してみよう。</p>${button('単元をえらぶ','units')}</section>`}`,'review');}
 function testPage(){render(
   `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>確認テストをつくる</h1><p class="muted">学校で習った単元を選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題する単元</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
  +`<div class="checks">${M.units.map(u=>`<label class="check"><input type="checkbox" name="test-unit" value="${u.id}" ${testUnits.has(u.id)?'checked':''}><span>${u.title}</span></label>`).join('')}</div><div class="form-grid"><label class="field" for="test-level">難しさ<select id="test-level"><option value="all">基礎・標準・活用すべて</option><option value="basic">基礎</option><option value="standard">標準</option><option value="challenge">活用</option></select></label>`
@@ -2196,7 +2216,7 @@ function about(){render(
  +`<li>作図や筆算の過程、自由記述の自動評価</li><li>学校ごとのテスト日・試験問題・授業進度への自動対応</li><li>中学受験の専門対策</li><li>端末間同期や複数人の記録の分離</li><li>成績向上や単元の完全な習得の保証</li><li>数値を変えた類題があるのは106問中96問（残り10問は、数値を持たない定義・性質の問題）</li><li>3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません</li></ul>`
  
  +`<p class="muted">数値は単位を付けずに入力します。同じ大きさの分数や小数も正解として扱います。確認テストも収録済みの問題から出題するため、繰り返すと同じ問題が出ます。</p></section><div class="section-head"><h2>収録範囲</h2></div><div class="coverage">${M.groups.map(g=>`<section class="card"><h3>${g.name}</h3><ul>${M.units.filter(u=>u.group===g.id).map(u=>`<li>${u.title}</li>`).join('')}</ul></section>`).join('')}</div>`
- +`<div class="callout">学習記録は、この端末のこのブラウザに保存します。氏名・メールアドレスの入力や、アプリから学習記録を送信する機能はありません。別の人と同じブラウザで使うと、記録は共通になります。</div><p class="muted"><a href="${MathContent.source}" target="_blank" rel="noopener">文部科学省：小学校学習指導要領解説 算数編</a>を範囲整理の基準としています。文部科学省・学校・教科書会社による監修や公認を受けたアプリではありません。</p></div>`
+ +`<div class="callout">学習記録は、この端末のこのブラウザに保存します。氏名・メールアドレスの入力や、アプリから学習記録を送信する機能はありません。別の人と同じブラウザで使うと、記録は共通になります。</div><p class="muted">文部科学省の小学校学習指導要領を範囲整理の基準としています（算数は<a href="${MathContent.source}" target="_blank" rel="noopener">解説 算数編</a>）。理科・社会も同要領の各教科の内容にそろえています。文部科学省・学校・教科書会社による監修や公認を受けたアプリではありません。</p></div>`
  );}
 document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]');if(!b||b.disabled)return;const id=b.dataset.id,act=b.dataset.action;
  const actions={
@@ -2204,7 +2224,9 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]'
   units:()=>unitsPage(),
   parent:()=>parentReview(),
   // Switching subject only changes which units are listed; every record is kept.
-  subject:()=>{if(M.setSetting('subject',id)){groupFilter='all';unitsPage('all');}},
+  subject:()=>{if(M.setSetting('subject',id)){groupFilter='all';
+   // 教科の切り替えは単元一覧から行うのがふつうだが、ふくしゅう画面からも切り替えられる
+   if(route==='review')reviewPage();else unitsPage('all');}},
   filter:()=>unitsPage(id),
   lesson:()=>lesson(id),
   practice:()=>practice(id),
@@ -2241,7 +2263,7 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]'
   'select-all':()=>{testUnits=new Set(M.units.map(u=>u.id));document.querySelectorAll('[name="test-unit"]').forEach(c=>c.checked=true);updateTestSummary();},
   'select-none':()=>{testUnits.clear();document.querySelectorAll('[name="test-unit"]').forEach(c=>c.checked=false);updateTestSummary();},
   'start-test':()=>{const qs=M.prepared(testCandidates(),Math.min(testCandidates().length,testCount),true);launch(qs.map(q=>q.id),'test',`${testUnits.size===1?M.units.find(u=>testUnits.has(u.id)).title:'選んだ単元'}の確認テスト`);},
-  reset:()=>dialog('この端末の記録を消しますか？','回答・考え方のメモ・途中の学習が消えます。元には戻せません。先にバックアップを保存しておくと、あとで戻せます。前の全教科試作版の記録は残ります。','記録を消す',()=>{M.reset();records();toast(M.storageOk?'算数版の記録をリセットしました':'記録は画面内でリセットしました。保存はできていません。');}),
+  reset:()=>dialog('この端末の記録を消しますか？','回答・考え方のメモ・途中の学習が消えます。元には戻せません。先にバックアップを保存しておくと、あとで戻せます。前の全教科試作版の記録は残ります。','記録を消す',()=>{M.reset();records();toast(M.storageOk?'この端末の記録をリセットしました':'記録は画面内でリセットしました。保存はできていません。');}),
   'close-dialog':closeDialog,
   'confirm-dialog':()=>{const fn=dialogAction;closeDialog();fn?.();}
  };
