@@ -1228,8 +1228,8 @@ cq('fishery',2,'basic','word','far','遠くの海まで何か月も出かけて�
  '大きな船で、長い間港をはなれます。','遠い海に出る漁業です。',
  ['日本の近くではなく、遠くの海まで出かける漁があります。','これを遠洋漁業といいます。']);
 cq('fishery',3,'standard','word','auction','水あげされた魚のねだんが決まる、市場での取引のしかたを何といいますか。','せり',['競り'],
- '買いたい人が次々に値をつけ、高い値をつけた人が買います。','市場の朝に行われます。',
- ['水あげされた魚は市場に運ばれます。','買い手が値をつけ合うせりで、ねだんが決まります。']);
+ '買いたい人が次々にねだんを言い、いちばん高く言った人が買います。','市場の朝に行われます。',
+ ['水あげされた魚は市場に運ばれます。','買い手がねだんを言い合うせりで、ねだんが決まります。']);
 cq('fishery',4,'standard','word','fresh','魚を冷やしたまま遠くへ運ぶために使う、冷やす設備のついたトラックを何といいますか。','ほれいしゃ',['保冷車','保冷トラック'],
  'ふつうのトラックでは、運ぶ間にいたんでしまいます。','冷やしたまま運ぶための車です。',
  ['魚は水あげしたあと、すぐにいたみます。','冷やしたまま運べる保冷車を使います。']);
@@ -1244,7 +1244,7 @@ cq('fishery','2b','basic','word','far','日本の近くの海で、数日かけ�
  ['日本の近くの海で数日かけて行う漁があります。','これを沖合漁業といいます。']);
 cq('fishery','3b','standard','word','auction','せりで決まるのは、魚の何ですか。','ねだん',['値段','価格','かかく'],
  '買い手が次々に数字を言い合います。','高い数字をつけた人が買えます。',
- ['せりでは、買い手が値をつけ合います。','こうして魚のねだんが決まります。']);
+ ['せりでは、買い手がねだんを言い合います。','こうして魚のねだんが決まります。']);
 cq('fishery','4b','standard','word','fresh','水あげした魚の鮮度を保つために、箱の中に魚といっしょに入れるものは何ですか。','こおり',['氷'],
  '冷たいまま保つために使います。','水がこおったものです。',
  ['魚は冷やさないとすぐにいたみます。','そこで箱に氷を入れていっしょに運びます。']);
@@ -2461,9 +2461,19 @@ const M=MathEngine,$=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&
 /* ふりがな。小学1〜5年で習わない漢字には読みをつける。教科書と同じ扱いで、
    「磁石」「割合」のような教科の言葉はそのまま出し、読めるようにする。
    表に載っていない語は何もしないので、足し忘れはテストで落とす。 */
-const rubyTable={'電磁石':'でんじしゃく','稲刈':'いねか','収穫':'しゅうかく','新鮮':'しんせん',
- '骨組':'ほねぐ','距離':'きょり','知恵':'ちえ','確認':'かくにん','割合':'わりあい','手段':'しゅだん',
- '看板':'かんばん','枚':'まい','伸':'の','巻':'ま','届':'とど','床':'ゆか','遅':'おく','並':'なら'};
+const rubyTable={
+ '排他的経済水域':'はいたてきけいざいすいいき','四捨五入':'ししゃごにゅう','貿易摩擦':'ぼうえきまさつ',
+ '生鮮食品':'せいせんしょくひん','避難場所':'ひなんばしょ','人口密度':'じんこうみつど','受精卵':'じゅせいらん',
+ '気象庁':'きしょうちょう','水産資源':'すいさんしげん','二字熟語':'にじじゅくご','同音異字':'どうおんいじ','同訓異字':'どうくんいじ','工業地域':'こうぎょうちいき','尊敬語':'そんけいご','修飾語':'しゅうしょくご','異分母':'いぶんぼ','展開図':'てんかいず','概数':'がいすう','割引':'わりびき','磁力':'じりょく','敬語':'けいご','基礎':'きそ','高度経済成長':'こうどけいざいせいちょう','栽培漁業':'さいばいぎょぎょう','沖合漁業':'おきあいぎょぎょう','養殖業':'ようしょくぎょう','測定値':'そくていち','新潟県':'にいがたけん','信濃川':'しなのがわ','水俣病':'みなまたびょう','裏返':'うらがえ','垂直':'すいちょく','脱穀':'だっこく','途中':'とちゅう','打撃':'だげき','津波':'つなみ','堤防':'ていぼう','洪水':'こうずい','値段':'ねだん','年齢':'ねんれい','宇宙':'うちゅう','装置':'そうち','範囲':'はんい','一株':'ひとかぶ','京浜':'けいひん','阪神':'はんしん','充電':'じゅうでん','運賃':'うんちん','雇用':'こよう','斜面':'しゃめん','両端':'りょうはし','一致':'いっち','何段':'なんだん','違':'ちが','値':'あたい','探':'さが','降':'ふ','吸':'す','戻':'もど','段':'だん','払':'はら','逃':'に','忘':'わす','替':'か','呼':'よ','描':'か','沿':'そ','含':'ふく','困':'こま','斜':'なな','杯':'はい','電磁石':'でんじしゃく','稲刈':'いねか',
+ '収穫':'しゅうかく','新鮮':'しんせん','骨組':'ほねぐ','距離':'きょり','知恵':'ちえ','確認':'かくにん',
+ '割合':'わりあい','手段':'しゅだん','看板':'かんばん','磁石':'じしゃく','熟語':'じゅくご','地域':'ちいき',
+ '針金':'はりがね','影響':'えいきょう','排気':'はいき','排水':'はいすい','施設':'しせつ','何杯':'なんばい',
+ '偶数':'ぐうすう','奇数':'きすう','簡単':'かんたん','牛乳':'ぎゅうにゅう','頂点':'ちょうてん','密度':'みつど',
+ '支払':'しはら','資源':'しげん','水域':'すいいき','稚魚':'ちぎょ','鮮度':'せんど','環境':'かんきょう',
+ '分担':'ぶんたん','地震':'じしん','沿岸':'えんがん','危険':'きけん','避難':'ひなん','蒸発':'じょうはつ',
+ '大阪':'おおさか','福岡':'ふくおか','背':'せ','砂':'すな','卵':'たまご','稲':'いね','刈':'か','苗':'なえ',
+ '穂':'ほ','棒':'ぼう','冊':'さつ','縦':'たて','痛':'いた','納':'おさ','庁':'ちょう','枚':'まい','伸':'の',
+ '巻':'ま','届':'とど','床':'ゆか','遅':'おく','並':'なら','割':'わ'};
 const rubyKeys=Object.keys(rubyTable).sort((a,b)=>b.length-a.length);
 /* 受け取るのは e() を通したあとの文字列。タグを作らないので、そのまま差しこめる。 */
 function rb(text){
@@ -2509,7 +2519,7 @@ function unitCard(u){
  return `<button class="card unit-card" data-action="lesson" data-id="${u.id}" aria-label="${e(u.title)} ${st.total}問中${st.correct}問正解 学習する">
   <div class="u-stripe"></div>
   <div class="between"><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span><span class="unit-number">UNIT ${String(n).padStart(2,'0')}</span></div>
-  <h3>${u.title}</h3><p>${u.subtitle}</p>
+  <h3>${rb(e(u.title))}</h3><p>${rb(e(u.subtitle))}</p>
   <div class="u-dots" aria-hidden="true">${dots}</div>
   <div class="card-bottom"><span>${st.answered?`じぶん・ヒントで ${st.correct} / ${st.total}問`:'まだ · 3問からでOK'}</span><span class="arrow" aria-hidden="true">↗</span></div></button>`;}
 
@@ -2756,11 +2766,11 @@ function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class=
   '読みが同じでも、意味がちがえば漢字がちがいます。'),
  };return diagram[key]?.()||'';}
 function lesson(id){const u=unitFor(id);if(!u)return unitsPage();openUnit=id;const g=groupFor(u),qs=M.allQuestions.filter(q=>q.unit===id),st=M.unitStats(id);render(
-  `<div class="panel">${button('← ところをえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${u.title}</h1><p class="muted">${u.subtitle} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
- +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${p}</li>`).join('')}</ol>${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${u.example}</h3>`
- +`<ol class="steps">${u.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div><div class="callout" style="margin-bottom:0">${u.caution}</div><div class="size-pick" role="group" aria-label="1回の問題数"><span class="muted small">1回の問題数</span>${[3,5].map(n=>`<button class="size-btn ${M.state.settings.size===n?'active':''}" data-action="size" data-id="${n}" aria-pressed="${M.state.settings.size===n}">${n}問</button>`).join('')}</div>`
+  `<div class="panel">${button('← ところをえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${rb(e(u.title))}</h1><p class="muted">${rb(e(u.subtitle))} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
+ +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${rb(e(p))}</li>`).join('')}</ol>${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${rb(e(u.example))}</h3>`
+ +`<ol class="steps">${u.steps.map(s=>`<li>${rb(e(s))}</li>`).join('')}</ol></div><div class="callout" style="margin-bottom:0">${rb(e(u.caution))}</div><div class="size-pick" role="group" aria-label="1回の問題数"><span class="muted small">1回の問題数</span>${[3,5].map(n=>`<button class="size-btn ${M.state.settings.size===n?'active':''}" data-action="size" data-id="${n}" aria-pressed="${M.state.settings.size===n}">${n}問</button>`).join('')}</div>`
  +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('ここのたしかめテスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
- +`<section class="question-set"><div class="section-head"><h2>ここの問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${levelNames[q.level]}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
+ +`<section class="question-set"><div class="section-head"><h2>ここの問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${rb(levelNames[q.level])}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
  ,'units');}
 function launch(ids,mode,label){const act=()=>{M.begin(ids,mode,label);quizPage();};if(M.state.active)dialog('新しい学習を始めますか？','途中の学習の続きは、新しい学習に置きかわります。回答済みの練習記録は残ります。途中のたしかめテストの回答は採点・記録されません。','新しく始める',act);else act();}
 function practice(id){const u=unitFor(id);if(!u)return;const n=M.state.settings.size;launch(M.practiceFor(id).map(q=>q.id).slice(0,n),'practice',`${u.title}の練習${n}問`);}
@@ -2775,9 +2785,9 @@ function keyPress(key){const s=M.state.active;if(!s||!['answer','retry'].include
 const KEYPAD=[['7','7'],['8','8'],['9','9'],['←','back'],['4','4'],['5','5'],['6','6'],['/','/'],['1','1'],['2','2'],['3','3'],['と','と'],['0','0'],['.','.'],['ぜんぶ消す','clear']];
 function keypadHtml(){if(!M.state.settings.keypad)return `<div class="keypad-toggle">${button('数字キーを表示する','keypad-on','','text-button small')}</div>`;
  return `<div class="keypad" role="group" aria-label="数字キー">${KEYPAD.map(([label,key])=>`<button type="button" class="key ${key==='clear'?'key-wide':''} ${['back','clear'].includes(key)?'key-edit':''}" data-action="key" data-id="${e(key)}" aria-label="${key==='back'?'1文字消す':key==='clear'?'ぜんぶ消す':key==='と'?'帯分数の と':key}">${e(label)}</button>`).join('')}</div><div class="keypad-toggle">${button('数字キーを隠す','keypad-off','','text-button small')}</div>`;}
-function hintBlock(q,level){if(!level)return '';const parts=[];if(level>=1)parts.push(`<div class="hint-step"><span class="hint-tag">ヒント1 · 着眼点</span><p>${e(q.hint)}</p></div>`);
- if(level>=2)parts.push(`<div class="hint-step"><span class="hint-tag">ヒント2 · 途中の考え方</span><p>${e(M.hintText(q,2))}</p></div>`);
- if(level>=3)parts.push(`<div class="hint-step explain"><span class="hint-tag">解き方</span><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol><p class="muted small">解き方を読んでから正解した問題は、あとで類題でもう一度確かめます。</p></div>`);
+function hintBlock(q,level){if(!level)return '';const parts=[];if(level>=1)parts.push(`<div class="hint-step"><span class="hint-tag">ヒント1 · 着眼点</span><p>${rb(e(q.hint))}</p></div>`);
+ if(level>=2)parts.push(`<div class="hint-step"><span class="hint-tag">ヒント2 · 途中の考え方</span><p>${rb(e(M.hintText(q,2)))}</p></div>`);
+ if(level>=3)parts.push(`<div class="hint-step explain"><span class="hint-tag">解き方</span><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol><p class="muted small">解き方を読んでから正解した問題は、あとで類題でもう一度確かめます。</p></div>`);
  return `<div id="hint-box" class="hint">${parts.join('')}</div>`;}
  /* The place the child answers: three choices, or a box to type a number into with the keypad under it. */
  function answerArea(q,s,locked,feedback,r){
@@ -2797,14 +2807,14 @@ function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.
  const basic=feedback&&!r.ok?M.basicFor():null,canVariant=feedback&&M.hasVariant(q.base||q.id);
  const headline=!r?'':!r.ok?(again?(again.ok?'解き方を読んで、できました。':'もう一度、例題から確かめよう。'):'考え方を確認して、もう一度。'):kind==='solo'?'正解！ 自分の力でできました。':kind==='hinted'?'正解！ ヒントを使って解けました。':'正解！ 解き方を読んだあとの正解です。';
  render(
-  `<div class="panel">${button('← ホームへ戻る（続きは保存）','home','','text-button back')}<div class="quiz-top"><span class="pill">${mode} · ${e(u.title)}</span><span class="muted">${s.cursor+1} / ${s.ids.length}問${q.variant?' · 類題':''}</span></div>
+  `<div class="panel">${button('← ホームへ戻る（続きは保存）','home','','text-button back')}<div class="quiz-top"><span class="pill">${mode} · ${rb(e(u.title))}</span><span class="muted">${s.cursor+1} / ${s.ids.length}問${q.variant?' · 類題':''}</span></div>
   <div class="qsteps" aria-label="${s.ids.length}問中${s.cursor+1}問目"><div class="qsteps-row">${s.ids.map((id,i)=>{
    const res=s.responses[i];
    const cls=(res?(res.ok?'ok':'ng'):'yet')+(i===s.cursor&&!res?' now':'')+(i===s.cursor&&res?' cur':'');
    return `<span class="qstep ${cls}">${i+1}</span>`;}).join('')}</div></div></div>${missionBanner()}`
  +
-  `<section class="card quiz-card"><div class="between"><span class="level">${levelNames[q.level]}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small end-here'):''}</div>`
- +`<h1 class="question-text">${e(q.text)}</h1>${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
+  `<section class="card quiz-card"><div class="between"><span class="level">${rb(levelNames[q.level])}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small end-here'):''}</div>`
+ +`<h1 class="question-text">${rb(e(q.text))}</h1>${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
  
  +`<details class="scratch"><summary>考え方をメモする（採点の対象外）</summary><label class="visually-hidden" for="note">考え方のメモ</label><textarea id="note" maxlength="2000" placeholder="式や、考えたことを書いてみよう。" ${locked?'disabled':''}>${e(s.note)}</textarea></details><div class="quiz-actions row">${button(feedback?(s.cursor+1===s.ids.length?'結果を見る':'次の問題へ →'):(s.mode==='test'?'回答して次へ →':retrying?'もう一度、答えを確かめる':'答えを確かめる'),feedback?'next':'submit')}</div></section>`
  +`<p class="muted small">${s.mode==='test'?'答えと解説は最後にまとめて表示します。テストを終えると回答が記録されます。':'ヒントや解き方を使った問題は、あとで類題でもう一度確かめます。'}</p></div>`
@@ -2849,7 +2859,7 @@ function resultPage(){const result=M.state.lastResult;if(!result)return home();c
  +`<div class="kind-summary"><span>自力で正解 <strong>${solo}</strong></span><span>ヒントで正解 <strong>${hinted}</strong></span><span>解き方を読んで正解 <strong>${explained}</strong></span>${rs.some(r=>!r.ok&&!r.again?.ok)?`<span>もう一度 <strong>${rs.filter(r=>!r.ok&&!r.again?.ok).length}</strong></span>`:''}</div><p>${solo===total?'すべて自分の力で正解！ 別のところにも取り組んでみよう。':explained?'解き方を読んで分かった問題は、数字をかえた類題でもう一度確かめると、身につきやすくなります。':'間違いは、次にできるようになるためのヒント。解説を読んで確かめよう。'}</p>`
  +
   `<div class="row" style="justify-content:center;margin-top:22px">${wrong.length?button('間違えた問題を復習','result-review'):button('ところをえらぶ','units')}${button('ホームへ','home','','btn secondary')}</div></section><div class="section-head">`
- +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'たしかめテスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${e(q.text)}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
+ +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'たしかめテスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${rb(e(q.text))}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
  
  ,result.mode==='test'?'test':result.mode==='review'?'review':'units');}
 function reviewPage(){const qs=M.wrong();
@@ -2860,7 +2870,7 @@ function reviewPage(){const qs=M.wrong();
  render(`<div class="eyebrow">まちがえた問題は、ここに集まる</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">正解すると、ここから消えるよ。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習やたしかめテストに挑戦してみよう。</p>${button('ところをえらぶ','units')}</section>`}`,'review');}
 function testPage(){render(
   `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>たしかめテストをつくる</h1><p class="muted">学校で習ったところを選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題するところ</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
- +`<div class="checks">${M.units.map(u=>`<label class="check"><input type="checkbox" name="test-unit" value="${u.id}" ${testUnits.has(u.id)?'checked':''}><span>${u.title}</span></label>`).join('')}</div><div class="form-grid"><label class="field" for="test-level">難しさ<select id="test-level"><option value="all">基礎・標準・活用すべて</option><option value="basic">基礎</option><option value="standard">標準</option><option value="challenge">活用</option></select></label>`
+ +`<div class="checks">${M.units.map(u=>`<label class="check"><input type="checkbox" name="test-unit" value="${u.id}" ${testUnits.has(u.id)?'checked':''}><span>${rb(e(u.title))}</span></label>`).join('')}</div><div class="form-grid"><label class="field" for="test-level">難しさ<select id="test-level"><option value="all">基礎・標準・活用すべて</option><option value="basic">基礎</option><option value="standard">標準</option><option value="challenge">活用</option></select></label>`
  +`<label class="field" for="test-count">問題数<select id="test-count"><option value="5">5問</option><option value="10">10問</option><option value="20">20問</option></select></label></div><div class="test-summary"><p id="test-summary" class="muted"></p>${button('たしかめテストを始める →','start-test')}</div>`
  +`<p class="input-help">収録問題から出題します。学校の授業で時間をかけるところほど多く出ます（教科書2社の年間指導計画の配当時数にもとづく目安で、学校のテストに出る順ではありません）。候補が少ない場合は、その問題数で始まります。</p></section><div class="callout">最初は「整数と小数」など一つのところだけでも大丈夫です。学校の試験範囲を自動で取得する機能はありません。</div></div>`
  ,'test');$('#test-level').value=testLevel;$('#test-count').value=String(testCount);updateTestSummary();}
@@ -3091,7 +3101,7 @@ function missionList(){
   const u=unitFor(m.unit);
   return `<section class="card mission-card"><div class="mission-art">${missionScene(m.id,0,m.count)}</div>
    <h3>${rb(e(m.title))}</h3><p class="muted small">${rb(e(m.intro))}</p>
-   <p class="muted small">つかうところ：${e(u.title)}・${m.count}問</p>
+   <p class="muted small">つかうところ：${rb(e(u.title))}・${m.count}問</p>
    ${button('はじめる →','mission',m.id,'btn small')}</section>`;}).join('')}</div>
  <div class="callout">ミッションは、そこの問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、すべてのところにあります。</div>`;}
 function mapState(info){
@@ -3121,7 +3131,7 @@ function adventure(){
   return `<li class="place ${cls}"><span class="place-dot" aria-hidden="true">${info.complete?'★':i+1}</span>
    <button class="card place-card" data-action="lesson" data-id="${u.id}" aria-label="${e(u.title)} ${label}">
     <div class="between"><span class="unit-icon small" style="background:${g.color}" aria-hidden="true">${g.icon}</span><span class="muted small">${label}</span></div>
-    <h3>${u.title}</h3><p class="muted small">${u.subtitle}</p></button></li>`;}).join('')}</ol>
+    <h3>${rb(e(u.title))}</h3><p class="muted small">${u.subtitle}</p></button></li>`;}).join('')}</ol>
  <div class="callout">場所は順番に開く仕組みではありません。学校で習ったところから取り組めます。かざりは、しるしの数で増えます。しるしは1問につき1回だけなので、同じところをくりかえしても増えません。</div>`,'adventure');}
 function dexSlot(m,title){
  const kind=m.checked?' slot-checked':m.done?' slot-done':'';
@@ -3141,7 +3151,7 @@ function dex(){
   const badge=info.mastered?'<span class="pill">しっかり身についた</span>':info.complete?'<span class="pill">ぜんぶできた</span>':'';
   return `<button class="card dex-unit" data-action="lesson" data-id="${u.id}" aria-label="${e(u.title)} じぶんでできた${info.done}問、ちがう数でもできた${info.checked}問">
    <div class="between"><span class="unit-icon small" style="background:${g.color}" aria-hidden="true">${g.icon}</span>${badge}</div>
-   <h3>${u.title}</h3>
+   <h3>${rb(e(u.title))}</h3>
    <div class="dex-slots" aria-hidden="true">${qs.map(q=>dexSlot(a.marks.get(q.id),q.text)).join('')}</div>
    <p class="muted small">じぶんで ${info.done}/${info.total}<br>ちがう数で ${info.checked}/${qs.filter(q=>a.marks.get(q.id).canCheck).length}</p></button>`;}).join('')}</div>
  <div class="callout">しるしは、1つの問題につき1回だけつきます。同じところを何回くりかえしても増えません。ヒントを使って正解した問題や、解き方を読んだあとに正解した問題には、まだつきません。あとで自分で解けたときにつきます。</div>`,'dex');}
