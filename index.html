@@ -190,7 +190,7 @@ body.in-quiz{padding-bottom:16px}
 .input-help-wrap .input-help{margin:8px 0 0;font-size:13px}
 /* 「ここで終える」は、やめる入口なので小さく、端に */
 .quiz-card .end-here{font-size:12px;opacity:.75}
-.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -810,8 +810,18 @@ const outfits=[
  {id:'cape',name:'マント',need:15},
  {id:'glasses',name:'めがね',need:30},
  {id:'crown',name:'かんむり',need:60},
+ {id:'muffler',name:'マフラー',need:100},
+ {id:'bag',name:'リュック',need:160},
+ {id:'wings',name:'はね',need:240},
+ {id:'halo',name:'ひかりのわ',need:330},
  {id:'star',name:'ほしのかざり',needUnits:3},
- {id:'rainbow',name:'にじのかざり',needUnits:8}];
+ {id:'rainbow',name:'にじのかざり',needUnits:8},
+ {id:'leaf',name:'はっぱのかんむり',needUnits:14},
+ {id:'moon',name:'つきのかざり',needUnits:22},
+ {id:'flame',name:'ほのおのマント',needUnits:30},
+ {id:'sky',name:'そらのつばさ',needUnits:39}];
+/* かざりの段は、4教科ぜんぶでとれるマーク（412）と単元（39）に合わせて引き直した。
+   前は60マーク・8単元で打ち止めで、残り352マーク・31単元は何をやっても見た目が変わらなかった。 */
 
 /* ---------- 理科（小5）----------
    Pilot unit, moved in from drafts/science5-pilot.js. Curriculum mapping: MEXT elementary
@@ -2758,10 +2768,18 @@ const outfitArt={
  glasses:'<circle cx="41" cy="40" r="6.8" fill="#eaf1f6" opacity=".45"/><circle cx="59" cy="40" r="6.8" fill="#eaf1f6" opacity=".45"/><circle cx="41" cy="40" r="6.8" fill="none" stroke="#5a6b78" stroke-width="2"/><circle cx="59" cy="40" r="6.8" fill="none" stroke="#5a6b78" stroke-width="2"/><path d="M47.8 40h4.4" stroke="#5a6b78" stroke-width="2"/>',
  crown:'<path d="M32 24 35 8l8 8 7-10 7 10 8-8 3 16z" fill="#e0b24e"/><circle cx="50" cy="16" r="2.6" fill="#d0607a"/><rect x="32" y="22" width="36" height="4.6" rx="2.3" fill="#c99a3c"/>',
  star:'<path d="m80 14 3.2 7.4L91 22l-5.6 5.2 1.6 7.8-7-3.8-7 3.8 1.6-7.8L69 22l7.8-.6z" fill="#e8bb55"/>',
- rainbow:'<path d="M12 44a38 38 0 0 1 76 0" fill="none" stroke="#dd8f8f" stroke-width="4.5"/><path d="M18 44a32 32 0 0 1 64 0" fill="none" stroke="#e8c472" stroke-width="4.5"/><path d="M24 44a26 26 0 0 1 52 0" fill="none" stroke="#93bd8d" stroke-width="4.5"/><path d="M30 44a20 20 0 0 1 40 0" fill="none" stroke="#8fb6d8" stroke-width="4.5"/>'};
+ rainbow:'<path d="M12 44a38 38 0 0 1 76 0" fill="none" stroke="#dd8f8f" stroke-width="4.5"/><path d="M18 44a32 32 0 0 1 64 0" fill="none" stroke="#e8c472" stroke-width="4.5"/><path d="M24 44a26 26 0 0 1 52 0" fill="none" stroke="#93bd8d" stroke-width="4.5"/><path d="M30 44a20 20 0 0 1 40 0" fill="none" stroke="#8fb6d8" stroke-width="4.5"/>',
+ muffler:'<path d="M34 57c10 6 22 6 32 0l2 8c-11 6-25 6-36 0z" fill="#c2705f"/><path d="M61 64l7 17-7 2-4-16z" fill="#ad5f4e"/>',
+ bag:'<rect x="17" y="52" width="19" height="26" rx="6" fill="#6a80a3"/><rect x="19" y="61" width="15" height="4" rx="2" fill="#51648250"/><rect x="23" y="48" width="7" height="7" rx="3" fill="#5a6e8d"/>',
+ wings:'<path d="M28 50c-14-8-23 2-20 13 9 2 15-1 21-5z" fill="#e2ebf2"/><path d="M72 50c14-8 23 2 20 13-9 2-15-1-21-5z" fill="#e2ebf2"/>',
+ halo:'<ellipse cx="50" cy="11" rx="14" ry="4.6" fill="none" stroke="#edc85e" stroke-width="3.2"/>',
+ leaf:'<path d="M30 25c4-11 12-15 20-15s16 4 20 15z" fill="#79a06a"/><ellipse cx="50" cy="11" rx="4" ry="3" fill="#c6d897"/>',
+ moon:'<path d="M84 18a11 11 0 1 1-11-11 8.5 8.5 0 0 0 11 11z" fill="#e6cf7a"/>',
+ flame:'<path d="M30 56c8 12 32 12 40 0l6 36H24z" fill="#d98a5a" opacity=".9"/><path d="M44 70c0 6 12 6 12 0 0-5-6-7-6-12-4 4-6 8-6 12z" fill="#edb577"/>',
+ sky:'<path d="M26 45c-18-6-25 7-21 19 11 2 19-2 25-9z" fill="#9ec7e8"/><path d="M74 45c18-6 25 7 21 19-11 2-19-2-25-9z" fill="#9ec7e8"/>'};
 function companionSvg(cid,oid,size=100){
  const art=companionArt[cid]||companionArt.neko,out=outfitArt[oid]||'';
- const behind=oid==='cape'||oid==='rainbow';
+ const behind=oid==='cape'||oid==='rainbow'||oid==='bag'||oid==='wings'||oid==='flame'||oid==='sky';
  return `<svg class="buddy" viewBox="0 0 100 100" width="${size}" height="${size}" role="img" aria-label="あいぼう">${behind?out:''}${art}${behind?'':out}</svg>`;}
 /* Each companion has a quirk of its own, so choosing one changes what you hear.
    The quirk only colours the wording: every line states what the records actually show.
@@ -2845,9 +2863,14 @@ function adventure(){
   <div class="buddy-box">${companionSvg(set.companion,set.outfit,120)}</div>
   <div class="buddy-talk"><p>${e(line.main)}</p>${line.sub?`<p class="buddy-sub">${e(line.sub)}</p>`:''}<p class="muted small buddy-trait">${e(line.trait)}</p>
    <div class="row"><span class="muted small">あいぼう</span>${M.companions.map(c=>`<button class="chip ${set.companion===c.id?'active':''}" data-action="buddy" data-id="${c.id}" aria-pressed="${set.companion===c.id}">${c.name}</button>`).join('')}</div>
-   <div class="row"><span class="muted small">かざり</span>${open.map(o=>o.open
-     ?`<button class="chip ${set.outfit===o.id?'active':''}" data-action="outfit" data-id="${o.id}" aria-pressed="${set.outfit===o.id}">${o.name}</button>`
-     :`<span class="chip locked" title="あと少し">${o.name}（${o.progress.what==='units'?`ぜんぶできた単元 ${o.progress.have}/${o.progress.want}`:`しるし ${o.progress.have}/${o.progress.want}`}）</span>`).join('')}</div>
+   <div class="row"><span class="muted small">かざり</span>${open.filter(o=>o.open).map(o=>`<button class="chip ${set.outfit===o.id?'active':''}" data-action="outfit" data-id="${o.id}" aria-pressed="${set.outfit===o.id}">${o.name}</button>`).join('')}</div>
+   ${(()=>{
+     /* 鍵のかかったかざりを全部並べると、電話の画面2つ分になった（実測951px）。
+        つぎの2つだけ見せて、残りは数だけ言う。何が待っているかは分かり、画面は短く保てる。 */
+     const locked=open.filter(o=>!o.open);
+     if(!locked.length)return '<p class="muted small next-outfit">かざりは、ぜんぶそろったよ。</p>';
+     const show=locked.slice(0,2),rest=locked.length-show.length;
+     return `<div class="row next-outfit">${show.map(o=>`<span class="chip locked">${o.name}（${o.progress.what==='units'?`ぜんぶできた単元 ${o.progress.have}/${o.progress.want}`:`しるし ${o.progress.have}/${o.progress.want}`}）</span>`).join('')}${rest?`<span class="muted small">ほかに ${rest}こ</span>`:''}</div>`;})()}
   </div>
  </section>
  ${missionList()}
