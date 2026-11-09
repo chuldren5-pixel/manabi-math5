@@ -2966,9 +2966,13 @@ function rb(text){
 const sayables={};
 function voicesNow(){try{return window.speechSynthesis?speechSynthesis.getVoices():[];}catch(e){return [];}}
 function speechReady(){return typeof window!=='undefined'&&'speechSynthesis'in window&&typeof SpeechSynthesisUtterance==='function';}
-function pickVoice(lang){const want=lang.slice(0,2).toLowerCase();
+/* 端末の中の声だけを使う（社長の判断＝A案、通信なし）。
+   端末内の声がないときに「あるもの」で代用すると、サーバー側の声になり通信が起きる。
+   英語はPCに端末内の声がないことがあり、黙って通信してしまうので、代用はしない。 */
+function pickVoice(lang){const want=String(lang||'').slice(0,2).toLowerCase();
  const v=voicesNow().filter(x=>String(x.lang||'').slice(0,2).toLowerCase()===want);
- return v.find(x=>x.localService)||v[0]||null;}
+ return v.find(x=>x.localService)||null;}
+function hasLocalVoice(lang){return !!pickVoice(lang);}
 /* 声の一覧はあとから読みこまれる端末があるので、「声が0だから無理」とは決めつけない。
    いったん話させてみて、始まらなければそのときに伝える。押して無反応、をつくらないため。
    読み上げ中は同じボタンが「とめる」に変わる。止め方が分からない、を防ぐため。 */
@@ -2986,6 +2990,7 @@ function clearSayLabels(){
 function speak(text,lang,key){
  if(!speechReady()){toast('このたんまつでは よみあげが つかえないみたい。');return;}
  const voice=pickVoice(lang||'ja-JP');
+ if(!voice&&voicesNow().length){toast('このたんまつには、その言葉の よみあげの声が 入っていないみたい。');return;}
  try{
   speechSynthesis.cancel();clearSayLabels();
   /* 端末の中の声は抑揚が平坦なので、文の切れ目で分けて読ませ、間をつくる。
