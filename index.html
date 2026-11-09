@@ -2076,7 +2076,7 @@ cq('fishery',10,'challenge','number','price','1kg600円の魚を40kg売ると、
  '1kgのねだんを、重さの分だけ足します。','600 × 40 を計算します。',
  ['売り上げ = 1kgのねだん × 重さ です。','600 × 40 = 24000。答えは24000円です。'],'円');
 cq('fishery','6b','basic','word','shun','その魚がもっともおいしく食べられる時期のことを何といいますか。','しゅん',['旬'],
- 'season のことです。','ひらがな2文字の言葉です。',
+ 'いちばんよい時期、という意味です。','ひらがな2文字の言葉です。',
  ['よくとれて味もよい時期です。','これを旬（しゅん）といいます。']);
 cq('fishery','7b','basic','word','engan','小さな船で、海岸の近くを日帰りで行き来して魚をとる漁業を何といいますか。','えんがんぎょぎょう',['沿岸漁業','えんがん漁業'],
  'いちばん近い海で行う漁業です。','「岸に沿う」という字が入ります。',
@@ -2976,6 +2976,35 @@ function hasLocalVoice(lang){return !!pickVoice(lang);}
 /* 声の一覧はあとから読みこまれる端末があるので、「声が0だから無理」とは決めつけない。
    いったん話させてみて、始まらなければそのときに伝える。押して無反応、をつくらないため。
    読み上げ中は同じボタンが「とめる」に変わる。止め方が分からない、を防ぐため。 */
+/* 読み上げ用に、記号を日本語に直す。画面の表示は変えない。
+   読み上げエンジンが記号をどう読むかは端末まかせで、こちらでは確かめようがない。
+   推測にたよらず、読ませる前に言葉にしておく。
+   分数は日本語の語順（3/4 → 4ぶんの3）。単位は長いものから先に直す（km² を km より先に）。 */
+const speechUnits=[['km3','りっぽうキロメートル'],['km2','へいほうキロメートル'],
+ ['cm3','りっぽうセンチメートル'],['cm2','へいほうセンチメートル'],
+ ['m3','りっぽうメートル'],['m2','へいほうメートル'],
+ ['km','キロメートル'],['cm','センチメートル'],['mm','ミリメートル'],
+ ['dL','デシリットル'],['mL','ミリリットル'],['kg','キログラム'],['ha','ヘクタール'],
+ ['L','リットル'],['g','グラム'],['t','トン'],['m','メートル']];
+function forSpeech(src){
+ let t=String(src||'');
+ t=t.replace(/[³]/g,'3').replace(/[²]/g,'2');
+ // 分数がさき（□をさきに直すと「しかく/12」が残る）
+ t=t.replace(/([\d.]+|□|何|[a-zA-Z])\s*\/\s*([\d.]+|□|何|[a-zA-Z])/g,
+  (m,a,b)=>{const f=x=>x==='□'?'しかく':x;return `${f(b)}ぶんの${f(a)}`;});
+ t=t.replace(/□/g,'しかく');
+ t=t.replace(/↔/g,' と ');
+ for(const [u,word] of speechUnits){
+  t=t.replace(new RegExp('(?<![A-Za-z])'+u+'(?![A-Za-z])','g'),word);
+ }
+ t=t.replace(/[%％]/g,'パーセント');
+ t=t.replace(/\s*×\s*/g,' かける ');
+ t=t.replace(/\s*÷\s*/g,' わる ');
+ t=t.replace(/\s*[＝=]\s*/g,' イコール ');
+ t=t.replace(/([\d)くし])\s*[−–—]\s*(?=[\d(しく])/g,'$1 ひく ');
+ t=t.replace(/\s*[〜～]\s*/g,' から ');
+ t=t.replace(/°/g,'ど');
+ return t;}
 let sayingKey=null;
 function setSayLabel(key,speaking){
  try{
@@ -2995,8 +3024,8 @@ function speak(text,lang,key){
   speechSynthesis.cancel();clearSayLabels();
   /* 端末の中の声は抑揚が平坦なので、文の切れ目で分けて読ませ、間をつくる。
      通信を起こさない範囲でできる工夫。社長の判断で、声は端末内のものを使う（A案）。 */
-  const parts=String(text||'').split(/(?<=[。？！])/).map(x=>x.trim()).filter(Boolean);
-  const chunks=parts.length?parts:[String(text||'')];
+  const parts=forSpeech(text).split(/(?<=[。？！])/).map(x=>x.trim()).filter(Boolean);
+  const chunks=parts.length?parts:[forSpeech(text)];
   let started=false,finished=0;
   const done=()=>{sayingKey=null;setSayLabel(key,false);};
   chunks.forEach((chunk,i)=>{
