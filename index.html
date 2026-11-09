@@ -190,7 +190,7 @@ body.in-quiz{padding-bottom:16px}
 .input-help-wrap .input-help{margin:8px 0 0;font-size:13px}
 /* 「ここで終える」は、やめる入口なので小さく、端に */
 .quiz-card .end-here{font-size:12px;opacity:.75}
-.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">単元をえらぶ</button><button data-action="test">確認テスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">記録</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}ruby{ruby-position:over}ruby rt{font-size:.52em;color:var(--muted);font-weight:500;letter-spacing:0}/* スマホでは相棒カードを縦に積む。横並びのままだと文章欄が172pxしか取れず、カードが637px（画面の高さ664pxとほぼ同じ）まで伸びていた。この指定より後ろに .buddy-talk{min-width:0} があるため、ここで上書きし直す。 */@media(max-width:540px){.buddy-card{flex-direction:column;align-items:stretch}.buddy-card .buddy-box{align-self:center}.buddy-card .buddy-talk{min-width:0;width:100%}}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -637,161 +637,161 @@ function makeVariant(baseId,seed,gen){
 const missions=[
  {id:'bridge',unit:'area',title:'橋をかけよう',count:3,
   intro:'川の向こうに行きたい。板の面積を求めて、3つの区間に橋をかけよう。',
-  scenes:['岸に立った。1つ目の板を置こう。','1つ目の板がかかった。つぎへ。','あと1枚で向こう岸だ。'],
+  scenes:['岸に立った。1つ目の板を置こう。','1枚目の板がかかった。足もとはまだ不安定だ。','あと1枚で向こう岸だ。'],
   done:'橋がつながった。向こう岸にわたれる。'},
  {id:'shop',unit:'percent',title:'おかいものに行こう',count:3,
   intro:'セールのお店に来た。割合を使って、3つの品物を買おう。',
-  scenes:['かごは空っぽ。1つ目を選ぼう。','1つ入った。つぎの品物へ。','あと1つで買い物おわり。'],
+  scenes:['かごは空っぽ。1つ目を選ぼう。','ひとつ目がかごに入った。残りのお金を確かめよう。','あと1つで買い物おわり。'],
   done:'3つとも買えた。割合の計算が役に立った。'},
  {id:'letter',unit:'kanji-read',title:'手紙を読もう',count:3,
   intro:'おばあちゃんからの手紙。漢字の読み方を確かめながら読み進めよう。',
-  scenes:['1行目の漢字を読む。','1つ読めた。つぎへ。','あと1つで読み終わる。'],
+  scenes:['1行目の漢字を読む。','1つ読めた。次の字は形が似ていて迷いやすい。','あと1つで読み終わる。'],
   done:'最後まで読めた。音読みと訓読みを見分けられた。'},
  {id:'sign',unit:'okurigana',title:'かんばんを直そう',count:3,
   intro:'送りがながまちがっているかんばんがある。正しく直そう。',
-  scenes:['1枚目を直す。','1枚直った。つぎへ。','あと1枚で直し終わる。'],
+  scenes:['1枚目を直す。','1枚直った。残りの看板は字が大きい。','あと1枚で直し終わる。'],
   done:'ぜんぶ正しく直せた。送り方には決まりがあった。'},
  {id:'build',unit:'jukugo',title:'ことばを組み立てよう',count:3,
   intro:'二字のことばが、どんな組み立てでできているか見ぬこう。',
-  scenes:['1つ目を調べる。','1つ分かった。つぎへ。','あと1つで組み立てが見える。'],
+  scenes:['1つ目を調べる。','1つ目の長さが出た。次は高さを調べる。','あと1つで組み立てが見える。'],
   done:'組み立てが分かった。二字の関係を見れば意味が見当づく。'},
  {id:'choose',unit:'doukun',title:'正しい字をえらぼう',count:3,
   intro:'読みは同じでも、意味がちがえば字がちがう。文に合う字をえらぼう。',
-  scenes:['1つ目の文を読む。','1つえらべた。つぎへ。','あと1つで文がそろう。'],
+  scenes:['1つ目の文を読む。','1つえらべた。次は意味の似た言葉で迷うところだ。','あと1つで文がそろう。'],
   done:'すべて正しくえらべた。文の意味から字が決まる。'},
  {id:'saying',unit:'kotowaza',title:'言いつたえを集めよう',count:3,
   intro:'昔から伝わる短い言葉を集めて、その意味を確かめよう。',
-  scenes:['1つ目を調べる。','1つ分かった。つぎへ。','あと1つで集め終わる。'],
+  scenes:['1つ目の言いつたえを調べる。','1つ目の意味が分かった。次はよく似た言いまわしだ。','あと1つで集め終わる。'],
   done:'意味まで分かった。短い言葉に知恵がつまっていた。'},
  {id:'visit',unit:'keigo',title:'お客さんをむかえよう',count:3,
   intro:'お客さんが来る日。失礼のない言い方で話そう。',
-  scenes:['まず出むかえの言葉を考える。','1つ決まった。つぎへ。','あと1つでおもてなしが整う。'],
+  scenes:['まず出むかえの言葉を考える。','言い方が1つ決まった。次の相手は目上の人だ。','あと1つでおもてなしが整う。'],
   done:'失礼なく話せた。相手と自分で言い方が変わる。'},
  {id:'edit',unit:'bunpou',title:'作文を直そう',count:3,
   intro:'意味の通らない文がまじっている。組み立てを見直して直そう。',
-  scenes:['1文目を見直す。','1文直った。つぎへ。','あと1文で作文が仕上がる。'],
+  scenes:['1文目を見直す。','1文直った。残りは主語と述語がねじれている。','あと1文で作文が仕上がる。'],
   done:'読みやすい作文になった。主語と述語の対応が大事だった。'},
  {id:'market',unit:'place',title:'市場で量りを読もう',count:3,
   intro:'市場の量りは小数で表示される。3つの品物の重さを正しく読もう。',
-  scenes:['最初の品物が量りにのった。','1つ読めた。つぎの品物へ。','あと1つで買い物がおわる。'],
+  scenes:['最初の品物が量りにのった。','1つ目の重さが読めた。次は位が1つ増える。','あと1つで買い物がおわる。'],
   done:'3つとも正しく読めた。位が分かれば、小数はこわくない。'},
  {id:'ribbon',unit:'multiply',title:'リボンを切り分けよう',count:3,
   intro:'かざりつけに使うリボンの長さを計算しよう。小数のかけ算を3回使う。',
-  scenes:['1本目の長さを出そう。','1本できた。つぎへ。','あと1本でかざりが完成する。'],
+  scenes:['1本目の長さを出そう。','1本切れた。残りは長さがはんぱになる。','あと1本でかざりが完成する。'],
   done:'ぴったりの長さに切れた。むだが出なかった。'},
  {id:'share',unit:'divide',title:'ジュースを分けよう',count:3,
   intro:'みんなで同じ量ずつ分けたい。小数のわり算で1人分を出そう。',
-  scenes:['まず1本目を分ける。','1つ分かった。つぎへ。','あと1つで全員ぶんがそろう。'],
+  scenes:['まず1本目を分ける。','1人分が出た。次は人数が増える。','あと1つで全員ぶんがそろう。'],
   done:'全員に同じだけ分けられた。文句が出なかった。'},
  {id:'teams',unit:'integer',title:'チームを組もう',count:3,
   intro:'あまりが出ないように人数を分けたい。倍数と約数で考えよう。',
-  scenes:['まず何人ずつに分けられるか調べる。','1つ分かった。つぎへ。','あと1つで組分けが決まる。'],
+  scenes:['まず何人ずつに分けられるか調べる。','分け方が1つ見つかった。ほかにもあるか調べよう。','あと1つで組分けが決まる。'],
   done:'あまりなく分けられた。約数は組分けの道具だった。'},
  {id:'recipe',unit:'fraction',title:'レシピを直そう',count:3,
   intro:'分数で書かれたレシピを、小数のはかりで使える形に直そう。',
-  scenes:['1つ目の材料を直す。','1つ直った。つぎへ。','あと1つでレシピが完成。'],
+  scenes:['1つ目の材料を直す。','1つ目の分量が直った。次は分母がそろわない。','あと1つでレシピが完成。'],
   done:'はかりで量れる形になった。分数と小数は行き来できる。'},
  {id:'pizza',unit:'fraction-add',title:'のこりを数えよう',count:3,
   intro:'切り分けたものが、どれだけ残っているかを分数で出そう。',
-  scenes:['1皿目を数える。','1皿分かった。つぎへ。','あと1皿でぜんぶ分かる。'],
+  scenes:['1皿目を数える。','1皿分かった。次はちがう大きさに切ってある。','あと1皿でぜんぶ分かる。'],
   done:'のこりが正確に分かった。分母をそろえるのがコツだった。'},
  {id:'box',unit:'volume',title:'にもつを箱につめよう',count:3,
   intro:'箱に入る量を計算して、むだなくつめよう。',
-  scenes:['1つ目の箱の体積を出す。','1つ出せた。つぎへ。','あと1つでつめ終わる。'],
+  scenes:['1つ目の箱の体積を出す。','1つ目の体積が出た。次はすき間が気になる。','あと1つでつめ終わる。'],
   done:'ぜんぶ入った。体積が分かれば、箱選びをまちがえない。'},
  {id:'tiles',unit:'congruent',title:'タイルをしきつめよう',count:3,
   intro:'同じ形のタイルで床をうめたい。ぴったり重なる形な図形を見分けよう。',
-  scenes:['1枚目を置く場所を決める。','1枚決まった。つぎへ。','あと1枚でしきつめ完成。'],
+  scenes:['1枚目を置く場所を決める。','1枚決まった。次は向きを変えないと合わない。','あと1枚でしきつめ完成。'],
   done:'すきまなくしきつめられた。ぴったり重なる形を選べた。'},
  {id:'kite',unit:'angles',title:'たこを作ろう',count:3,
   intro:'骨組みの角を正しく決めないと、うまく飛ばない。角度を3回求めよう。',
-  scenes:['1つ目の角を決める。','1つ決まった。つぎへ。','あと1つで骨組みができる。'],
+  scenes:['1つ目の角を決める。','1つ目の角が決まった。左右の形をそろえたい。','あと1つで骨組みができる。'],
   done:'たこがまっすぐ上がった。角の和がきいていた。'},
  {id:'wheel',unit:'circle',title:'車輪を作ろう',count:3,
   intro:'車輪が1回転で進む長さを知りたい。円周を3回求めよう。',
-  scenes:['1つ目の車輪を測る。','1つ分かった。つぎへ。','あと1つで車が走り出す。'],
+  scenes:['1つ目の車輪を測る。','1回転の長さが出た。次は車輪の大きさがちがう。','あと1つで車が走り出す。'],
   done:'進む距離が読めた。直径と円周率でいつでも出せる。'},
  {id:'tent',unit:'solid',title:'テントを立てよう',count:3,
   intro:'テントの形は角柱。面や辺の数を確かめて組み立てよう。',
-  scenes:['骨組みを1つ確認する。','1つできた。つぎへ。','あと1つでテントが立つ。'],
+  scenes:['骨組みを1つ確認する。','面の数が分かった。次は辺を数えて確かめる。','あと1つでテントが立つ。'],
   done:'テントが立った。底面と側面の見分けがついた。'},
  {id:'spring',unit:'proportion',title:'ばねの伸びを調べよう',count:3,
   intro:'おもりを増やすと、ばねはどれだけ伸びるか。変わり方を調べよう。',
-  scenes:['1つ目のおもりをつるす。','1つ分かった。つぎへ。','あと1つできまりが見える。'],
+  scenes:['1つ目のおもりをつるす。','おもり1個分の伸びが分かった。次は個数を増やす。','あと1つできまりが見える。'],
   done:'比例のきまりが見えた。表にすると規則が分かる。'},
  {id:'field',unit:'rate',title:'畑の混み具合をくらべよう',count:3,
   intro:'どの畑がいちばん混んでいるか。1㎡あたりで考えよう。',
-  scenes:['1つ目の畑を調べる。','1つ分かった。つぎへ。','あと1つでくらべ終わる。'],
+  scenes:['1つ目の畑を調べる。','1つ目の畑を調べた。残りの2つとくらべたい。','あと1つでくらべ終わる。'],
   done:'公平にくらべられた。「あたり」にそろえるのがコツだった。'},
  {id:'race',unit:'speed',title:'どっちが速い？',count:3,
   intro:'走った距離も時間もちがう。速さにそろえてくらべよう。',
-  scenes:['1人目の速さを出す。','1人分かった。つぎへ。','あと1人でくらべ終わる。'],
+  scenes:['1人目の速さを出す。','1人目の速さが出た。これでくらべる用意ができた。','あと1人でくらべ終わる。'],
   done:'速い人が分かった。道のり÷時間が効いた。'},
  {id:'score',unit:'average',title:'記録をならそう',count:3,
   intro:'日によってばらばらの記録を、平均でならして見よう。',
-  scenes:['1回目の平均を出す。','1つ出せた。つぎへ。','あと1つで記録がまとまる。'],
+  scenes:['1回目の平均を出す。','1日目の記録をならした。残りの日もそろえよう。','あと1つで記録がまとまる。'],
   done:'全体の調子が見えた。平均はばらつきをならす道具だった。'},
  {id:'poster',unit:'graphs',title:'ポスターを作ろう',count:3,
   intro:'調べたことをグラフにして、ひと目で分かるようにしよう。',
-  scenes:['1つ目の割合を出す。','1つ出せた。つぎへ。','あと1つでポスターが仕上がる。'],
+  scenes:['1つ目の割合を出す。','グラフが1つできた。次はちがう見せ方を試す。','あと1つでポスターが仕上がる。'],
   done:'ひと目で分かるポスターができた。割合はグラフにすると伝わる。'},
  {id:'sprout',unit:'seed',title:'たねをまこう',count:3,
   intro:'芽が出る条件をそろえて、たねをまこう。3つの問いに答えよう。',
-  scenes:['1つ目の条件を確かめる。','1つそろった。つぎへ。','あと1つで芽が出る。'],
+  scenes:['1つ目の条件を確かめる。','1つ目の条件がそろった。残りも同じようにそろえる。','あと1つで芽が出る。'],
   done:'芽が出た。水・空気・てきとうな温度がそろっていた。'},
  {id:'clock',unit:'pendulum',title:'ふりこ時計を調整しよう',count:3,
   intro:'時計が進んだり遅れたりする。ふりこを調べて直そう。',
-  scenes:['1往復の時間を測る。','1つ分かった。つぎへ。','あと1つで時計が合う。'],
+  scenes:['1往復の時間を測る。','ずれの理由が1つ分かった。次はふりこを直す番だ。','あと1つで時計が合う。'],
   done:'時計が正しく動いた。長さが時間を決めていた。'},
  {id:'bank',unit:'river',title:'川ぞいを守ろう',count:3,
   intro:'どこがけずられやすいか見きわめて、守る場所を決めよう。',
-  scenes:['1つ目の場所を調べる。','1か所きまった。つぎへ。','あと1か所で工事の計画ができる。'],
+  scenes:['1つ目の場所を調べる。','守る場所が1か所決まった。残りは流れが速い。','あと1か所で工事の計画ができる。'],
   done:'守る場所が決まった。外側は流れが速くけずられる。'},
  {id:'hatch',unit:'birth',title:'メダカを育てよう',count:3,
   intro:'たまごから育つようすを調べて、水そうの世話をしよう。',
-  scenes:['1つ目を観察する。','1つ分かった。つぎへ。','あと1つでかえる日が分かる。'],
+  scenes:['1つ目を観察する。','たまごのようすが1つ分かった。次は日がたったときだ。','あと1つでかえる日が分かる。'],
   done:'メダカがかえった。受精から育ちまでが分かった。'},
  {id:'crane',unit:'magnet',title:'クレーンを動かそう',count:3,
   intro:'電磁石のクレーンで鉄を運ぼう。強さを調整しよう。',
-  scenes:['まず巻いた導線を調べる。','1つ分かった。つぎへ。','あと1つで持ち上がる。'],
+  scenes:['まず巻いた導線を調べる。','強さを1つ確かめた。次はつくりを変えて、ちがいを見る。','あと1つで持ち上がる。'],
   done:'鉄を運べた。巻き数と電流で強さが決まる。'},
  {id:'paddy',unit:'rice',title:'田んぼの1年',count:3,
   intro:'春から秋まで、米づくりの作業を順に進めよう。',
-  scenes:['春の作業から始める。','1つ進んだ。つぎへ。','あと1つで収穫だ。'],
+  scenes:['春の作業から始める。','春の作業が終わった。次は夏の水の管理だ。','あと1つで収穫だ。'],
   done:'稲刈りまでたどりついた。1年がかりの仕事だった。'},
  {id:'port',unit:'fishery',title:'水あげを市場へ',count:3,
   intro:'とった魚を、新鮮なまま店まで届けよう。',
-  scenes:['まず漁のしかたを決める。','1つ決まった。つぎへ。','あと1つで店にならぶ。'],
+  scenes:['まず漁のしかたを決める。','水あげが終わった。次は新鮮なまま運ぶ方法だ。','あと1つで店にならぶ。'],
   done:'新鮮なまま届いた。冷やして運ぶのが決め手だった。'},
  {id:'ship',unit:'trade',title:'船に積もう',count:3,
   intro:'何を輸入し、何を輸出するか。運ぶ手段も選ぼう。',
-  scenes:['1つ目の荷物を決める。','1つ積んだ。つぎへ。','あと1つで出港だ。'],
+  scenes:['1つ目の荷物を決める。','1つ目の積み荷が決まった。次は運ぶ手段を選ぶ。','あと1つで出港だ。'],
   done:'船が出た。重いものは船、急ぐものは飛行機。'},
  {id:'news',unit:'info',title:'ニュースを作ろう',count:3,
   intro:'取材して、確かめて、伝える。放送までの3つの仕事をしよう。',
-  scenes:['まず情報を集める。','1つできた。つぎへ。','あと1つで放送だ。'],
+  scenes:['まず情報を集める。','取材が1つ終わった。次は内ようを確かめる番だ。','あと1つで放送だ。'],
   done:'ニュースが流れた。確かめてから伝えるのが大事だった。'},
  {id:'forest',unit:'env',title:'山を守ろう',count:3,
   intro:'森林のはたらきを調べて、災害に備えよう。',
-  scenes:['森林のはたらきを1つ調べる。','1つ分かった。つぎへ。','あと1つで備えが整う。'],
+  scenes:['森林のはたらきを1つ調べる。','森林のはたらきが1つ分かった。次は災害と結びつける。','あと1つで備えが整う。'],
   done:'備えが整った。森林は水をたくわえ、土をささえていた。'},
  /* 理科・社会のミッション。単元の問題をそのまま使うので、新しい問題は増えない。
     教科ごとに表示を分けるため、unit からその教科を引く（下で subject を付けている）。 */
  {id:'lab',unit:'solution',title:'じっけん室をかたづけよう',count:3,
   intro:'とけたものを取り出して、びんにもどそう。3つの問いに答えて実験をおえよう。',
-  scenes:['ビーカーが3つ並んでいる。1つ目を調べよう。','1つ目がかたづいた。つぎへ。','あと1つで実験はおわり。'],
+  scenes:['ビーカーが3つ並んでいる。1つ目を調べよう。','1つ目がかたづいた。次はとけたものを取り出す。','あと1つで実験はおわり。'],
   done:'ぜんぶ元にもどせた。とけても、なくなってはいなかった。'},
  {id:'storm',unit:'weather',title:'あしたの天気をよもう',count:3,
   intro:'遠足はあしたの朝。雲の動きから、天気を読みとろう。',
-  scenes:['西の空に雲が見える。まず方位を確かめよう。','雲の動きが分かった。つぎへ。','あと1つで予想がまとまる。'],
+  scenes:['西の空に雲が見える。まず方位を確かめよう。','雲の動きが分かった。次は時間とともにどう動くかだ。','あと1つで予想がまとまる。'],
   done:'あしたの天気が読めた。雲は西から東へ動いていた。'},
  {id:'voyage',unit:'land',title:'日本をひとまわりしよう',count:3,
   intro:'北から南まで、日本の地形と気候をたどる旅に出よう。',
-  scenes:['出発は北の島から。','本州にわたった。つぎへ。','あと1つで旅はおわり。'],
+  scenes:['出発は北の島から。','本州にわたった。次は気候のちがう地いきへ向かう。','あと1つで旅はおわり。'],
   done:'日本をひとまわりできた。海に囲まれた、山の多い国だった。'},
  {id:'factory',unit:'industry',title:'車を1台つくろう',count:3,
   intro:'組み立て工場に来た。順に部品をつけて、1台を完成させよう。',
-  scenes:['車体がベルトに乗った。','部品が取りつけられた。つぎへ。','あと1つで完成だ。'],
+  scenes:['車体がベルトに乗った。','部品が1つ取りついた。次の工ていへ送ろう。','あと1つで完成だ。'],
   done:'車が1台できあがった。多くの工場が関わっていた。'}];
 
 /* ---- Companions and outfits. Original shapes invented for this app; no existing character is used.
@@ -2458,6 +2458,23 @@ return {get missions(){const sub=curSubject();return MathContent.missions.filter
 })();
 </script><script>'use strict';
 const M=MathEngine,$=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* ふりがな。小学1〜5年で習わない漢字には読みをつける。教科書と同じ扱いで、
+   「磁石」「割合」のような教科の言葉はそのまま出し、読めるようにする。
+   表に載っていない語は何もしないので、足し忘れはテストで落とす。 */
+const rubyTable={'電磁石':'でんじしゃく','稲刈':'いねか','収穫':'しゅうかく','新鮮':'しんせん',
+ '骨組':'ほねぐ','距離':'きょり','知恵':'ちえ','確認':'かくにん','割合':'わりあい','手段':'しゅだん',
+ '看板':'かんばん','枚':'まい','伸':'の','巻':'ま','届':'とど','床':'ゆか','遅':'おく','並':'なら'};
+const rubyKeys=Object.keys(rubyTable).sort((a,b)=>b.length-a.length);
+/* 受け取るのは e() を通したあとの文字列。タグを作らないので、そのまま差しこめる。 */
+function rb(text){
+ let out='',i=0,src=String(text??'');
+ outer: while(i<src.length){
+  for(const k of rubyKeys){
+   if(src.startsWith(k,i)){out+=`<ruby>${k}<rt>${rubyTable[k]}</rt></ruby>`;i+=k.length;continue outer;}
+  }
+  out+=src[i++];
+ }
+ return out;}
 const levelNames={basic:'基礎',standard:'標準',challenge:'活用'};
 let route='home',groupFilter='all',openUnit=null,dialogAction=null,testUnits=new Set(M.units.map(u=>u.id)),testLevel='all',testCount=10;
 function storageStatus(){const warning=$('#storage-warning');warning.hidden=M.storageOk;
@@ -2541,7 +2558,7 @@ function subjectTabs(){
 }
 function unitsPage(filter=groupFilter){groupFilter=filter;render(`<div class="eyebrow">すきなところからでOK</div>${subjectTabs()}<h1>${subjectNow().name}は ぜんぶで${M.units.length}</h1><p class="muted">いま学校でやっているところを選ぼう。</p><div class="tabs" role="group" aria-label="領域でしぼる"><button data-action="filter" data-id="all" class="${filter==='all'?'active':''}" aria-pressed="${filter==='all'}">すべて</button>${M.groups.map(g=>`<button data-action="filter" data-id="${g.id}" class="${filter===g.id?'active':''}" aria-pressed="${filter===g.id}">${g.name}</button>`).join('')}</div><div class="cards">${M.units.filter(u=>filter==='all'||u.group===filter).map(unitCard).join('')}</div>
   <div class="section-head"><h2>力だめし</h2></div>
-  <section class="card center"><p class="muted" style="margin:0 0 12px">えらんだところから、まとめて出題します。ヒントはなし。</p>${button('確認テストをつくる →','test')}</section><div class="callout">カードの進み具合は、各問題への直近の回答をもとに表示しています。学校の成績や、ぜんぶ身についたことを示すものではありません。</div>`,'units');}
+  <section class="card center"><p class="muted" style="margin:0 0 12px">えらんだところから、まとめて出題します。ヒントはなし。</p>${button('たしかめテストをつくる →','test')}</section><div class="callout">カードの進み具合は、各問題への直近の回答をもとに表示しています。学校の成績や、ぜんぶ身についたことを示すものではありません。</div>`,'units');}
 function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class="visual">${svg}<figcaption>${caption}</figcaption></figure>`,svg=(body,alt)=>`<svg viewBox="0 0 400 225" role="img" aria-label="${alt}"><g fill="none" stroke="#44775a" stroke-width="2.5" stroke-linejoin="round">${body}</g></svg>`,text=(x,y,t)=>`<text x="${x}" y="${y}" fill="#233d35" stroke="none" font-size="15" text-anchor="middle">${t}</text>`;
  const diagram={
  place:()=>wrap('<table><caption>10倍・100倍と、位の変化</caption><thead><tr><th scope="col">もとの数</th><th scope="col">10倍</th><th scope="col">100倍</th></tr></thead><tbody><tr><td>3.45</td><td>34.5</td><td>345</td></tr></tbody></table>','整数も小数も、10倍で各数字の位が一つ上がります。'),
@@ -2742,12 +2759,12 @@ function lesson(id){const u=unitFor(id);if(!u)return unitsPage();openUnit=id;con
   `<div class="panel">${button('← ところをえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${u.title}</h1><p class="muted">${u.subtitle} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
  +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${p}</li>`).join('')}</ol>${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${u.example}</h3>`
  +`<ol class="steps">${u.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div><div class="callout" style="margin-bottom:0">${u.caution}</div><div class="size-pick" role="group" aria-label="1回の問題数"><span class="muted small">1回の問題数</span>${[3,5].map(n=>`<button class="size-btn ${M.state.settings.size===n?'active':''}" data-action="size" data-id="${n}" aria-pressed="${M.state.settings.size===n}">${n}問</button>`).join('')}</div>`
- +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('ここの確認テスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
+ +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('ここのたしかめテスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
  +`<section class="question-set"><div class="section-head"><h2>ここの問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${levelNames[q.level]}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
  ,'units');}
-function launch(ids,mode,label){const act=()=>{M.begin(ids,mode,label);quizPage();};if(M.state.active)dialog('新しい学習を始めますか？','途中の学習の続きは、新しい学習に置きかわります。回答済みの練習記録は残ります。途中の確認テストの回答は採点・記録されません。','新しく始める',act);else act();}
+function launch(ids,mode,label){const act=()=>{M.begin(ids,mode,label);quizPage();};if(M.state.active)dialog('新しい学習を始めますか？','途中の学習の続きは、新しい学習に置きかわります。回答済みの練習記録は残ります。途中のたしかめテストの回答は採点・記録されません。','新しく始める',act);else act();}
 function practice(id){const u=unitFor(id);if(!u)return;const n=M.state.settings.size;launch(M.practiceFor(id).map(q=>q.id).slice(0,n),'practice',`${u.title}の練習${n}問`);}
-function unitTest(id){const u=unitFor(id);if(u)launch(M.shuffled(M.allQuestions.filter(q=>q.unit===id)).map(q=>q.id),'test',`${u.title}の確認テスト`);}
+function unitTest(id){const u=unitFor(id);if(u)launch(M.shuffled(M.allQuestions.filter(q=>q.unit===id)).map(q=>q.id),'test',`${u.title}のたしかめテスト`);}
 function readable(v){const s=M.normal(v).replace(/\s*と\s*/g,' ').replace(/\s*\/\s*/g,'/');let m=s.match(/^([+-]?\d+) (\d+)\/(\d+)$/);if(m)return `${m[1]}と${m[3]}分の${m[2]}`;m=s.match(/^([+-]?\d+)\/(\d+)$/);if(m)return `${m[2]}分の${m[1]}`;return '';}
 function previewInner(draft){const read=readable(draft),shown=M.normal(draft);return shown?`いまの答え：<strong>${e(shown)}</strong>${read?`（${e(read)}）`:''}`:'&nbsp;';}
 function previewHtml(draft){return `<p class="preview" id="answer-preview" aria-live="polite">${previewInner(draft)}</p>`;}
@@ -2774,7 +2791,7 @@ function hintBlock(q,level){if(!level)return '';const parts=[];if(level>=1)parts
  }
 function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.ids[s.cursor]);if(!q)return home();const u=unitFor(q.unit);
  const feedback=s.phase==='feedback',retrying=s.phase==='retry',r=feedback?s.responses[s.cursor]:null,level=M.hintLevelOf(s);
- const mode=s.mode==='test'?'確認テスト':s.mode==='review'?'ふくしゅう':'練習',locked=feedback;
+ const mode=s.mode==='test'?'たしかめテスト':s.mode==='review'?'ふくしゅう':'練習',locked=feedback;
  const hintLabel=level===0?'ヒントを見る（答えは出ません）':level===1?'もう少しヒント':'解き方を見る';
  const kind=r?M.kindOf(r):null,again=r?r.again:null;
  const basic=feedback&&!r.ok?M.basicFor():null,canVariant=feedback&&M.hasVariant(q.base||q.id);
@@ -2828,11 +2845,11 @@ function feedbackBuddy(r,again,kind,s){
 function kindLabel(r){if(r.again)return r.again.ok?['解き方を読んで正解（2回目）','orange']:['要復習','orange'];const k=M.kindOf(r);return k==='solo'?['自力で正解','']:k==='hinted'?['ヒントを使って正解','blue']:k==='explained'?['解き方を読んで正解','orange']:['要復習','orange'];}
 function resultPage(){const result=M.state.lastResult;if(!result)return home();const rs=result.responses,total=rs.length;const good=rs.filter(r=>r.ok).length,solo=rs.filter(r=>!r.again&&M.kindOf(r)==='solo').length,hinted=rs.filter(r=>!r.again&&M.kindOf(r)==='hinted').length,explained=rs.filter(r=>(r.ok&&M.kindOf(r)==='explained')||r.again?.ok).length,wrong=rs.filter(r=>!r.ok);
  render(
-  `<div class="panel"><section class="card center"><div class="eyebrow">きょうの一歩、おつかれさま！</div><h1>${e(result.label)}</h1><div class="score">${good}<small> / ${total}問 はじめの回答で正解</small></div>${result.mission?(()=>{const m=M.missions.find(x=>x.id===result.mission);return m?`<p class="mission-result">${e(good>=m.count?m.done:'とちゅうまで進んだ。もう一度ちょうせんできる。')}</p>`:'';})():''}`
+  `<div class="panel"><section class="card center"><div class="eyebrow">きょうの一歩、おつかれさま！</div><h1>${e(result.label)}</h1><div class="score">${good}<small> / ${total}問 はじめの回答で正解</small></div>${result.mission?(()=>{const m=M.missions.find(x=>x.id===result.mission);return m?`<p class="mission-result">${rb(e(good>=m.count?m.done:'とちゅうまで進んだ。もう一度ちょうせんできる。'))}</p>`:'';})():''}`
  +`<div class="kind-summary"><span>自力で正解 <strong>${solo}</strong></span><span>ヒントで正解 <strong>${hinted}</strong></span><span>解き方を読んで正解 <strong>${explained}</strong></span>${rs.some(r=>!r.ok&&!r.again?.ok)?`<span>もう一度 <strong>${rs.filter(r=>!r.ok&&!r.again?.ok).length}</strong></span>`:''}</div><p>${solo===total?'すべて自分の力で正解！ 別のところにも取り組んでみよう。':explained?'解き方を読んで分かった問題は、数字をかえた類題でもう一度確かめると、身につきやすくなります。':'間違いは、次にできるようになるためのヒント。解説を読んで確かめよう。'}</p>`
  +
   `<div class="row" style="justify-content:center;margin-top:22px">${wrong.length?button('間違えた問題を復習','result-review'):button('ところをえらぶ','units')}${button('ホームへ','home','','btn secondary')}</div></section><div class="section-head">`
- +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'確認テスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${e(q.text)}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
+ +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'たしかめテスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${e(q.text)}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
  
  ,result.mode==='test'?'test':result.mode==='review'?'review':'units');}
 function reviewPage(){const qs=M.wrong();
@@ -2840,11 +2857,11 @@ function reviewPage(){const qs=M.wrong();
     is hidden from the child, and let them switch from here. */
  const elsewhere=M.wrongElsewhere();
  const other=elsewhere.length?`<p class="muted">ほかの教科にも復習があります：${elsewhere.map(x=>`<button class="link-inline" data-action="subject" data-id="${x.id}">${e(x.name)} ${x.count}問</button>`).join('、')}</p>`:'';
- render(`<div class="eyebrow">まちがえた問題は、ここに集まる</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">正解すると、ここから消えるよ。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習や確認テストに挑戦してみよう。</p>${button('ところをえらぶ','units')}</section>`}`,'review');}
+ render(`<div class="eyebrow">まちがえた問題は、ここに集まる</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">正解すると、ここから消えるよ。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習やたしかめテストに挑戦してみよう。</p>${button('ところをえらぶ','units')}</section>`}`,'review');}
 function testPage(){render(
-  `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>確認テストをつくる</h1><p class="muted">学校で習ったところを選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題するところ</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
+  `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>たしかめテストをつくる</h1><p class="muted">学校で習ったところを選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題するところ</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
  +`<div class="checks">${M.units.map(u=>`<label class="check"><input type="checkbox" name="test-unit" value="${u.id}" ${testUnits.has(u.id)?'checked':''}><span>${u.title}</span></label>`).join('')}</div><div class="form-grid"><label class="field" for="test-level">難しさ<select id="test-level"><option value="all">基礎・標準・活用すべて</option><option value="basic">基礎</option><option value="standard">標準</option><option value="challenge">活用</option></select></label>`
- +`<label class="field" for="test-count">問題数<select id="test-count"><option value="5">5問</option><option value="10">10問</option><option value="20">20問</option></select></label></div><div class="test-summary"><p id="test-summary" class="muted"></p>${button('確認テストを始める →','start-test')}</div>`
+ +`<label class="field" for="test-count">問題数<select id="test-count"><option value="5">5問</option><option value="10">10問</option><option value="20">20問</option></select></label></div><div class="test-summary"><p id="test-summary" class="muted"></p>${button('たしかめテストを始める →','start-test')}</div>`
  +`<p class="input-help">収録問題から出題します。学校の授業で時間をかけるところほど多く出ます（教科書2社の年間指導計画の配当時数にもとづく目安で、学校のテストに出る順ではありません）。候補が少ない場合は、その問題数で始まります。</p></section><div class="callout">最初は「整数と小数」など一つのところだけでも大丈夫です。学校の試験範囲を自動で取得する機能はありません。</div></div>`
  ,'test');$('#test-level').value=testLevel;$('#test-count').value=String(testCount);updateTestSummary();}
 function testCandidates(){return M.questions.filter(q=>testUnits.has(q.unit)&&(testLevel==='all'||q.level===testLevel));}
@@ -3066,14 +3083,14 @@ function missionBanner(){
  const p=M.missionProgress();if(!p)return '';
  const m=p.mission,note=p.cleared>=m.count?m.done:(m.scenes[Math.min(p.cleared,m.scenes.length-1)]||'');
  return `<section class="mission-banner"><div class="mission-art">${missionScene(m.id,p.cleared,m.count)}</div>
-  <div><span class="pill">ミッション</span><h2>${e(m.title)}</h2><p class="muted small">${e(note)}</p>
+  <div><span class="pill">ミッション</span><h2>${rb(e(m.title))}</h2><p class="muted small">${rb(e(note))}</p>
   <p class="muted small">できた ${p.cleared} / ${m.count}　（まちがえても、もう一度ちょうせんできます）</p></div></section>`;}
 function missionList(){
  return `<div class="section-head"><h2>ミッション</h2><span class="muted small">${subjectNow().name}を使って、やりとげる</span></div>
  <div class="cards" style="grid-template-columns:repeat(2,1fr)">${M.missions.map(m=>{
   const u=unitFor(m.unit);
   return `<section class="card mission-card"><div class="mission-art">${missionScene(m.id,0,m.count)}</div>
-   <h3>${e(m.title)}</h3><p class="muted small">${e(m.intro)}</p>
+   <h3>${rb(e(m.title))}</h3><p class="muted small">${rb(e(m.intro))}</p>
    <p class="muted small">つかうところ：${e(u.title)}・${m.count}問</p>
    ${button('はじめる →','mission',m.id,'btn small')}</section>`;}).join('')}</div>
  <div class="callout">ミッションは、そこの問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、すべてのところにあります。</div>`;}
