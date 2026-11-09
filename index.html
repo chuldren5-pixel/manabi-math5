@@ -2521,9 +2521,9 @@ function home(){
     <h1>${e(r.title)}</h1>
     <p class="next-sub">${e(r.subtitle||'')}</p>
     ${button('はじめる　→','practice',r.id,'btn big')}
-    <div class="next-links">${button('ほかの単元をえらぶ','units','','text-button')}${review?button(`ふくしゅう ${review}問`,'review','','text-button'):''}</div>
+    <div class="next-links">${button('ほかのところをえらぶ','units','','text-button')}${review?button(`ふくしゅう ${review}問`,'review','','text-button'):''}</div>
    </section>
-   <section class="bars">${bar('やった単元',done,M.units.length,'')}${bar('じぶんでできた',stats.totals.done,M.questions.length,'')}${bar('かざり',M.outfitsOpen().filter(o=>o.open).length,M.outfitsOpen().length,'')}</section>
+   <section class="bars">${bar('やったところ',done,M.units.length,'')}${bar('じぶんでできた',stats.totals.done,M.questions.length,'')}${bar('かざり',M.outfitsOpen().filter(o=>o.open).length,M.outfitsOpen().length,'')}</section>
    <div class="section-head"><h2>つぎにできること</h2></div>
    <div class="cards">${[r,...M.units.filter(u=>u.id!==r.id)].slice(0,3).map(unitCard).join('')}</div>`
  );}
@@ -2539,9 +2539,9 @@ function subjectTabs(){
  if(M.subjects.length<2)return '';
  return `<div class="tabs" role="group" aria-label="教科をえらぶ">${M.subjects.map(s=>`<button data-action="subject" data-id="${s.id}" class="${s.id===M.subject?'active':''}" aria-pressed="${s.id===M.subject}">${s.icon} ${s.name}</button>`).join('')}</div>`;
 }
-function unitsPage(filter=groupFilter){groupFilter=filter;render(`<div class="eyebrow">すきな単元からでOK</div>${subjectTabs()}<h1>${subjectNow().name}の${M.units.length}単元</h1><p class="muted">いま学校でやっているところを選ぼう。</p><div class="tabs" role="group" aria-label="領域でしぼる"><button data-action="filter" data-id="all" class="${filter==='all'?'active':''}" aria-pressed="${filter==='all'}">すべて</button>${M.groups.map(g=>`<button data-action="filter" data-id="${g.id}" class="${filter===g.id?'active':''}" aria-pressed="${filter===g.id}">${g.name}</button>`).join('')}</div><div class="cards">${M.units.filter(u=>filter==='all'||u.group===filter).map(unitCard).join('')}</div>
+function unitsPage(filter=groupFilter){groupFilter=filter;render(`<div class="eyebrow">すきなところからでOK</div>${subjectTabs()}<h1>${subjectNow().name}は ぜんぶで${M.units.length}</h1><p class="muted">いま学校でやっているところを選ぼう。</p><div class="tabs" role="group" aria-label="領域でしぼる"><button data-action="filter" data-id="all" class="${filter==='all'?'active':''}" aria-pressed="${filter==='all'}">すべて</button>${M.groups.map(g=>`<button data-action="filter" data-id="${g.id}" class="${filter===g.id?'active':''}" aria-pressed="${filter===g.id}">${g.name}</button>`).join('')}</div><div class="cards">${M.units.filter(u=>filter==='all'||u.group===filter).map(unitCard).join('')}</div>
   <div class="section-head"><h2>力だめし</h2></div>
-  <section class="card center"><p class="muted" style="margin:0 0 12px">えらんだ単元から、まとめて出題します。ヒントはなし。</p>${button('確認テストをつくる →','test')}</section><div class="callout">カードの進み具合は、各問題への直近の回答をもとに表示しています。学校の成績や単元の完全な習得を示すものではありません。</div>`,'units');}
+  <section class="card center"><p class="muted" style="margin:0 0 12px">えらんだところから、まとめて出題します。ヒントはなし。</p>${button('確認テストをつくる →','test')}</section><div class="callout">カードの進み具合は、各問題への直近の回答をもとに表示しています。学校の成績や、ぜんぶ身についたことを示すものではありません。</div>`,'units');}
 function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class="visual">${svg}<figcaption>${caption}</figcaption></figure>`,svg=(body,alt)=>`<svg viewBox="0 0 400 225" role="img" aria-label="${alt}"><g fill="none" stroke="#44775a" stroke-width="2.5" stroke-linejoin="round">${body}</g></svg>`,text=(x,y,t)=>`<text x="${x}" y="${y}" fill="#233d35" stroke="none" font-size="15" text-anchor="middle">${t}</text>`;
  const diagram={
  place:()=>wrap('<table><caption>10倍・100倍と、位の変化</caption><thead><tr><th scope="col">もとの数</th><th scope="col">10倍</th><th scope="col">100倍</th></tr></thead><tbody><tr><td>3.45</td><td>34.5</td><td>345</td></tr></tbody></table>','整数も小数も、10倍で各数字の位が一つ上がります。'),
@@ -2739,11 +2739,11 @@ function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class=
   '読みが同じでも、意味がちがえば漢字がちがいます。'),
  };return diagram[key]?.()||'';}
 function lesson(id){const u=unitFor(id);if(!u)return unitsPage();openUnit=id;const g=groupFor(u),qs=M.allQuestions.filter(q=>q.unit===id),st=M.unitStats(id);render(
-  `<div class="panel">${button('← 単元をえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${u.title}</h1><p class="muted">${u.subtitle} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
+  `<div class="panel">${button('← ところをえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${u.title}</h1><p class="muted">${u.subtitle} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
  +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${p}</li>`).join('')}</ol>${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${u.example}</h3>`
  +`<ol class="steps">${u.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div><div class="callout" style="margin-bottom:0">${u.caution}</div><div class="size-pick" role="group" aria-label="1回の問題数"><span class="muted small">1回の問題数</span>${[3,5].map(n=>`<button class="size-btn ${M.state.settings.size===n?'active':''}" data-action="size" data-id="${n}" aria-pressed="${M.state.settings.size===n}">${n}問</button>`).join('')}</div>`
- +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('この単元の確認テスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
- +`<section class="question-set"><div class="section-head"><h2>この単元の問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${levelNames[q.level]}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
+ +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('ここの確認テスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
+ +`<section class="question-set"><div class="section-head"><h2>ここの問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${levelNames[q.level]}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
  ,'units');}
 function launch(ids,mode,label){const act=()=>{M.begin(ids,mode,label);quizPage();};if(M.state.active)dialog('新しい学習を始めますか？','途中の学習の続きは、新しい学習に置きかわります。回答済みの練習記録は残ります。途中の確認テストの回答は採点・記録されません。','新しく始める',act);else act();}
 function practice(id){const u=unitFor(id);if(!u)return;const n=M.state.settings.size;launch(M.practiceFor(id).map(q=>q.id).slice(0,n),'practice',`${u.title}の練習${n}問`);}
@@ -2829,9 +2829,9 @@ function kindLabel(r){if(r.again)return r.again.ok?['解き方を読んで正解
 function resultPage(){const result=M.state.lastResult;if(!result)return home();const rs=result.responses,total=rs.length;const good=rs.filter(r=>r.ok).length,solo=rs.filter(r=>!r.again&&M.kindOf(r)==='solo').length,hinted=rs.filter(r=>!r.again&&M.kindOf(r)==='hinted').length,explained=rs.filter(r=>(r.ok&&M.kindOf(r)==='explained')||r.again?.ok).length,wrong=rs.filter(r=>!r.ok);
  render(
   `<div class="panel"><section class="card center"><div class="eyebrow">きょうの一歩、おつかれさま！</div><h1>${e(result.label)}</h1><div class="score">${good}<small> / ${total}問 はじめの回答で正解</small></div>${result.mission?(()=>{const m=M.missions.find(x=>x.id===result.mission);return m?`<p class="mission-result">${e(good>=m.count?m.done:'とちゅうまで進んだ。もう一度ちょうせんできる。')}</p>`:'';})():''}`
- +`<div class="kind-summary"><span>自力で正解 <strong>${solo}</strong></span><span>ヒントで正解 <strong>${hinted}</strong></span><span>解き方を読んで正解 <strong>${explained}</strong></span>${rs.some(r=>!r.ok&&!r.again?.ok)?`<span>もう一度 <strong>${rs.filter(r=>!r.ok&&!r.again?.ok).length}</strong></span>`:''}</div><p>${solo===total?'すべて自分の力で正解！ 別の単元にも取り組んでみよう。':explained?'解き方を読んで分かった問題は、数字をかえた類題でもう一度確かめると、身につきやすくなります。':'間違いは、次にできるようになるためのヒント。解説を読んで確かめよう。'}</p>`
+ +`<div class="kind-summary"><span>自力で正解 <strong>${solo}</strong></span><span>ヒントで正解 <strong>${hinted}</strong></span><span>解き方を読んで正解 <strong>${explained}</strong></span>${rs.some(r=>!r.ok&&!r.again?.ok)?`<span>もう一度 <strong>${rs.filter(r=>!r.ok&&!r.again?.ok).length}</strong></span>`:''}</div><p>${solo===total?'すべて自分の力で正解！ 別のところにも取り組んでみよう。':explained?'解き方を読んで分かった問題は、数字をかえた類題でもう一度確かめると、身につきやすくなります。':'間違いは、次にできるようになるためのヒント。解説を読んで確かめよう。'}</p>`
  +
-  `<div class="row" style="justify-content:center;margin-top:22px">${wrong.length?button('間違えた問題を復習','result-review'):button('単元をえらぶ','units')}${button('ホームへ','home','','btn secondary')}</div></section><div class="section-head">`
+  `<div class="row" style="justify-content:center;margin-top:22px">${wrong.length?button('間違えた問題を復習','result-review'):button('ところをえらぶ','units')}${button('ホームへ','home','','btn secondary')}</div></section><div class="section-head">`
  +`<h2>答えと考え方</h2><span class="muted small">${result.mode==='test'?'確認テスト':'学習'}の振り返り</span></div>${rs.map(r=>{const q=M.attemptQuestion(r);if(!q)return '';const [label,cls]=kindLabel(r);const note=M.state.notes[q.base||q.id];return `<article class="result-line"><span class="pill ${cls}">${label} · ${levelNames[q.level]}</span>${q.variant?'<span class="muted small"> 類題</span>':''}${M.hintLevelOf(r)===1?'<span class="muted small"> ヒント1まで使用</span>':M.hintLevelOf(r)===2?'<span class="muted small"> ヒント2まで使用</span>':''}<h3>${e(q.text)}</h3><p class="muted">あなたの回答：${e(r.answer)}${q.suffix?' '+e(q.suffix):''}</p><p><strong>答え：${e(q.answer)}${q.suffix?' '+e(q.suffix):''}</strong></p><ol class="steps">${q.steps.map(t=>`<li>${e(t)}</li>`).join('')}</ol>${note?`<details><summary class="muted small">保存した考え方のメモ</summary><div class="note-quote">${e(note)}</div></details>`:''}</article>`;}).join('')}</div>`
  
  ,result.mode==='test'?'test':result.mode==='review'?'review':'units');}
@@ -2840,15 +2840,15 @@ function reviewPage(){const qs=M.wrong();
     is hidden from the child, and let them switch from here. */
  const elsewhere=M.wrongElsewhere();
  const other=elsewhere.length?`<p class="muted">ほかの教科にも復習があります：${elsewhere.map(x=>`<button class="link-inline" data-action="subject" data-id="${x.id}">${e(x.name)} ${x.count}問</button>`).join('、')}</p>`:'';
- render(`<div class="eyebrow">まちがえた問題は、ここに集まる</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">正解すると、ここから消えるよ。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習や確認テストに挑戦してみよう。</p>${button('単元をえらぶ','units')}</section>`}`,'review');}
+ render(`<div class="eyebrow">まちがえた問題は、ここに集まる</div><h1>${subjectNow().name}のふくしゅう</h1><p class="muted">正解すると、ここから消えるよ。</p>${other}${qs.length?`<div class="between" style="margin:24px 0"><h2>${qs.length}問をもう一度</h2>${button('まとめて復習する →','review-all')}</div>${qs.map(q=>`<div class="card topic-row" style="margin-bottom:12px"><div><span class="pill">${unitFor(q.unit).title}</span><p>${e(q.text)}</p></div>${button('解く','review-one',q.id,'btn secondary small')}</div>`).join('')}`:`<section class="card empty"><div class="empty-symbol" aria-hidden="true">✦</div><h2>復習を待つ問題はありません</h2><p class="muted">練習や確認テストに挑戦してみよう。</p>${button('ところをえらぶ','units')}</section>`}`,'review');}
 function testPage(){render(
-  `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>確認テストをつくる</h1><p class="muted">学校で習った単元を選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題する単元</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
+  `<div class="panel"><div class="eyebrow">今の理解を確かめよう</div><h1>確認テストをつくる</h1><p class="muted">学校で習ったところを選べます。時間制限はありません。答えと解説は、最後にまとめて表示します。</p><section class="card"><div class="between"><h2>出題するところ</h2><div class="row">${button('すべて選ぶ','select-all','','text-button small')}${button('選択を外す','select-none','','text-button small')}</div></div>`
  +`<div class="checks">${M.units.map(u=>`<label class="check"><input type="checkbox" name="test-unit" value="${u.id}" ${testUnits.has(u.id)?'checked':''}><span>${u.title}</span></label>`).join('')}</div><div class="form-grid"><label class="field" for="test-level">難しさ<select id="test-level"><option value="all">基礎・標準・活用すべて</option><option value="basic">基礎</option><option value="standard">標準</option><option value="challenge">活用</option></select></label>`
  +`<label class="field" for="test-count">問題数<select id="test-count"><option value="5">5問</option><option value="10">10問</option><option value="20">20問</option></select></label></div><div class="test-summary"><p id="test-summary" class="muted"></p>${button('確認テストを始める →','start-test')}</div>`
- +`<p class="input-help">収録問題から出題します。学校の授業で時間をかける単元ほど多く出ます（教科書2社の年間指導計画の配当時数にもとづく目安で、学校のテストに出る順ではありません）。候補が少ない場合は、その問題数で始まります。</p></section><div class="callout">最初は「整数と小数」など一つの単元だけでも大丈夫です。学校の試験範囲を自動で取得する機能はありません。</div></div>`
+ +`<p class="input-help">収録問題から出題します。学校の授業で時間をかけるところほど多く出ます（教科書2社の年間指導計画の配当時数にもとづく目安で、学校のテストに出る順ではありません）。候補が少ない場合は、その問題数で始まります。</p></section><div class="callout">最初は「整数と小数」など一つのところだけでも大丈夫です。学校の試験範囲を自動で取得する機能はありません。</div></div>`
  ,'test');$('#test-level').value=testLevel;$('#test-count').value=String(testCount);updateTestSummary();}
 function testCandidates(){return M.questions.filter(q=>testUnits.has(q.unit)&&(testLevel==='all'||q.level===testLevel));}
-function updateTestSummary(){const qs=testCandidates(),actual=Math.min(qs.length,testCount);$('#test-summary').textContent=`${testUnits.size}単元を選択 · 出題できる問題 ${qs.length}問 · 今回は${actual}問`;const b=$('[data-action="start-test"]');if(b)b.disabled=!actual;}
+function updateTestSummary(){const qs=testCandidates(),actual=Math.min(qs.length,testCount);$('#test-summary').textContent=`${testUnits.size}つえらんだ · 出題できる問題 ${qs.length}問 · 今回は${actual}問`;const b=$('[data-action="start-test"]');if(b)b.disabled=!actual;}
 /* Hands the text to the browser as a file. No request is made. */
 function saveFile(name,text,type){
  try{const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');
@@ -3013,37 +3013,37 @@ const buddyVoice={
  neko:{trait:'すぐ丸くなって寝る。数を数えるのは苦手らしい。',
   none:'ねむい…。でも1問やるなら、起きて見てるよ。',
   started:n=>`じぶんでできたのが${n}問。おれには数えきれないや。`,
-  going:f=>`ぜんぶできた単元が${f}つ。…そこまでは数えられた。`,
+  going:f=>`ぜんぶできたところが${f}つ。…そこまでは数えられた。`,
   all:'ぜんぶの場所に行ったのか。おれは寝てたのに。',
   review:n=>`もう一度やる問題が、${n}問のこってるぞ。`},
  usagi:{trait:'慎重。何度も見直してから答えるタイプ。',
   none:'あせらなくていいよ。1問ずつ、ゆっくりね。',
   started:n=>`じぶんでできたのが${n}問。わたしも数え直したから、まちがいない。`,
-  going:f=>`ぜんぶできた単元が${f}つ。つぎの場所も、ゆっくりでいいよ。`,
+  going:f=>`ぜんぶできたところが${f}つ。つぎの場所も、ゆっくりでいいよ。`,
   all:'ぜんぶの場所に行けたね。ちがう数でも、もう一度たしかめる？',
   review:n=>`もう一度の問題が${n}問。あわてなくて大丈夫。`},
  tori:{trait:'せっかち。先に答えを言いたがるけど、よく外す。',
   none:'はやく、はやく1問！　…あ、答えはぼくが言っちゃだめなんだった。',
   started:n=>`${n}問できたね！　ぼくは数えるのを3回まちがえた。`,
-  going:f=>`ぜんぶできた単元が${f}つ！　つぎ行こう、つぎ！`,
+  going:f=>`ぜんぶできたところが${f}つ！　つぎ行こう、つぎ！`,
   all:'ぜんぶ回った！　ぼくより速かった！',
   review:n=>`まだ${n}問のこってる！　…ぼくが答えを言うのは、なしね。`},
  ryu:{trait:'強がり。難しい問題ほど燃えるが、計算はざつ。',
   none:'ふっ、1問くらい楽勝だ。…やってみてくれ。',
   started:n=>`じぶんでできたのが${n}問か。おれより正確だな。`,
-  going:f=>`ぜんぶできた単元が${f}つ。おれの計算はよく合わんのに。`,
+  going:f=>`ぜんぶできたところが${f}つ。おれの計算はよく合わんのに。`,
   all:'ぜんぶの場所を回ったな。おれの出番がないじゃないか。',
   review:n=>`のこり${n}問。そこがいちばん強い相手だ。`},
  puka:{trait:'ぼんやりしている。流されやすいけど、見たことは覚えている。',
   none:'ふわふわ…。1問やったら、おぼえておくね。',
   started:n=>`${n}問、おぼえてるよ。ぷかぷかしながら見てた。`,
-  going:f=>`ぜんぶできた単元が${f}つ…ちゃんと数えたよ、たぶん。`,
+  going:f=>`ぜんぶできたところが${f}つ…ちゃんと数えたよ、たぶん。`,
   all:'ぜんぶの場所、まわったねえ。ふしぎな気分。',
   review:n=>`${n}問、まだ待ってるみたい。`},
  kuma:{trait:'食いしん坊。分けることと割合の話が好き。',
   none:'はちみつを分ける話なら得意。まず1問いこう。',
   started:n=>`じぶんでできたのが${n}問。はちみつ${n}個ぶんだ。`,
-  going:f=>`ぜんぶできた単元が${f}つ。1つにつき1個、食べたいな。`,
+  going:f=>`ぜんぶできたところが${f}つ。1つにつき1個、食べたいな。`,
   all:'ぜんぶの場所を回ったね。おなかいっぱい。',
   review:n=>`のこり${n}問。食べ終わってからでいいよ。`}};
 function buddyLines(a,cid){
@@ -3074,9 +3074,9 @@ function missionList(){
   const u=unitFor(m.unit);
   return `<section class="card mission-card"><div class="mission-art">${missionScene(m.id,0,m.count)}</div>
    <h3>${e(m.title)}</h3><p class="muted small">${e(m.intro)}</p>
-   <p class="muted small">つかう単元：${e(u.title)}・${m.count}問</p>
+   <p class="muted small">つかうところ：${e(u.title)}・${m.count}問</p>
    ${button('はじめる →','mission',m.id,'btn small')}</section>`;}).join('')}</div>
- <div class="callout">ミッションは、その単元の問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、すべての単元にあります。</div>`;}
+ <div class="callout">ミッションは、そこの問題をそのまま使います。新しいしるしがもらえる仕組みではありません。まちがえても、何度でもやり直せます。ミッションがあるのは、すべてのところにあります。</div>`;}
 function mapState(info){
  return info.mastered?['しっかり身についた','done2']:info.complete?['ぜんぶできた','done1']:info.done>0?[`${info.done} / ${info.total}問`,'going']:['まだ','todo'];}
 function adventure(){
@@ -3095,7 +3095,7 @@ function adventure(){
      const locked=open.filter(o=>!o.open);
      if(!locked.length)return '<p class="muted small next-outfit">かざりは、ぜんぶそろったよ。</p>';
      const show=locked.slice(0,2),rest=locked.length-show.length;
-     return `<div class="row next-outfit">${show.map(o=>`<span class="chip locked">${o.name}（${o.progress.what==='units'?`ぜんぶできた単元 ${o.progress.have}/${o.progress.want}`:`しるし ${o.progress.have}/${o.progress.want}`}）</span>`).join('')}${rest?`<span class="muted small">ほかに ${rest}こ</span>`:''}</div>`;})()}
+     return `<div class="row next-outfit">${show.map(o=>`<span class="chip locked">${o.name}（${o.progress.what==='units'?`ぜんぶできたところ ${o.progress.have}/${o.progress.want}`:`しるし ${o.progress.have}/${o.progress.want}`}）</span>`).join('')}${rest?`<span class="muted small">ほかに ${rest}こ</span>`:''}</div>`;})()}
   </div>
  </section>
  ${missionList()}
@@ -3105,7 +3105,7 @@ function adventure(){
    <button class="card place-card" data-action="lesson" data-id="${u.id}" aria-label="${e(u.title)} ${label}">
     <div class="between"><span class="unit-icon small" style="background:${g.color}" aria-hidden="true">${g.icon}</span><span class="muted small">${label}</span></div>
     <h3>${u.title}</h3><p class="muted small">${u.subtitle}</p></button></li>`;}).join('')}</ol>
- <div class="callout">場所は順番に開く仕組みではありません。学校で習った単元から取り組めます。かざりは、しるしの数で増えます。しるしは1問につき1回だけなので、同じ単元をくりかえしても増えません。</div>`,'adventure');}
+ <div class="callout">場所は順番に開く仕組みではありません。学校で習ったところから取り組めます。かざりは、しるしの数で増えます。しるしは1問につき1回だけなので、同じところをくりかえしても増えません。</div>`,'adventure');}
 function dexSlot(m,title){
  const kind=m.checked?' slot-checked':m.done?' slot-done':'';
  const label=m.checked?'ちがう数でもできた':m.done?'自分でできた':'まだ';
@@ -3117,8 +3117,8 @@ function dex(){
  <p class="muted">ヒントなしで解けたら「●」。数をかえた問題でも解けたら「◎」。</p>
  <div class="stats"><div class="stat"><span>じぶんでできた</span><strong>${a.totals.done}<small>/ ${a.totals.possibleDone}</small></strong></div>
  <div class="stat"><span>ちがう数でもできた</span><strong>${a.totals.checked}<small>/ ${a.totals.possibleChecked}</small></strong></div>
- <div class="stat"><span>ぜんぶできた単元</span><strong>${Object.values(a.units).filter(u=>u.complete).length}<small>/ 18</small></strong></div></div>
- ${nothing?`<section class="card empty"><div class="dex-slots empty-demo" aria-hidden="true">${'<span class="slot slot-demo"></span>'.repeat(5)}</div><h2>まだ しるしはありません</h2><p class="muted">ヒントを見ても大丈夫。あとでもう一度、自分で解けたときに「●」がつきます。</p>${button('単元をえらぶ','units')}</section>`:''}
+ <div class="stat"><span>ぜんぶできたところ</span><strong>${Object.values(a.units).filter(u=>u.complete).length}<small>/ 18</small></strong></div></div>
+ ${nothing?`<section class="card empty"><div class="dex-slots empty-demo" aria-hidden="true">${'<span class="slot slot-demo"></span>'.repeat(5)}</div><h2>まだ しるしはありません</h2><p class="muted">ヒントを見ても大丈夫。あとでもう一度、自分で解けたときに「●」がつきます。</p>${button('ところをえらぶ','units')}</section>`:''}
  <div class="dex-grid">${M.units.map(u=>{
   const info=a.units[u.id],qs=M.questions.filter(q=>q.unit===u.id),g=groupFor(u);
   const badge=info.mastered?'<span class="pill">しっかり身についた</span>':info.complete?'<span class="pill">ぜんぶできた</span>':'';
@@ -3127,7 +3127,7 @@ function dex(){
    <h3>${u.title}</h3>
    <div class="dex-slots" aria-hidden="true">${qs.map(q=>dexSlot(a.marks.get(q.id),q.text)).join('')}</div>
    <p class="muted small">じぶんで ${info.done}/${info.total}<br>ちがう数で ${info.checked}/${qs.filter(q=>a.marks.get(q.id).canCheck).length}</p></button>`;}).join('')}</div>
- <div class="callout">しるしは、1つの問題につき1回だけつきます。同じ単元を何回くりかえしても増えません。ヒントを使って正解した問題や、解き方を読んだあとに正解した問題には、まだつきません。あとで自分で解けたときにつきます。</div>`,'dex');}
+ <div class="callout">しるしは、1つの問題につき1回だけつきます。同じところを何回くりかえしても増えません。ヒントを使って正解した問題や、解き方を読んだあとに正解した問題には、まだつきません。あとで自分で解けたときにつきます。</div>`,'dex');}
 function about(){render(
   
   `<div class="panel">${button('← ホームへ','home','','text-button back')}<div class="eyebrow">保護者の方へ</div><h1>このアプリについて</h1><section class="card"><h2>小さく試して、改善するための版です</h2><p>小学5年生の算数18単元・理科7単元・社会7単元・国語7単元を、説明・例題・練習・確認テスト・復習の流れで学べます。算数は学校の授業で時間をかける単元は7問、それ以外は5問、合計106問。理科・社会・国語は各単元5問の合計35問ずつに、同じ考え方を別の題材で問う類題を1問ずつ用意しています。算数の問題数の根拠は教科書2社の年間指導計画の配当時数で、学校のテストに出る順ではありません。理科・社会・国語には配当時数の出典がないため、単元ごとに同じ問題数にしています。</p>`
