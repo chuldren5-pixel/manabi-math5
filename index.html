@@ -192,7 +192,7 @@ body.in-quiz{padding-bottom:16px}
 .quiz-card .end-here{font-size:12px;opacity:.75}
 .fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}ruby{ruby-position:over}ruby rt{font-size:.52em;color:var(--muted);font-weight:500;letter-spacing:0}/* スマホでは相棒カードを縦に積む。横並びのままだと文章欄が172pxしか取れず、カードが637px（画面の高さ664pxとほぼ同じ）まで伸びていた。この指定より後ろに .buddy-talk{min-width:0} があるため、ここで上書きし直す。 */@media(max-width:540px){.buddy-card{flex-direction:column;align-items:stretch}.buddy-card .buddy-box{align-self:center}.buddy-card .buddy-talk{min-width:0;width:100%}}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
-const groups=[{id:'number',name:'数と計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'変化と関係',color:'#e9effc',icon:'↗'},{id:'data',name:'データの活用',color:'#f3eafb',icon:'▥'}];
+const groups=[{id:'number',name:'かずと計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'かわり方とくらべ方',color:'#e9effc',icon:'↗'},{id:'data',name:'表とグラフ',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
 function unit(id,group,title,subtitle,code,points,example,steps,caution,visual){units.push({id,group,title,subtitle,code,points,example,steps,caution,visual});}
 function q(unit,n,level,text,answer,steps,hint,options=null,suffix='',visual=null,check=null){questions.push({id:`m5-${unit}-${n}`,unit,level,text,answer:String(answer),steps,hint,options,suffix,visual,check});}
@@ -833,8 +833,8 @@ const outfits=[
      in `accept`; kanji readings cannot be derived, so they have to be written out
    - a 類題 cannot be made by changing a number, so each one is a hand-written sibling that
      asks the same idea from another angle. `sib` groups a question with its sibling. */
-groups.push({id:'matter',subject:'science',name:'物質・エネルギー',color:'#e4f1f5',icon:'💧'});
-groups.push({id:'life',subject:'science',name:'生命・地球',color:'#e7f3e2',icon:'🌱'});
+groups.push({id:'matter',subject:'science',name:'もののしくみ',color:'#e4f1f5',icon:'💧'});
+groups.push({id:'life',subject:'science',name:'生き物と大地',color:'#e7f3e2',icon:'🌱'});
 /* Teaching-time weights are not set for science: the two annual teaching plans used for the
    mathematics weights (section 12) cover mathematics only, so a science weight would be a
    guess. With weight 0 the engine treats every science unit as equal, which is honest until
@@ -1130,7 +1130,7 @@ sqq('magnet','5b','challenge','number','stronger','50回巻きのコイルを100
    Deliberately avoids anything that goes out of date: no "which prefecture produces the most",
    no current figures, no rankings. The questions ask about how things work, what things are
    called, and the shape of the land, which do not change from year to year. */
-groups.push({id:'kokudo',subject:'social',name:'国土と環境',color:'#e9f0e4',icon:'🗻'});
+groups.push({id:'kokudo',subject:'social',name:'日本の国土と自然',color:'#e9f0e4',icon:'🗻'});
 groups.push({id:'sangyo',subject:'social',name:'産業',color:'#fdeee2',icon:'🏭'});
 groups.push({id:'joho',subject:'social',name:'情報',color:'#eceaf7',icon:'📡'});
 function cu(id,group,title,subtitle,code,points,example,steps,caution){
@@ -1480,8 +1480,8 @@ for(const [id,extra] of [['m5-congruent-5',['二つの角とその間の辺','�
    and sentence structure — where the answer is a short word the child has to produce.
    Writing kanji is left out too: on a phone the child would type the reading and let the IME
    convert it, so the question would be answering itself. */
-groups.push({id:'kanji',subject:'japanese',name:'漢字と言葉',color:'#f6e8f0',icon:'✏️'});
-groups.push({id:'hyougen',subject:'japanese',name:'言葉のきまり',color:'#eef0e6',icon:'📖'});
+groups.push({id:'kanji',subject:'japanese',name:'漢字とことば',color:'#f6e8f0',icon:'✏️'});
+groups.push({id:'hyougen',subject:'japanese',name:'ことばのきまり',color:'#eef0e6',icon:'📖'});
 function ju(id,group,title,subtitle,code,points,example,steps,caution){
  units.push({id,subject:'japanese',group,title,subtitle,code,weight:0,points,example,steps,caution,visual:id});
 }
@@ -2436,6 +2436,39 @@ jq('bunpou','10b','challenge','taiou2','「父の 仕事は 船を つくりま�
  '「仕事は」に続く形にします。','「〜ことです」の形にします。',
  ['「仕事は」に合う述語は「〜ことです」の形です。','「つくります」を「つくることです」に直します。']);
 
+/* ---------- 数値を持たない10問の類題（2026-11-09）----------
+   この10問は数を含まないため、数字を変えた類題が作れない。理科・社会・国語と同じように、
+   同じ考え方を別の角度から聞く類題を手で1問ずつ用意した。
+   帯グラフの2問は、同じ図の別の部分を読ませているので、図を作り直す必要はない。 */
+q('congruent','1b','basic','2つの図形を重ね合わせたら、ぴったり重なりました。この2つの図形の関係を何といいますか。','合同',
+ ['重ね合わせてぴったり重なるかどうかで決まります。','このような関係を合同といいます。'],'ずらしても回しても、ぴったり重なります。');
+q('congruent','2b','basic','合同な図形で、対応する角の大きさはどうなっていますか。','等しい',
+ ['ぴったり重なるので、重なる角どうしを比べます。','対応する角の大きさは等しくなります。'],'重ね合わせたとき、どの角とどの角が重なるかを考えます。');
+q('congruent','5b','challenge','三角形を一つに決めてかくために、これだけで十分なのはどれですか。','三つの辺の長さ',
+ ['角の大きさだけでは、大きさちがいの三角形がかけてしまいます。','三つの辺の長さが決まれば、三角形は一つに決まります。'],'大きさまで決まるのはどれかを考えます。',
+ ['三つの辺の長さ','三つの角の大きさ','一つの辺の長さだけ','一つの角の大きさだけ','二つの角の大きさだけ']);
+q('circle','1b','basic','正五角形や正六角形のように、辺の長さも角の大きさもすべて等しい図形をまとめて何といいますか。','正多角形',
+ ['辺だけでなく角もすべて等しい多角形です。','これをまとめて正多角形といいます。'],'「正」の字がつく呼び方です。');
+q('circle','2b','basic','円周率は、円周が直径の何倍になるかを表す数です。おおよそいくつですか。','3.14',
+ ['円周は直径のおよそ3.14倍です。','だから円周率はおよそ3.14です。'],'小数第2位まである数です。');
+q('solid','1b','basic','四角柱の底面の形は何ですか。','四角形',
+ ['角柱の名前は、底面の形から付いています。','四角柱の底面は四角形です。'],'名前の「四角」に注目します。');
+q('solid','5b','challenge','円柱の側面を開くと長方形になります。この長方形の、底面の円に接していた辺の長さは、底面の円の何と等しいですか。','底面の円周',
+ ['側面は底面の円をぐるりと一周しています。','だからその辺の長さは、底面の円周と等しくなります。'],'円を一周する長さのことです。');
+q('proportion','2b','standard','比例している関係はどれですか。','1mあたりの重さが同じはり金の長さと重さ',
+ ['一方が2倍になると、もう一方も2倍になる関係を比例といいます。','長さが2倍になれば重さも2倍になるので、これが比例です。'],'一方が2倍なら、もう一方も2倍かな。',
+ ['1mあたりの重さが同じはり金の長さと重さ','正方形の1辺と面積','人の体重と年れい','円の半径と面積','本を読んだページ数と残りのページ数']);
+q('graphs','1b','basic','円グラフで、全体をあらわす中心のまわりの角度は何度ですか。','360',
+ ['円を一周すると360度です。','円グラフの全体は360度にあたります。'],'円を一周したときの角度です',null,'度');
+q('graphs','2b','standard','下の帯グラフで、自転車の割合は何％ですか。','30',
+ ['自転車の帯は50％から80％までです。','80 − 50 = 30。答えは30％です。'],'自転車の帯が、どこからどこまでかを見ます。',null,'％','graphs');
+/* 手書き類題を本問と結びつける（算数は番号の末尾 b で対にする）。 */
+for(const mq of questions){
+ if(!/^m5-.*b$/.test(mq.id))continue;
+ const partner=mq.id.replace(/b$/,'');
+ if(questions.some(x=>x.id===partner))mq.pairOf=partner;
+}
+
 for(const q of questions){
  if(!/^(s5|c5|k5)-.*b$/.test(q.id))continue;
  const partner=q.id.replace(/b$/,'');
@@ -2960,7 +2993,7 @@ function unitCard(u){
   return `<span class="u-dot ${k==='solo'?'solo':k==='hinted'||k==='explained'?'hint':'todo'}"></span>`;}).join('');
  return `<button class="card unit-card" data-action="lesson" data-id="${u.id}" aria-label="${e(u.title)} ${st.total}問中${st.correct}問正解 学習する">
   <div class="u-stripe"></div>
-  <div class="between"><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span><span class="unit-number">UNIT ${String(n).padStart(2,'0')}</span></div>
+  <div class="between"><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span><span class="unit-number">${String(n).padStart(2,'0')}</span></div>
   <h3>${rb(e(u.title))}</h3><p>${rb(e(u.subtitle))}</p>
   <div class="u-dots" aria-hidden="true">${dots}</div>
   <div class="card-bottom"><span>${st.answered?`じぶん・ヒントで ${st.correct} / ${st.total}問`:'まだ · 3問からでOK'}</span><span class="arrow" aria-hidden="true">↗</span></div></button>`;}
