@@ -190,7 +190,7 @@ body.in-quiz{padding-bottom:16px}
 .input-help-wrap .input-help{margin:8px 0 0;font-size:13px}
 /* 「ここで終える」は、やめる入口なので小さく、端に */
 .quiz-card .end-here{font-size:12px;opacity:.75}
-.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}ruby{ruby-position:over}ruby rt{font-size:.52em;color:var(--muted);font-weight:500;letter-spacing:0}/* スマホでは相棒カードを縦に積む。横並びのままだと文章欄が172pxしか取れず、カードが637px（画面の高さ664pxとほぼ同じ）まで伸びていた。この指定より後ろに .buddy-talk{min-width:0} があるため、ここで上書きし直す。 */@media(max-width:540px){.buddy-card{flex-direction:column;align-items:stretch}.buddy-card .buddy-box{align-self:center}.buddy-card .buddy-talk{min-width:0;width:100%}}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+.fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}ruby{ruby-position:over}ruby rt{font-size:.52em;color:var(--muted);font-weight:500;letter-spacing:0}/* スマホでは相棒カードを縦に積む。横並びのままだと文章欄が172pxしか取れず、カードが637px（画面の高さ664pxとほぼ同じ）まで伸びていた。この指定より後ろに .buddy-talk{min-width:0} があるため、ここで上書きし直す。 */@media(max-width:540px){.buddy-card{flex-direction:column;align-items:stretch}.buddy-card .buddy-box{align-self:center}.buddy-card .buddy-talk{min-width:0;width:100%}}.say-btn{margin:2px 0 10px;display:inline-flex;align-items:center;gap:6px}</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科7単元・社会7単元・国語7単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'かずと計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'かわり方とくらべ方',color:'#e9effc',icon:'↗'},{id:'data',name:'表とグラフ',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -2960,12 +2960,43 @@ function rb(text){
   out+=src[i++];
  }
  return out;}
+/* 読み上げ。ブラウザにもともと入っている機能だけを使う。
+   お金はかからず、通信もしない。マイクは使わない（子どもの声を外に出さないため）。
+   端末によっては声が入っていないので、そのときは押したら理由を伝える。 */
+const sayables={};
+function voicesNow(){try{return window.speechSynthesis?speechSynthesis.getVoices():[];}catch(e){return [];}}
+function speechReady(){return typeof window!=='undefined'&&'speechSynthesis'in window&&typeof SpeechSynthesisUtterance==='function';}
+function pickVoice(lang){const want=lang.slice(0,2).toLowerCase();
+ const v=voicesNow().filter(x=>String(x.lang||'').slice(0,2).toLowerCase()===want);
+ return v.find(x=>x.localService)||v[0]||null;}
+/* 声の一覧はあとから読みこまれる端末があるので、「声が0だから無理」とは決めつけない。
+   いったん話させてみて、始まらなければそのときに伝える。押して無反応、をつくらないため。 */
+function speak(text,lang){
+ if(!speechReady()){toast('このたんまつでは よみあげが つかえないみたい。');return;}
+ const voice=pickVoice(lang||'ja-JP');
+ try{
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(String(text||''));
+  u.lang=lang||'ja-JP';u.rate=0.9;u.pitch=1;
+  if(voice)u.voice=voice;
+  let started=false;
+  u.onstart=()=>{started=true;};
+  u.onend=()=>{started=true;};
+  u.onerror=()=>{if(!started)toast('このたんまつでは よみあげが つかえないみたい。');started=true;};
+  speechSynthesis.speak(u);
+  setTimeout(()=>{if(!started)toast('このたんまつでは よみあげが つかえないみたい。');},1500);
+ }catch(e){toast('よみあげが うまくいかなかった。');}}
+function stopSpeaking(){try{if(speechReady())speechSynthesis.cancel();}catch(e){}}
+function sayButton(key,label){
+ if(!speechReady())return '';
+ return `<button class="btn ghost small say-btn" data-action="speak" data-id="${key}" type="button"><span aria-hidden="true">🔊</span> ${e(label||'よみあげ')}</button>`;}
 const levelNames={basic:'基礎',standard:'標準',challenge:'活用'};
 let route='home',groupFilter='all',openUnit=null,dialogAction=null,testUnits=new Set(M.units.map(u=>u.id)),testLevel='all',testCount=10;
 function storageStatus(){const warning=$('#storage-warning');warning.hidden=M.storageOk;
  if(!M.storageOk)warning.innerHTML=`<strong>${e(M.storageMessage)}</strong> ${button('いますぐバックアップを保存','export-json','','text-button small')}`;else warning.textContent='';const n=M.wrong().length;$('#review-count').textContent=n?String(n):'';
  const tb=$('#tab-review-count');if(tb){tb.textContent=n?String(n):'';if(tb.style)tb.style.display=n?'':'none';}}
-function render(html,nav='home',focus=true,inQuiz=false){route=nav;$('#app').innerHTML=html;
+function render(html,nav='home',focus=true,inQuiz=false){
+ stopSpeaking();/* sayables はここで消さない。画面の文字列が先に作られ、そのときに設定されるため。キーは画面ごとなので、上書きで足りる。 */route=nav;$('#app').innerHTML=html;
  /* The bottom bar holds five tabs; the test lives inside まなぶ and the collection inside
     ぼうけん, so those screens light up their parent tab instead of none at all. */
  const tabOf={test:'units',lesson:'units',quiz:'units',result:'units',dex:'adventure',parent:'records',about:'records'};
@@ -3242,7 +3273,7 @@ function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class=
  };return diagram[key]?.()||'';}
 function lesson(id){const u=unitFor(id);if(!u)return unitsPage();openUnit=id;const g=groupFor(u),qs=M.allQuestions.filter(q=>q.unit===id),st=M.unitStats(id);render(
   `<div class="panel">${button('← ところをえらぶ','units','','text-button back')}<div class="lesson-intro"><div><div class="eyebrow">${g.name} / 小学5年生</div><h1>${rb(e(u.title))}</h1><p class="muted">${rb(e(u.subtitle))} · 自力・ヒントで正解 ${st.correct} / ${st.total}問</p></div><span class="unit-icon" style="background:${g.color}" aria-hidden="true">${g.icon}</span></div>`
- +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${rb(e(p))}</li>`).join('')}</ol>${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${rb(e(u.example))}</h3>`
+ +`<section class="card"><span class="pill">STEP 01 · 学ぶ</span><h2 style="margin-top:14px">考え方のポイント</h2><ol class="lesson-points">${u.points.map(p=>`<li>${rb(e(p))}</li>`).join('')}</ol>${(sayables.lesson={text:u.points.join('　'),lang:'ja-JP'})&&sayButton('lesson','よみあげ')}${visual(u.visual)}<div class="example"><span class="pill">例題</span><h3 style="margin-top:12px">${rb(e(u.example))}</h3>`
  +`<ol class="steps">${u.steps.map(s=>`<li>${rb(e(s))}</li>`).join('')}</ol></div><div class="callout" style="margin-bottom:0">${rb(e(u.caution))}</div><div class="size-pick" role="group" aria-label="1回の問題数"><span class="muted small">1回の問題数</span>${[3,5].map(n=>`<button class="size-btn ${M.state.settings.size===n?'active':''}" data-action="size" data-id="${n}" aria-pressed="${M.state.settings.size===n}">${n}問</button>`).join('')}</div>`
  +`<div class="lesson-actions">${button(`${M.state.settings.size}問を練習する →`,'practice',id)}${button('ここのたしかめテスト','unit-test',id,'btn secondary')}</div><p class="muted small">練習ではヒントを段階的に見られます。途中で「ここで終える」こともできます。3問・5問という区切りは試験的な設定で、学習効果が確かめられた値ではありません。</p></section>`
  +`<section class="question-set"><div class="section-head"><h2>ここの問題</h2><span class="muted small">${qs.length}問（基礎${qs.filter(q=>q.level==='basic').length}・標準${qs.filter(q=>q.level==='standard').length}・活用${qs.filter(q=>q.level==='challenge').length}）</span></div>${qs.map(q=>`<div class="topic-row"><div><span class="level">${rb(levelNames[q.level])}</span><p>${e(q.text)}</p></div>${button('解く','one-question',q.id,'btn secondary small')}</div>`).join('')}</section></div>`
@@ -3289,7 +3320,7 @@ function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.
    return `<span class="qstep ${cls}">${i+1}</span>`;}).join('')}</div></div></div>${missionBanner()}`
  +
   `<section class="card quiz-card"><div class="between"><span class="level">${rb(levelNames[q.level])}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small end-here'):''}</div>`
- +`<h1 class="question-text">${rb(e(q.text))}</h1>${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
+ +`<h1 class="question-text">${rb(e(q.text))}</h1>${(sayables.q={text:q.text,lang:'ja-JP'})&&sayButton('q','もんだいを よむ')}${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
  
  +`<details class="scratch"><summary>考え方をメモする（採点の対象外）</summary><label class="visually-hidden" for="note">考え方のメモ</label><textarea id="note" maxlength="2000" placeholder="式や、考えたことを書いてみよう。" ${locked?'disabled':''}>${e(s.note)}</textarea></details><div class="quiz-actions row">${button(feedback?(s.cursor+1===s.ids.length?'結果を見る':'次の問題へ →'):(s.mode==='test'?'回答して次へ →':retrying?'もう一度、答えを確かめる':'答えを確かめる'),feedback?'next':'submit')}</div></section>`
  +`<p class="muted small">${s.mode==='test'?'答えと解説は最後にまとめて表示します。テストを終えると回答が記録されます。':'ヒントや解き方を使った問題は、あとで類題でもう一度確かめます。'}</p></div>`
@@ -3679,6 +3710,7 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]'
   'result-review':()=>launch(M.shuffled((M.state.lastResult?.responses||[]).filter(r=>!r.ok)).map(r=>r.id),'review','今回間違えた問題の復習'),
   'last-result':resultPage,
   'parent-records':()=>parentRecords(),
+  speak:id=>{const t=sayables[id];if(t)speak(t.text,t.lang);},
   'export-json':()=>saveRecords('json'),
   'export-csv':()=>saveRecords('csv'),
   mission:()=>{if(M.beginMission(id))quizPage();else toast('このミッションはいま始められません');},
@@ -3691,7 +3723,7 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]'
   'close-dialog':closeDialog,
   'confirm-dialog':()=>{const fn=dialogAction;closeDialog();fn?.();}
  };
- actions[act]?.();
+ actions[act]?.(id);
 });
 document.addEventListener('input',ev=>{if(ev.target.id==='answer'){M.setDraft(ev.target.value);refreshAnswerView();}if(ev.target.id==='note'){M.setNote(ev.target.value);storageStatus();}});
 document.addEventListener('change',ev=>{
