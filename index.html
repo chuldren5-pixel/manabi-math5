@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#205847"><meta name="robots" content="noindex,nofollow,noarchive,noimageindex"><meta name="description" content="小学5年生の算数・理科・社会・国語・家庭科を、説明・練習・確認テスト・復習で学ぶアプリ。学習・検証版。"><title>まなびステップ｜小学5年生</title><style>:root{--ink:#233d35;--green:#205847;--light:#e7efe4;--muted:#65766c;--line:#dce4d9;--bg:#f6f8f2;--orange:#e7a64d;--white:#fff;--radius:18px;
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#205847"><meta name="robots" content="noindex,nofollow,noarchive,noimageindex"><meta name="description" content="小学5年生の算数・理科・社会・国語・家庭科・英語を、説明・練習・確認テスト・復習で学ぶアプリ。学習・検証版。"><title>まなびステップ｜小学5年生</title><style>:root{--ink:#233d35;--green:#205847;--light:#e7efe4;--muted:#65766c;--line:#dce4d9;--bg:#f6f8f2;--orange:#e7a64d;--white:#fff;--radius:18px;
  /* 教科の色。いまいる教科が一目で分かるようにする。
     10〜11歳は幼児扱いを嫌うので、パステルではなく、はっきりした濃い色にする。 */
  --accent:#1f6b52;--accent-soft:#e3f0e8;--accent-ink:#134635}
@@ -191,6 +191,7 @@ body.in-quiz{padding-bottom:16px}
 /* 「ここで終える」は、やめる入口なので小さく、端に */
 .quiz-card .end-here{font-size:12px;opacity:.75}
 .fb-buddy{display:flex;align-items:center;gap:11px;margin:0 0 12px}.fb-buddy p{margin:0;font-weight:700;font-size:15px}.fb-buddy .buddy{flex-shrink:0}.next-outfit{margin-top:8px}ruby{ruby-position:over}ruby rt{font-size:.52em;color:var(--muted);font-weight:500;letter-spacing:0}/* スマホでは相棒カードを縦に積む。横並びのままだと文章欄が172pxしか取れず、カードが637px（画面の高さ664pxとほぼ同じ）まで伸びていた。この指定より後ろに .buddy-talk{min-width:0} があるため、ここで上書きし直す。 */@media(max-width:540px){.buddy-card{flex-direction:column;align-items:stretch}.buddy-card .buddy-box{align-self:center}.buddy-card .buddy-talk{min-width:0;width:100%}}.say-btn{margin:2px 0 10px;display:inline-flex;align-items:center;gap:6px}.say-btn.speaking{background:var(--accent);color:#fff;border-color:var(--accent)}body[data-subject="homeec"]{--accent:#a4561f;--accent-soft:#fbeadf;--accent-ink:#6d3813}
+body[data-subject="english"]{--accent:#3a6b5c;--accent-soft:#e2efea;--accent-ink:#24463b}
 /* ふりがな（ruby）がいくつも続く行は、最小幅が行全体になってしまい折り返されない。
    単元のポイント・例題・注意・問題文では、必要なら語の途中でも折り返す。 */
 .lesson-points li,.example h3,.visual td,.visual th,.question-text,.callout{overflow-wrap:anywhere}
@@ -199,7 +200,7 @@ body.in-quiz{padding-bottom:16px}
    画面からはみ出していたため、マス目を minmax(0,1fr) にし、しるしは折り返すようにした。
    （2026-11-10。360px幅で発生。今回足した単元だけの問題ではなく、以前からあった。） */
 .unit-card h3,.unit-card p,.dex-unit h3{overflow-wrap:anywhere;min-width:0}
-</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語・家庭科</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科8単元・社会9単元・国語12単元・家庭科10単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語・家庭科・英語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科8単元・社会9単元・国語12単元・家庭科10単元・英語5単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'かずと計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'かわり方とくらべ方',color:'#e9effc',icon:'↗'},{id:'data',name:'表とグラフ',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -343,7 +344,7 @@ for(const u of units)u.weight=weight[u.id]||0;
    and record code is shared. Everything above this line is mathematics, so it gets tagged
    first; a new subject appends its own groups, units and questions below.
    Question ids carry their own prefix (m5- / s5-) so records never collide across subjects. */
-const subjects=[{id:'math',name:'算数',icon:'＋',prefix:'m5'},{id:'science',name:'理科',icon:'🔬',prefix:'s5'},{id:'social',name:'社会',icon:'🗾',prefix:'c5'},{id:'japanese',name:'国語',icon:'✏️',prefix:'k5'},{id:'homeec',name:'家庭科',icon:'🍳',prefix:'h5'}];
+const subjects=[{id:'math',name:'算数',icon:'＋',prefix:'m5'},{id:'science',name:'理科',icon:'🔬',prefix:'s5'},{id:'social',name:'社会',icon:'🗾',prefix:'c5'},{id:'japanese',name:'国語',icon:'✏️',prefix:'k5'},{id:'homeec',name:'家庭科',icon:'🍳',prefix:'h5'},{id:'english',name:'英語',icon:'🔤',prefix:'e5'}];
 for(const g of groups)g.subject='math';
 for(const u of units)u.subject='math';
 
@@ -834,7 +835,7 @@ const outfits=[
  {id:'moon',name:'つきのかざり',needUnits:22},
  {id:'flame',name:'ほのおのマント',needUnits:30},
  {id:'sky',name:'そらのつばさ',needUnits:39},
- {id:'sun',name:'たいようのかざり',needUnits:57}];
+ {id:'sun',name:'たいようのかざり',needUnits:62}];
 /* かざりの段は、全教科でとれるマーク（912）と単元（53）に合わせてのばした（2026-11-10）。
    既存のしきい値は1つも動かしていない。上げると、すでに開いていたかざりが閉じてしまい、
    お子さんから見れば「取り上げられた」ことになるため。足りない上の方に2段つけ足している。
@@ -2492,6 +2493,24 @@ for(const q of questions)if(q.unit==='kanji-read')q.noSpeak=true;
    手順の指示は出さない。危ない作業は大人といっしょに行う前提をヒントに書く。 */
 groups.push({id:'shoku',subject:'homeec',name:'食べること',color:'#fdece9',icon:'🍚'});
 groups.push({id:'kurashi',subject:'homeec',name:'着ることと住まい',color:'#eef5ec',icon:'🏠'});
+
+/* ---------- 英語（外国語科）2026-11-10 追加 ----------
+   学習指導要領（平成29年告示）外国語 第5学年及び第6学年。
+   「書くこと」は「大文字、小文字を活字体で書く」「書き写す」「例文を参考に書く」までで、
+   つづりを思い出して書かせることは範囲外。だから、このアプリでは
+   **英単語のつづりを答えさせる問題は作らない**。答えるのは日本語の意味か、1文字かのどちらか。
+   「読むこと」は「活字体で書かれた文字を識別し、その読み方を発音する」「音声で十分に慣れ
+   親しんだ語句や表現の意味が分かる」まで。 */
+groups.push({id:'en-moji',subject:'english',name:'文字と音',color:'#dfeee8',icon:'Aa'});
+groups.push({id:'en-kotoba',subject:'english',name:'ことばと表現',color:'#e6f0ec',icon:'🗣'});
+function eu(id,group,title,subtitle,code,points,example,steps,caution){
+ units.push({id,subject:'english',group,title,subtitle,code,weight:0,points,example,steps,caution,visual:id});
+}
+/* en には、読み上げ用の英語だけを入れる（画面の文は日本語のまま）。
+   端末に英語の声がなければ、speak() が気づいて伝える。通信は起こさない。 */
+function eq(unit,n,level,sib,text,answer,accept,hint,think,steps,en=''){
+ questions.push({id:`e5-${unit}-${n}`,unit,level,kind:'word',sib,text,answer,accept,hint,think,steps,options:null,suffix:'',visual:null,check:null,en});
+}
 function hu(id,group,title,subtitle,code,points,example,steps,caution){
  units.push({id,subject:'homeec',group,title,subtitle,code,weight:0,points,example,steps,caution,visual:id});
 }
@@ -3799,8 +3818,363 @@ hq('kondate','10b','challenge','number','keisan2','1人分のこんだてに肉�
  '1人分を、人数だけ足します。','70 × 4 を計算します。',
  ['合計 = 1人分 × 人数 です。','70 × 4 = 280。280gです。'],'g');
 
+/* === 英語の単元 ===
+   つづりを思い出して書かせる問題は作らない（指導要領の「書くこと」の範囲外）。
+   答えるのは、日本語の意味か、文字そのものか、日本語で答えられることだけにしている。
+   大文字・小文字を書き分けさせる問題も作らない。採点が大文字小文字を区別しないうえ、
+   スマホのキーボードが勝手に大文字にするので、正しく打っても×になってしまうため。 */
+eu('alphabet','en-moji','アルファベット','文字の名前と、にた形の見分け方','文字',
+ ['英語の文字をアルファベットといいます。全部で26文字あり、それぞれに大文字と小文字があります。',
+  '文字には「名前」があります。Cは「シー」、Hは「エイチ」、Wは「ダブリュー」のように読みます。',
+  'a, i, u, e, o のような音を表す文字を母音、それ以外を子音といいます。',
+  '小文字のbとd、pとqは形がにています。たてぼうのどちら側にまるがあるかで見分けます。',
+  '大文字と小文字で形がほとんど同じ文字（C・O・S・Xなど）と、大きくちがう文字（A・Bなど）があります。'],
+ '大文字の「C」の読み方を、かたかなで書きましょう。',
+ ['文字の名前をたずねています。','「シー」と読みます。'],
+ 'この単元では、つづりを書く問題は出しません。文字の名前と形を覚えるためのものです。');
+eq('alphabet',1,'basic','namae','大文字の「C」の読み方（文字の名前）を、かたかなで書きましょう。','シー',['しー','シイ'],
+ 'アルファベットの3番目の文字です。','のばす音が入る、2文字のかたかなです。',
+ ['文字には一つずつ名前があります。','Cの名前は「シー」です。'],'C');
+eq('alphabet',2,'basic','namaeB','大文字の「H」の読み方を、かたかなで書きましょう。','エイチ',['えいち'],
+ 'アルファベットの8番目の文字です。','かたかな3文字です。',
+ ['文字の名前をそのまま答えます。','Hの名前は「エイチ」です。'],'H');
+eq('alphabet',3,'basic','kazu','アルファベットは全部で何文字ありますか。数字で答えましょう。','26',['26文字','二十六'],
+ 'AからZまでを数えます。','20より多く、30より少ない数です。',
+ ['AからZまでならべて数えます。','全部で26文字です。'],'');
+eq('alphabet',4,'basic','boin','a, i, u, e, o のような音を表す文字を、まとめて何といいますか。','ぼいん',['母音'],
+ '日本語の「あいうえお」にあたります。','「音」の字が入る3文字の言葉です。',
+ ['のどを開いて出す音を表す文字です。','これを母音といいます。'],'a i u e o');
+eq('alphabet',5,'standard','junban','アルファベットで「M」の次の文字の読み方を、かたかなで書きましょう。','エヌ',['えぬ'],
+ 'M の次は N です。','かたかな2文字です。',
+ ['アルファベットの順でMの次はNです。','Nの名前は「エヌ」です。'],'M N');
+eq('alphabet',6,'standard','nita','小文字の「b」と「d」のうち、たてぼうの右にまるがあるのはどちらですか。','b',['ビー','びー'],
+ 'たてぼうとまるの位置をくらべます。','アルファベットの2番目の文字です。',
+ ['dは、たてぼうの左にまるがあります。','右にまるがあるのはbです。'],'b d');
+eq('alphabet',7,'standard','namae2','大文字の「W」の読み方を、かたかなで書きましょう。','ダブリュー',['だぶりゅー','ダブリュ'],
+ 'アルファベットの中でいちばん長い名前です。','「ダ」で始まります。',
+ ['文字の名前をそのまま答えます。','Wの名前は「ダブリュー」です。'],'W');
+eq('alphabet',8,'standard','namae3','大文字の「R」の読み方を、かたかなで書きましょう。','アール',['あーる'],
+ 'アルファベットの18番目の文字です。','「ア」で始まる3文字です。',
+ ['文字の名前をそのまま答えます。','Rの名前は「アール」です。'],'R');
+eq('alphabet',9,'challenge','katachi','大文字と小文字で形がほとんど同じなのは、「C」と「A」のどちらですか。','C',['c'],
+ '小文字にしたときの形を思いうかべます。','大きさだけが変わるほうです。',
+ ['Aの小文字はaで、形が大きくちがいます。','大きさだけが変わるのはCです。'],'C A');
+eq('alphabet',10,'challenge','namae4','「G」と「J」のうち、読み方が「ジェイ」なのはどちらですか。','J',['ジェイ','じぇい','j'],
+ 'もう一方は「ジー」と読みます。','アルファベットの10番目の文字です。',
+ ['Gの名前は「ジー」です。','「ジェイ」と読むのはJです。'],'G J');
+eq('alphabet','1b','basic','namae','大文字の「Q」の読み方を、かたかなで書きましょう。','キュー',['きゅー'],
+ 'アルファベットの17番目の文字です。','かたかな3文字です。',
+ ['文字の名前をそのまま答えます。','Qの名前は「キュー」です。'],'Q');
+eq('alphabet','2b','basic','namaeB','大文字の「Y」の読み方を、かたかなで書きましょう。','ワイ',['わい'],
+ 'アルファベットの25番目の文字です。','かたかな2文字です。',
+ ['文字の名前をそのまま答えます。','Yの名前は「ワイ」です。'],'Y');
+eq('alphabet','3b','basic','kazu','a, i, u, e, o は全部で何文字ありますか。数字で答えましょう。','5',['5文字','五'],
+ 'ならんでいる文字を数えます。','日本語の「あいうえお」と同じ数です。',
+ ['a, i, u, e, o をひとつずつ数えます。','5文字です。'],'a i u e o');
+eq('alphabet','4b','basic','boin','母音のほかの文字を、まとめて何といいますか。','しいん',['子音'],
+ '母音と対になる言い方です。','「子」の字が入る3文字の言葉です。',
+ ['母音は a, i, u, e, o です。','それ以外の文字をまとめて子音といいます。'],'b c d f g');
+eq('alphabet','5b','standard','junban','アルファベットで「T」の前の文字の読み方を、かたかなで書きましょう。','エス',['えす'],
+ 'T の前は S です。','かたかな2文字です。',
+ ['アルファベットの順でTの前はSです。','Sの名前は「エス」です。'],'S T');
+eq('alphabet','6b','standard','nita','小文字の「p」と「q」のうち、たてぼうの右にまるがあるのはどちらですか。','p',['ピー','ぴー'],
+ 'たてぼうとまるの位置をくらべます。','アルファベットの16番目の文字です。',
+ ['qは、たてぼうの左にまるがあります。','右にまるがあるのはpです。'],'p q');
+eq('alphabet','7b','standard','namae2','大文字の「V」の読み方を、かたかなで書きましょう。','ブイ',['ぶい'],
+ 'アルファベットの22番目の文字です。','かたかな2文字です。',
+ ['文字の名前をそのまま答えます。','Vの名前は「ブイ」です。'],'V');
+eq('alphabet','8b','standard','namae3','大文字の「F」の読み方を、かたかなで書きましょう。','エフ',['えふ'],
+ 'アルファベットの6番目の文字です。','かたかな2文字です。',
+ ['文字の名前をそのまま答えます。','Fの名前は「エフ」です。'],'F');
+eq('alphabet','9b','challenge','katachi','大文字と小文字で形が大きくちがうのは、「A」と「O」のどちらですか。','A',['エー','エイ','えー','a'],
+ '小文字にしたときの形を思いうかべます。','大きさだけが変わるのではないほうです。',
+ ['Oの小文字はoで、大きさが変わるだけです。','形が大きく変わるのはAです。'],'A O');
+eq('alphabet','10b','challenge','namae4','「G」と「J」のうち、読み方が「ジー」なのはどちらですか。','G',['ジー','じー','g'],
+ 'もう一方は「ジェイ」と読みます。','アルファベットの7番目の文字です。',
+ ['Jの名前は「ジェイ」です。','「ジー」と読むのはGです。'],'G J');
+
+eu('enword','en-kotoba','身のまわりのことば','色・動物・食べ物・数','語い',
+ ['英語の言葉は、まず音で聞いて覚えます。意味が分かることが先で、つづりを書くのはあとです。',
+  '色：blue（青）、yellow（黄色）、purple（むらさき）、brown（茶色）。',
+  '動物：rabbit（うさぎ）、horse（馬）、elephant（ぞう）、monkey（さる）。',
+  '食べ物：bread（パン）、egg（たまご）、strawberry（いちご）、watermelon（すいか）。',
+  '数：seven（7）、twelve（12）、twenty（20）、thirty（30）。'],
+ '「blue」の意味を、日本語で答えましょう。',
+ ['色を表す言葉です。','空や海の色、「青」です。'],
+ 'つづりを書く問題は出しません。聞いて意味が分かることを目指します。');
+eq('enword',1,'basic','iro','「blue」の意味を、日本語で答えましょう。','あお',['青'],
+ '色を表す言葉です。','晴れた空の色です。',
+ ['blue は色を表します。','意味は「青」です。'],'blue');
+eq('enword',2,'basic','doubutsu','「rabbit」の意味を、日本語で答えましょう。','うさぎ',['兎','ウサギ'],
+ '動物を表す言葉です。','耳が長くて、はねる動物です。',
+ ['rabbit は動物を表します。','意味は「うさぎ」です。'],'rabbit');
+eq('enword',3,'basic','tabemono','「bread」の意味を、日本語で答えましょう。','パン',['ぱん'],
+ '食べ物を表す言葉です。','小麦粉から作る、朝食によく食べるものです。',
+ ['bread は食べ物を表します。','意味は「パン」です。'],'bread');
+eq('enword',4,'basic','suuji','「seven」の意味を、数字で答えましょう。','7',['七'],
+ '数を表す言葉です。','6の次の数です。',
+ ['seven は数を表します。','意味は7です。'],'seven');
+eq('enword',5,'standard','iro2','「purple」の意味を、日本語で答えましょう。','むらさき',['紫'],
+ '色を表す言葉です。','赤と青をまぜた色です。',
+ ['purple は色を表します。','意味は「むらさき」です。'],'purple');
+eq('enword',6,'standard','doubutsu2','「elephant」の意味を、日本語で答えましょう。','ぞう',['象','ゾウ'],
+ '動物を表す言葉です。','鼻が長い、大きな動物です。',
+ ['elephant は動物を表します。','意味は「ぞう」です。'],'elephant');
+eq('enword',7,'standard','tabemono2','「strawberry」の意味を、日本語で答えましょう。','いちご',['苺','イチゴ'],
+ '食べ物を表す言葉です。','赤くて小さい、つぶつぶのある果物です。',
+ ['strawberry は果物を表します。','意味は「いちご」です。'],'strawberry');
+eq('enword',8,'standard','supotsu','「swimming」の意味を、日本語で答えましょう。','すいえい',['水泳','およぐこと'],
+ 'スポーツを表す言葉です。','プールや海でするものです。',
+ ['swimming はスポーツを表します。','意味は「水泳」です。'],'swimming');
+eq('enword',9,'challenge','wasei','「コンセント」のように、英語のように見えて英語では通じない言葉を何といいますか。','わせいえいご',['和製英語'],
+ '日本で作られた言い方です。','「和製」のあとに「英語」がつきます。',
+ ['コンセントは、英語では別の言い方をします。','このような言葉を和製英語といいます。'],'');
+eq('enword',10,'challenge','suuji2','「twenty」の意味を、数字で答えましょう。','20',['二十'],
+ '数を表す言葉です。','10が2つ分です。',
+ ['twenty は数を表します。','意味は20です。'],'twenty');
+eq('enword','1b','basic','iro','「yellow」の意味を、日本語で答えましょう。','きいろ',['黄色','黄'],
+ '色を表す言葉です。','バナナやレモンの色です。',
+ ['yellow は色を表します。','意味は「黄色」です。'],'yellow');
+eq('enword','2b','basic','doubutsu','「horse」の意味を、日本語で答えましょう。','うま',['馬','ウマ'],
+ '動物を表す言葉です。','人を乗せて走る、大きな動物です。',
+ ['horse は動物を表します。','意味は「うま」です。'],'horse');
+eq('enword','3b','basic','tabemono','「egg」の意味を、日本語で答えましょう。','たまご',['卵','玉子'],
+ '食べ物を表す言葉です。','にわとりが産むものです。',
+ ['egg は食べ物を表します。','意味は「たまご」です。'],'egg');
+eq('enword','4b','basic','suuji','「twelve」の意味を、数字で答えましょう。','12',['十二'],
+ '数を表す言葉です。','11の次の数です。',
+ ['twelve は数を表します。','意味は12です。'],'twelve');
+eq('enword','5b','standard','iro2','「brown」の意味を、日本語で答えましょう。','ちゃいろ',['茶色','茶'],
+ '色を表す言葉です。','土や木のみきの色です。',
+ ['brown は色を表します。','意味は「茶色」です。'],'brown');
+eq('enword','6b','standard','doubutsu2','「monkey」の意味を、日本語で答えましょう。','さる',['猿','サル'],
+ '動物を表す言葉です。','木に登るのが上手な動物です。',
+ ['monkey は動物を表します。','意味は「さる」です。'],'monkey');
+eq('enword','7b','standard','tabemono2','「watermelon」の意味を、日本語で答えましょう。','すいか',['西瓜','スイカ'],
+ '食べ物を表す言葉です。','夏に食べる、大きくて緑と黒のしまの果物です。',
+ ['watermelon は果物を表します。','意味は「すいか」です。'],'watermelon');
+eq('enword','8b','standard','supotsu','「baseball」の意味を、日本語で答えましょう。','やきゅう',['野球'],
+ 'スポーツを表す言葉です。','バットでボールを打つものです。',
+ ['baseball はスポーツを表します。','意味は「野球」です。'],'baseball');
+eq('enword','9b','challenge','wasei','「ケーキ」のように、外国から入って日本語になった言葉を何といいますか。','がいらいご',['外来語'],
+ 'かたかなで書かれることが多い言葉です。','国語でも習った言い方です。',
+ ['ケーキは英語の cake が日本語になったものです。','このような言葉を外来語といいます。'],'cake');
+eq('enword','10b','challenge','suuji2','「thirty」の意味を、数字で答えましょう。','30',['三十'],
+ '数を表す言葉です。','10が3つ分です。',
+ ['thirty は数を表します。','意味は30です。'],'thirty');
+
+eu('enschool','en-kotoba','学校と1日','曜日・月・教科・1日のくぎり','語い',
+ ['曜日：Monday（月曜日）、Wednesday（水曜日）、Friday（金曜日）、Sunday（日曜日）。',
+  '月：January（1月）、May（5月）、August（8月）、September（9月）、December（12月）。',
+  '教科：math（算数）、science（理科）、music（音楽）、P.E.（体育）。',
+  '1日のくぎり：breakfast（朝ごはん）、lunch（昼ごはん）、dinner（晩ごはん）。',
+  '英語では、曜日や月の名前のはじめの文字を大文字で書きます。'],
+ '「Monday」の意味を、日本語で答えましょう。',
+ ['曜日を表す言葉です。','一週間の学校が始まる曜日、「月曜日」です。'],
+ 'つづりを書く問題は出しません。聞いて意味が分かることを目指します。');
+eq('enschool',1,'basic','youbi','「Monday」の意味を、日本語で答えましょう。','げつようび',['月曜日','月曜'],
+ '曜日を表す言葉です。','日曜日の次の日です。',
+ ['Monday は曜日を表します。','意味は「月曜日」です。'],'Monday');
+eq('enschool',2,'basic','youbi2','「Sunday」の意味を、日本語で答えましょう。','にちようび',['日曜日','日曜'],
+ '曜日を表す言葉です。','学校が休みの日です。',
+ ['Sunday は曜日を表します。','意味は「日曜日」です。'],'Sunday');
+eq('enschool',3,'basic','kyouka','「math」の意味を、日本語で答えましょう。','さんすう',['算数','数学'],
+ '教科を表す言葉です。','数や形を学ぶ教科です。',
+ ['math は教科を表します。','意味は「算数」です。'],'math');
+eq('enschool',4,'basic','kyouka2','「science」の意味を、日本語で答えましょう。','りか',['理科'],
+ '教科を表す言葉です。','実験や観察をする教科です。',
+ ['science は教科を表します。','意味は「理科」です。'],'science');
+eq('enschool',5,'standard','tsuki','「January」の意味を、日本語で答えましょう。','1がつ',['1月','一月','いちがつ'],
+ '月の名前です。','1年のはじめの月です。',
+ ['January は月を表します。','意味は「1月」です。'],'January');
+eq('enschool',6,'standard','tsuki2','「May」の意味を、日本語で答えましょう。','5がつ',['5月','五月','ごがつ'],
+ '月の名前です。','こどもの日がある月です。',
+ ['May は月を表します。','意味は「5月」です。'],'May');
+eq('enschool',7,'standard','gohan','「breakfast」の意味を、日本語で答えましょう。','あさごはん',['朝ごはん','朝食'],
+ '1日のはじめに食べるものです。','ひらがな5文字です。',
+ ['breakfast は食事を表します。','意味は「朝ごはん」です。'],'breakfast');
+eq('enschool',8,'standard','basho','「library」の意味を、日本語で答えましょう。','としょかん',['図書館','図書室'],
+ '学校や町にある場所です。','本を借りるところです。',
+ ['library は場所を表します。','意味は「図書館」です。'],'library');
+eq('enschool',9,'challenge','ookimoji','英語で曜日や月の名前を書くとき、はじめの文字はどう書きますか。「大文字」か「小文字」で答えましょう。','おおもじ',['大文字'],
+ 'Monday、January の形を思い出します。','小さいほうではありません。',
+ ['Monday も January も、はじめがMやJになっています。','曜日や月の名前は、はじめの文字を大文字で書きます。'],'Monday January');
+eq('enschool',10,'challenge','tsuki3','「September」の意味を、日本語で答えましょう。','9がつ',['9月','九月','くがつ'],
+ '月の名前です。','夏休みが終わったあとの月です。',
+ ['September は月を表します。','意味は「9月」です。'],'September');
+eq('enschool','1b','basic','youbi','「Friday」の意味を、日本語で答えましょう。','きんようび',['金曜日','金曜'],
+ '曜日を表す言葉です。','土曜日の前の日です。',
+ ['Friday は曜日を表します。','意味は「金曜日」です。'],'Friday');
+eq('enschool','2b','basic','youbi2','「Wednesday」の意味を、日本語で答えましょう。','すいようび',['水曜日','水曜'],
+ '曜日を表す言葉です。','一週間のまん中あたりの日です。',
+ ['Wednesday は曜日を表します。','意味は「水曜日」です。'],'Wednesday');
+eq('enschool','3b','basic','kyouka','「music」の意味を、日本語で答えましょう。','おんがく',['音楽'],
+ '教科を表す言葉です。','歌ったり楽器をひいたりする教科です。',
+ ['music は教科を表します。','意味は「音楽」です。'],'music');
+eq('enschool','4b','basic','kyouka2','「P.E.」の意味を、日本語で答えましょう。','たいいく',['体育'],
+ '教科を表す言葉です。','運動場やプールでする教科です。',
+ ['P.E. は教科を表します。','意味は「体育」です。'],'P E');
+eq('enschool','5b','standard','tsuki','「August」の意味を、日本語で答えましょう。','8がつ',['8月','八月','はちがつ'],
+ '月の名前です。','夏休みのまん中の月です。',
+ ['August は月を表します。','意味は「8月」です。'],'August');
+eq('enschool','6b','standard','tsuki2','「December」の意味を、日本語で答えましょう。','12がつ',['12月','十二月','じゅうにがつ'],
+ '月の名前です。','1年の最後の月です。',
+ ['December は月を表します。','意味は「12月」です。'],'December');
+eq('enschool','7b','standard','gohan','「dinner」の意味を、日本語で答えましょう。','ばんごはん',['晩ごはん','夕食','夕ごはん'],
+ '1日の終わりに食べるものです。','ひらがな5文字です。',
+ ['dinner は食事を表します。','意味は「晩ごはん」です。'],'dinner');
+eq('enschool','8b','standard','basho','「gym」の意味を、日本語で答えましょう。','たいいくかん',['体育館'],
+ '学校にある建物です。','雨の日に運動をするところです。',
+ ['gym は場所を表します。','意味は「体育館」です。'],'gym');
+eq('enschool','9b','challenge','ookimoji','「Monday」で大文字になっているのは、何文字目ですか。数字で答えましょう。','1',['一','1文字目'],
+ '左から数えます。','いちばんはじめの文字です。',
+ ['Monday の M だけが大きく書かれています。','1文字目です。'],'Monday');
+eq('enschool','10b','challenge','tsuki3','「February」の意味を、日本語で答えましょう。','2がつ',['2月','二月','にがつ'],
+ '月の名前です。','節分がある月です。',
+ ['February は月を表します。','意味は「2月」です。'],'February');
+
+eu('enaisatsu','en-kotoba','あいさつと受け答え','場面に合う言い方と、その意味','表現',
+ ['あいさつは、場面によって言い方が変わります。朝は Good morning.、昼は Good afternoon.、夕方から夜は Good evening.、ねる前は Good night. です。',
+  'Thank you.（ありがとう）には You are welcome.（どういたしまして）と返します。',
+  'はじめて会う人には Nice to meet you.（はじめまして）と言います。',
+  'たずねる言い方：How are you?（元気ですか）、What is your name?（名前をたずねる）、How much is it?（ねだんをたずねる）。',
+  'たのむときは Please. をつけるとていねいになります。'],
+ '「Good morning.」の意味を、日本語で答えましょう。',
+ ['朝に使うあいさつです。','意味は「おはよう」です。'],
+ 'つづりを書く問題は出しません。場面と意味を結びつけることを目指します。');
+eq('enaisatsu',1,'basic','asa','「Good morning.」の意味を、日本語で答えましょう。','おはよう',['おはようございます','お早う'],
+ '朝に使うあいさつです。','学校に着いたときに言う言葉です。',
+ ['morning は「朝」です。','朝のあいさつ、「おはよう」です。'],'Good morning.');
+eq('enaisatsu',2,'basic','orei','「Thank you.」の意味を、日本語で答えましょう。','ありがとう',['ありがとうございます','有難う'],
+ 'お礼を言うときの言葉です。','ひらがな5文字です。',
+ ['何かをしてもらったときに使います。','意味は「ありがとう」です。'],'Thank you.');
+eq('enaisatsu',3,'basic','hajimete','「Nice to meet you.」の意味を、日本語で答えましょう。','はじめまして',['初めまして'],
+ 'はじめて会った人に使います。','ひらがな6文字です。',
+ ['meet は「会う」です。','はじめて会ったときの言葉、「はじめまして」です。'],'Nice to meet you.');
+eq('enaisatsu',4,'basic','ayamaru','「I am sorry.」の意味を、日本語で答えましょう。','ごめんなさい',['ごめん','すみませんでした'],
+ 'あやまるときの言葉です。','ひらがな6文字です。',
+ ['悪いことをしたときに使います。','意味は「ごめんなさい」です。'],'I am sorry.');
+eq('enaisatsu',5,'standard','genki','「How are you?」の意味を、日本語で答えましょう。','げんきですか',['元気ですか','お元気ですか'],
+ '相手の様子をたずねる言い方です。','会ったときによく使います。',
+ ['相手の調子をたずねています。','意味は「元気ですか」です。'],'How are you?');
+eq('enaisatsu',6,'standard','tazuneru','「What is your name?」は、相手の何をたずねていますか。一言で答えましょう。','なまえ',['名前'],
+ 'name の意味を考えます。','呼ぶときに使うものです。',
+ ['name は、人を呼ぶときに使うことばを表します。','相手の名前をたずねています。'],'What is your name?');
+eq('enaisatsu',7,'standard','tazuneru2','「How much is it?」は、何をたずねていますか。一言で答えましょう。','ねだん',['値段','いくらか','金額'],
+ '買い物の場面で使います。','お金に関することです。',
+ ['買い物でよく使う言い方です。','ねだんをたずねています。'],'How much is it?');
+eq('enaisatsu',8,'standard','tazuneru3','「What time is it?」は、何をたずねていますか。一言で答えましょう。','じこく',['時刻','時間','何時か'],
+ 'time の意味を考えます。','時計を見て答えるものです。',
+ ['time は「時」です。','いま何時かをたずねています。'],'What time is it?');
+eq('enaisatsu',9,'challenge','jikan','「Good afternoon.」は、1日のうちいつ使うあいさつですか。「昼」か「夜」で答えましょう。','ひる',['昼','昼間'],
+ 'afternoon は「午後」です。','朝でも夜でもありません。',
+ ['afternoon は「午後」を表します。','昼に使うあいさつです。'],'Good afternoon.');
+eq('enaisatsu',10,'challenge','teinei','人に何かをたのむとき、英語でつけるとていねいになる言葉を、かたかなで答えましょう。','プリーズ',['ぷりーず'],
+ '「〜してください」にあたる言葉です。','かたかな4文字です。',
+ ['たのむ言葉のあとにつけ足します。','「プリーズ」をつけるとていねいになります。'],'please');
+eq('enaisatsu','1b','basic','asa','「Good night.」の意味を、日本語で答えましょう。','おやすみ',['おやすみなさい','お休み'],
+ 'ねる前に使うあいさつです。','ひらがな4文字です。',
+ ['night は「夜」です。','ねる前のあいさつ、「おやすみ」です。'],'Good night.');
+eq('enaisatsu','2b','basic','orei','「You are welcome.」の意味を、日本語で答えましょう。','どういたしまして',['どう致しまして'],
+ 'お礼を言われたときに返す言葉です。','ひらがな8文字です。',
+ ['Thank you. と言われたときに返します。','意味は「どういたしまして」です。'],'You are welcome.');
+eq('enaisatsu','3b','basic','hajimete','「See you.」の意味を、日本語で答えましょう。','またね',['じゃあね','また会おう'],
+ '別れるときに使います。','ひらがな3文字です。',
+ ['see は「会う」です。','また会おう、という意味の「またね」です。'],'See you.');
+eq('enaisatsu','4b','basic','ayamaru','「Excuse me.」の意味を、日本語で答えましょう。','すみません',['失礼します','ちょっとすみません'],
+ '人に話しかけるときにも使います。','ひらがな5文字です。',
+ ['前を通るときや声をかけるときに使います。','意味は「すみません」です。'],'Excuse me.');
+eq('enaisatsu','5b','standard','genki','「I am fine.」の意味を、日本語で答えましょう。','げんきです',['元気です'],
+ 'How are you? に対する答えです。','ひらがな5文字です。',
+ ['fine は「よい状態」を表します。','意味は「元気です」です。'],'I am fine.');
+eq('enaisatsu','6b','standard','tazuneru','「How old are you?」は、相手の何をたずねていますか。一言で答えましょう。','ねんれい',['年齢','年','とし'],
+ 'old の意味を考えます。','生まれてから何年たったかです。',
+ ['old は「年をとっている」を表します。','相手の年齢をたずねています。'],'How old are you?');
+eq('enaisatsu','7b','standard','tazuneru2','「Where is it?」は、何をたずねていますか。一言で答えましょう。','ばしょ',['場所','どこか'],
+ 'where の意味を考えます。','どこにあるかです。',
+ ['where は「どこ」を表します。','場所をたずねています。'],'Where is it?');
+eq('enaisatsu','8b','standard','tazuneru3','「How many?」は、何をたずねていますか。一言で答えましょう。','かず',['数','いくつか','個数'],
+ 'many の意味を考えます。','いくつあるかです。',
+ ['many は「たくさん」を表します。','いくつあるか、数をたずねています。'],'How many?');
+eq('enaisatsu','9b','challenge','jikan','「Good evening.」は、1日のうちいつ使うあいさつですか。「夕方から夜」か「朝」で答えましょう。','ゆうがたからよる',['夕方から夜'],
+ 'evening は、日がしずむころを表します。','朝ではありません。',
+ ['evening は、日がしずんだあとの時間を表します。','だから夕方から夜に使うあいさつです。'],'Good evening.');
+eq('enaisatsu','10b','challenge','teinei','「Please.」をつけると、言い方はどうなりますか。「ていねい」か「らんぼう」で答えましょう。','ていねい',['丁寧','ていねいになる'],
+ 'たのむときに使う言葉です。','相手への気づかいを表します。',
+ ['つけないと、命令のように聞こえることがあります。','つけるとていねいになります。'],'please');
+
+eu('engojun','en-kotoba','英語のならび方','日本語と英語で、ことばの順番がちがう','文の形',
+ ['ことばをならべる順番を語順といいます。日本語と英語では語順がちがいます。',
+  '日本語は「だれが→何を→どうする」。英語は「だれが→どうする→何を」です。',
+  '「わたしは りんごが すきです。」は、英語では I like apples. となり、「すきです（like）」が先に出てきます。',
+  '英語の文の終わりにはピリオド「.」、たずねる文にはクエスチョンマーク「?」をつけます。',
+  '打ち消すときは not を入れます。I do not like dogs. で「犬がすきではありません」になります。'],
+ '「I like apples.」で、「すきです」にあたる like は、文のどこにきますか。',
+ ['英語は「だれが→どうする→何を」の順です。','I のすぐあと、はじめの次にきます。'],
+ 'つづりを書く問題は出しません。順番のちがいに気づくことを目指します。');
+eq('engojun',1,'basic','ichi','「I like apples.」で、「すきです」にあたる like は文のどこにきますか。「はじめの次」か「終わり」で答えましょう。','はじめのつぎ',['はじめの次','最初の次'],
+ '英語は「だれが→どうする→何を」の順です。','I のすぐあとを見ます。',
+ ['英語では、動きを表す言葉が早く出てきます。','I のすぐあと、はじめの次にきます。'],'I like apples.');
+eq('engojun',2,'basic','imi','「I like apples.」の「I」は、日本語でどういう意味ですか。','わたし',['私','ぼく','自分'],
+ '話している人自身をさします。','ひらがな3文字です。',
+ ['I は話し手自身を表します。','意味は「わたし」です。'],'I');
+eq('engojun',3,'basic','imi2','「I like apples.」の「apples」は、日本語でどういう意味ですか。','りんご',['林檎','りんごたち'],
+ '食べ物を表す言葉です。','赤くて丸い果物です。',
+ ['apple は果物を表します。','意味は「りんご」です。'],'apples');
+eq('engojun',4,'basic','nihongo','日本語で「どうする」より先にくるのは、「何を」と「だれが」のどちらですか。','なにを',['何を'],
+ '「わたしは りんごが すきです。」でならべてみます。','「すきです」の前にあるものです。',
+ ['「わたしは／りんごが／すきです」の順です。','「どうする」の前にくるのは「何を」です。'],'');
+eq('engojun',5,'standard','imi3','「I play soccer.」の「play」は、日本語でどういう意味ですか。','する',['やる','プレーする'],
+ 'スポーツといっしょに使う言葉です。','ひらがな2文字です。',
+ ['play はスポーツなどを行うことを表します。','意味は「する」です。'],'I play soccer.');
+eq('engojun',6,'standard','kigou','英語で、たずねる文の終わりにつける記号を何といいますか。かたかなで答えましょう。','クエスチョンマーク',['はてなマーク','疑問符'],
+ '「?」の名前です。','かたかな8文字です。',
+ ['Do you like dogs? の終わりについています。','この記号をクエスチョンマークといいます。'],'Do you like dogs?');
+eq('engojun',7,'standard','uchikesu','「I do not like dogs.」の「not」は、どんなはたらきをしますか。「打ち消す」か「強める」で答えましょう。','うちけす',['打ち消す','否定する'],
+ '意味が反対になります。','「すきです」が「すきではない」になります。',
+ ['not が入ると、意味が反対になります。','打ち消すはたらきです。'],'I do not like dogs.');
+eq('engojun',8,'standard','hayai','「読みます」にあたる言葉が先に出てくるのは、日本語と英語のどちらですか。','えいご',['英語'],
+ 'それぞれの語順を思い出します。','「だれが→どうする→何を」の順のほうです。',
+ ['日本語は「どうする」が最後にきます。','先に出てくるのは英語です。'],'I read books.');
+eq('engojun',9,'challenge','kiku','英語を聞くとき、文のはじめのほうで分かるのは「だれが」と「何を」のどちらですか。','だれが',['誰が','主語'],
+ '語順の順番どおりに聞こえてきます。','いちばんはじめにくるものです。',
+ ['英語の文は、動きをする人から始まります。','だから、はじめのほうで「だれが」が分かります。'],'');
+eq('engojun',10,'challenge','namae','ことばをならべる順番のことを、何といいますか。','ごじゅん',['語順'],
+ 'この単元でずっと出てきた言葉です。','「語」の字が入る3文字の言葉です。',
+ ['日本語と英語でちがうのは、ならべ方でした。','これを語順といいます。'],'');
+eq('engojun','1b','basic','ichi','日本語の「わたしは パンを 食べます。」で、「食べます」は文のどこにきますか。「終わり」か「はじめ」で答えましょう。','おわり',['終わり','最後'],
+ '日本語は「だれが→何を→どうする」の順です。','文のいちばんあとを見ます。',
+ ['「わたしは／パンを／食べます」の順です。','「食べます」は終わりにきます。'],'');
+eq('engojun','2b','basic','imi','「I like apples.」の「like」は、日本語でどういう意味ですか。','すき',['好き','好む'],
+ '気持ちを表す言葉です。','ひらがな2文字です。',
+ ['like は気持ちを表します。','意味は「すき」です。'],'like');
+eq('engojun','3b','basic','imi2','「I like dogs.」の「dogs」は、日本語でどういう意味ですか。','いぬ',['犬','イヌ'],
+ '動物を表す言葉です。','「ワン」と鳴く動物です。',
+ ['dog は動物を表します。','意味は「いぬ」です。'],'dogs');
+eq('engojun','4b','basic','nihongo','英語で「だれが」の次にくるのは、「どうする」と「何を」のどちらですか。','どうする',['どうする','動き'],
+ '「I like apples.」でならべてみます。','I の次にあるものです。',
+ ['「I／like／apples」の順です。','「だれが」の次は「どうする」です。'],'I like apples.');
+eq('engojun','5b','standard','imi3','「I eat bread.」の「eat」は、日本語でどういう意味ですか。','たべる',['食べる'],
+ '口に入れることを表します。','ひらがな3文字です。',
+ ['eat は口に入れることを表します。','意味は「たべる」です。'],'I eat bread.');
+eq('engojun','6b','standard','kigou','英語で、文の終わりにつける丸い点の記号を何といいますか。かたかなで答えましょう。','ピリオド',['ぴりおど','終止符'],
+ '「.」の名前です。','かたかな4文字です。',
+ ['I like apples. の終わりについています。','この記号をピリオドといいます。'],'I like apples.');
+eq('engojun','7b','standard','uchikesu','「I can swim.」の「can」は、どんなはたらきをしますか。「できることを表す」か「打ち消す」で答えましょう。','できることをあらわす',['できることを表す','可能を表す'],
+ '泳げる、という意味になります。','反対の意味にするわけではありません。',
+ ['can が入ると「〜できる」という意味になります。','できることを表すはたらきです。'],'I can swim.');
+eq('engojun','8b','standard','hayai','「食べます」にあたる言葉があとに出てくるのは、日本語と英語のどちらですか。','にほんご',['日本語'],
+ 'それぞれの語順を思い出します。','「どうする」が最後にくるほうです。',
+ ['英語は「どうする」が早く出てきます。','あとに出てくるのは日本語です。'],'');
+eq('engojun','9b','challenge','kiku','英語では、「どうする」は文のどのあたりで分かりますか。「はじめのほう」か「終わりのほう」で答えましょう。','はじめのほう',['はじめの方','前のほう','最初のほう'],
+ '「だれが」のすぐあとにきます。','最後まで待たなくても分かります。',
+ ['英語は「だれが→どうする」と続きます。','はじめのほうで分かります。'],'');
+eq('engojun','10b','challenge','namae','日本語と英語で、ことばをならべる順番は同じですか、ちがいますか。','ちがう',['ちがいます','異なる','違う'],
+ 'この単元で見てきたとおりです。','「わたしは りんごが すきです」と I like apples. をくらべます。',
+ ['日本語は「だれが→何を→どうする」、英語は「だれが→どうする→何を」です。','順番はちがいます。'],'');
+
 for(const q of questions){
- if(!/^(s5|c5|k5|h5)-.*b$/.test(q.id))continue;
+ if(!/^(s5|c5|k5|h5|e5)-.*b$/.test(q.id))continue;
  const partner=q.id.replace(/b$/,'');
  if(questions.some(x=>x.id===partner))q.pairOf=partner;
 }
@@ -3886,6 +4260,28 @@ missions.push(
   intro:'あしたの夕食を自分で考える。1食分としてそろっているか見ていこう。',
   scenes:['紙に料理名を書き出した。まず、中心になるものから。','書けた。次は、そえるおかずの番だ。','あと一つ。足りないものがないか見わたそう。'],
   done:'4つそろった夕食ができあがった。家の人に見せてみよう。'});
+/* 英語のミッション（2026-11-10）。場面の文は使い回さない。 */
+missions.push(
+ {id:'moji',unit:'alphabet',title:'かんばんの文字を読む',count:3,
+  intro:'駅のかんばんに、見なれない文字がならんでいる。ひとつずつ読んでみよう。',
+  scenes:['かんばんを見上げた。まず、この文字の名前からだ。','読めた。次は、形がにている文字を見分けよう。','あと一つ。ならびの順を思い出そう。'],
+  done:'かんばんが読めた。知らない文字の列が、言葉に変わった。'},
+ {id:'kaimono',unit:'enword',title:'市場で品物を聞く',count:3,
+  intro:'外国の市場に立っている。ならんでいる品物の名前を聞き取ろう。',
+  scenes:['店先に立った。まず、目に入った色から。','分かった。次は、かごの中の生き物だ。','あと一つ。いくつあるかを数えよう。'],
+  done:'品物の名前が分かった。聞き取れると、ぐっと近くなる。'},
+ {id:'jikanwari',unit:'enschool',title:'時間わりを読みとく',count:3,
+  intro:'外国の学校の時間わりをもらった。いつ何があるのか読みとこう。',
+  scenes:['表をひろげた。まず、たての列の見出しからだ。','読めた。次は、何の時間かを見よう。','あと一つ。いつの表なのかを確かめよう。'],
+  done:'時間わりが読めた。同じ学校生活が、ちがう言葉で書かれていた。'},
+ {id:'deai',unit:'enaisatsu',title:'はじめの一言',count:3,
+  intro:'転校生が来た。話しかける前に、言い方を整えておこう。',
+  scenes:['朝の教室に入った。まず、この時間に合う言い方から。','言えた。次は、はじめて会う人への言葉だ。','あと一つ。何かしてもらったときの返し方を。'],
+  done:'一言ずつ交わせた。短い言葉でも、気持ちは届く。'},
+ {id:'narabe',unit:'engojun',title:'ことばをならべかえる',count:3,
+  intro:'いつも使っている文を、英語の順にならべかえてみる。何から動かそう。',
+  scenes:['カードに言葉を書き出した。まず、文の中心を決めよう。','決まった。次に動かすのは、動きを表すカードだ。','あと一つ。文の最後につける記号を選ぼう。'],
+  done:'ならびかえが終わった。順番がちがうだけで、同じことが言えた。'});
 for(const m of missions){const u=units.find(u=>u.id===m.unit);m.subject=u?u.subject:'math';}
 return {groups,subjects,units,questions,companions,outfits,missions,variants,makeVariant,version:2,source:'https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf'};
 })();
@@ -4370,7 +4766,7 @@ const rubyTable={
  '時刻':'じこく','東経':'とうけい','西経':'せいけい','畜産':'ちくさん','乳牛':'にゅうぎゅう',
  '循環':'じゅんかん','雑誌':'ざっし','回収':'かいしゅう','簡単':'かんたん','宿泊':'しゅくはく',
  '汁物':'しるもの','みそ汁':'みそしる','汁':'しる','寝坊':'ねぼう','片仮名':'かたかな',
- '穀物':'こくもつ','煮立て':'にた','煮':'に','浸水':'しんすい','玄米':'げんまい','寝':'ね','片':'かた',
+ '穀物':'こくもつ','煮立て':'にた','煮':'に','浸水':'しんすい','玄米':'げんまい','寝':'ね','片':'かた','晩':'ばん',
  '名詞':'めいし','山陰':'さんいん','法律':'ほうりつ','語尾':'ごび','収':'おさ','簡':'かん',
  '酪農':'らくのう','韓国':'かんこく','台湾':'たいわん','竹島':'たけしま','暖':'あたた'};
 const rubyKeys=Object.keys(rubyTable).sort((a,b)=>b.length-a.length);
@@ -4448,13 +4844,16 @@ function speak(text,lang,key){
   speechSynthesis.cancel();clearSayLabels();
   /* 端末の中の声は抑揚が平坦なので、文の切れ目で分けて読ませ、間をつくる。
      通信を起こさない範囲でできる工夫。社長の判断で、声は端末内のものを使う（A案）。 */
-  const parts=forSpeech(text).split(/(?<=[。？！])/).map(x=>x.trim()).filter(Boolean);
-  const chunks=parts.length?parts:[forSpeech(text)];
+  /* 英語は記号を日本語に直さない（「.」を「てん」と読ませない）。切れ目も英語の記号で見る。 */
+  const en=String(lang||'').slice(0,2).toLowerCase()==='en';
+  const src=en?text:forSpeech(text);
+  const parts=src.split(en?/(?<=[.?!])\s+/:/(?<=[。？！])/).map(x=>x.trim()).filter(Boolean);
+  const chunks=parts.length?parts:[src];
   let started=false,finished=0;
   const done=()=>{sayingKey=null;setSayLabel(key,false);};
   chunks.forEach((chunk,i)=>{
    const u=new SpeechSynthesisUtterance(chunk);
-   u.lang=lang||'ja-JP';u.rate=0.95;u.pitch=1;
+   u.lang=lang||'ja-JP';u.rate=en?0.8:0.95;u.pitch=1;
    if(voice)u.voice=voice;
    u.onstart=()=>{if(!started){started=true;sayingKey=key;setSayLabel(key,true);}};
    u.onend=()=>{started=true;finished++;if(finished>=chunks.length)done();};
@@ -4574,6 +4973,11 @@ function visual(key){if(!key)return '';const wrap=(svg,caption)=>`<figure class=
     Drawn with the same helpers, palette and alt-text rules as the mathematics diagrams above.
     All are schematic: they show the relationship the unit is about, not a true-to-life picture. */
  flower:()=>wrap(svg(`<path d="M200 150v45"/><path d="M200 150c-18 0-30-14-30-28s12-24 30-24 30 10 30 24-12 28-30 28z"/><circle cx="200" cy="120" r="7"/><path d="M176 112v-18M188 106v-22M212 106v-22M224 112v-18"/><circle cx="176" cy="92" r="4"/><circle cx="188" cy="82" r="4"/><circle cx="212" cy="82" r="4"/><circle cx="224" cy="92" r="4"/><path d="M170 152h60"/><text x="250" y="96" font-size="13" fill="#44775a" stroke="none">おしべ</text><text x="250" y="124" font-size="13" fill="#44775a" stroke="none">めしべ</text><text x="250" y="156" font-size="13" fill="#44775a" stroke="none">がく</text><text x="96" y="124" font-size="13" fill="#44775a" stroke="none">花びら</text>`,'花のつくりの図。中心に1本のめしべ、そのまわりにおしべ、外側に花びらとがくがある'),'中心にめしべ、まわりにおしべ。おしべの先で花粉ができます。'),
+ alphabet:()=>wrap('<table aria-label="にた形の小文字と、文字の名前の表。bは右にまる、dは左にまる。pは右にまる、qは左にまる。母音はaiueoの5文字。"><caption>見分け方と、文字の名前</caption><thead><tr><th scope="col">文字</th><th scope="col">見分け方・名前</th></tr></thead><tbody><tr><td>b / d</td><td>bは たてぼうの右にまる、dは 左にまる</td></tr><tr><td>p / q</td><td>pは たてぼうの右にまる、qは 左にまる</td></tr><tr><td>C・H・W・R</td><td>シー・エイチ・ダブリュー・アール</td></tr><tr><td>母音</td><td>a・i・u・e・o の5文字</td></tr></tbody></table>','形がにている文字は、まるの位置で見分けます。'),
+ enword:()=>wrap('<table aria-label="身のまわりの英語の言葉の表。色は青黄むらさき茶色。動物はうさぎ馬ぞうさる。食べ物はパンたまごいちご。数は7と12と20と30。"><caption>なかまで覚える</caption><thead><tr><th scope="col">なかま</th><th scope="col">ことば</th></tr></thead><tbody><tr><td>色</td><td>blue 青 / yellow 黄色 / purple むらさき / brown 茶色</td></tr><tr><td>動物</td><td>rabbit うさぎ / horse 馬 / elephant ぞう / monkey さる</td></tr><tr><td>食べ物</td><td>bread パン / egg たまご / strawberry いちご</td></tr><tr><td>数</td><td>seven 7 / twelve 12 / twenty 20 / thirty 30</td></tr></tbody></table>','なかまごとに覚えると、思い出しやすくなります。'),
+ enschool:()=>wrap('<table aria-label="曜日と月と教科の表。Mondayは月曜日、Wednesdayは水曜日、Fridayは金曜日、Sundayは日曜日。Januaryは1月、Mayは5月、Augustは8月、Decemberは12月。mathは算数、scienceは理科。"><caption>曜日・月・教科</caption><thead><tr><th scope="col">なかま</th><th scope="col">ことば</th></tr></thead><tbody><tr><td>曜日</td><td>Monday 月 / Wednesday 水 / Friday 金 / Sunday 日</td></tr><tr><td>月</td><td>January 1月 / May 5月 / August 8月 / December 12月</td></tr><tr><td>教科</td><td>math 算数 / science 理科 / music 音楽 / P.E. 体育</td></tr><tr><td>食事</td><td>breakfast 朝ごはん / dinner 晩ごはん</td></tr></tbody></table>','曜日や月の名前は、はじめの文字が大文字です。'),
+ enaisatsu:()=>wrap('<table aria-label="時間帯とあいさつの表。朝はGood morning、昼はGood afternoon、夕方から夜はGood evening、ねる前はGood night。"><caption>時間で変わるあいさつ</caption><thead><tr><th scope="col">いつ</th><th scope="col">あいさつ</th><th scope="col">意味</th></tr></thead><tbody><tr><td>朝</td><td>Good morning.</td><td>おはよう</td></tr><tr><td>昼</td><td>Good afternoon.</td><td>こんにちは</td></tr><tr><td>夕方から夜</td><td>Good evening.</td><td>こんばんは</td></tr><tr><td>ねる前</td><td>Good night.</td><td>おやすみ</td></tr></tbody></table>','同じあいさつでも、時間で言い方が変わります。'),
+ engojun:()=>wrap('<table aria-label="日本語と英語の語順の表。日本語はだれが、何を、どうするの順。英語はだれが、どうする、何をの順。"><caption>ことばをならべる順番</caption><thead><tr><th scope="col"></th><th scope="col">1番目</th><th scope="col">2番目</th><th scope="col">3番目</th></tr></thead><tbody><tr><th scope="row">日本語</th><td>だれが</td><td>何を</td><td>どうする</td></tr><tr><th scope="row">英語</th><td>だれが</td><td>どうする</td><td>何を</td></tr><tr><th scope="row">れい</th><td>I わたしは</td><td>like すきです</td><td>apples りんごが</td></tr></tbody></table>','2番目と3番目が入れかわります。'),
  hanashi:()=>wrap('<table aria-label="話しことばと書きことばの表。話しことばは相手が目の前にいて声や表情で伝わりその場で消える。書きことばは相手がいない場所で読まれ、残るので読み返せる。"><caption>話しことばと書きことば</caption><thead><tr><th scope="col"></th><th scope="col">話しことば</th><th scope="col">書きことば</th></tr></thead><tbody><tr><th scope="row">相手</th><td>目の前にいる</td><td>その場にいない</td></tr><tr><th scope="row">ほかに伝わるもの</th><td>声の調子・表情・身ぶり</td><td>句読点・段落</td></tr><tr><th scope="row">あとで</th><td>消えていく</td><td>読み返せる</td></tr><tr><th scope="row">まちがえたら</th><td>その場で言い直す</td><td>書き直す</td></tr></tbody></table>','どちらがよいのではなく、伝え方がちがうだけです。'),
  genin:()=>wrap('<table aria-label="原因と結果の表。だからとそのためは前が原因であとが結果。なぜならとのでとからはあとに原因がくる。そしてとそのあとは順番をならべるだけ。"><caption>つなぎ言葉と、原因・結果の並び</caption><thead><tr><th scope="col">つなぎ言葉</th><th scope="col">前</th><th scope="col">あと</th></tr></thead><tbody><tr><td>だから・そのため</td><td>原因</td><td>結果</td></tr><tr><td>なぜなら・〜ので</td><td>結果</td><td>原因</td></tr><tr><td>そして・そのあと</td><td colspan="2">ならべているだけ（原因と結果ではない）</td></tr></tbody></table>','つなぎ言葉だけで決めず、本当にそのせいかを考えます。'),
  gohan:()=>wrap('<table aria-label="ごはんとみそしるのきまりの表。米はやさしくとぎ水にひたしてからたく。たいたあとはむらす。だしはかつおぶしやこんぶからとる。みそは火を止めてからとかす。実は火の通りにくいものから入れる。"><caption>おぼえておくきまり</caption><thead><tr><th scope="col">場面</th><th scope="col">きまり</th></tr></thead><tbody><tr><td>米をとぐ</td><td>強くこすらず、やさしく</td></tr><tr><td>たく前</td><td>水にひたす（浸水）</td></tr><tr><td>たいたあと</td><td>少しおく（むらし）</td></tr><tr><td>みそを入れる</td><td>火を止めてからとかす</td></tr><tr><td>実を入れる</td><td>火の通りにくいものから</td></tr></tbody></table>','火や刃物を使うところは、大人といっしょに。'),
@@ -4820,7 +5224,7 @@ function quizPage(){const s=M.state.active;if(!s)return home();const q=M.getQ(s.
    return `<span class="qstep ${cls}">${i+1}</span>`;}).join('')}</div></div></div>${missionBanner()}`
  +
   `<section class="card quiz-card"><div class="between"><span class="level">${rb(levelNames[q.level])}${q.variant?' · 数字をかえた類題':''}</span>${s.mode!=='test'?button('ここで終える','end-early','','text-button small end-here'):''}</div>`
- +`<h1 class="question-text">${rb(e(q.text))}</h1>${q.noSpeak?'':(sayables.q={text:q.text,lang:'ja-JP'})&&sayButton('q','もんだいを よむ')}${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
+ +`<h1 class="question-text">${rb(e(q.text))}</h1>${q.noSpeak?'':(sayables.q={text:q.text,lang:'ja-JP'})&&sayButton('q','もんだいを よむ')}${q.en?(sayables.en={text:q.en,lang:'en-US'})&&sayButton('en','えいごを きく'):''}${visual(q.visual)}${retrying?'<p class="retry-note">解き方を読んだあとの、もう一度の挑戦です。この回答は「解説のあとの正解」として記録します。</p>':''}${answerArea(q,s,locked,feedback,r)}<p id="answer-error" class="error" role="alert"></p>${feedback?`<div id="feedback" class="feedback ${r.ok||again?.ok?'':'wrong'}" role="status">${feedbackBuddy(r,again,kind,s)}<h2>${headline}</h2><p class="answer">答え：${e(q.answer)}${q.suffix?` ${e(q.suffix)}`:''}</p><ol class="steps">${q.steps.map(t=>`<li>${rb(e(t))}</li>`).join('')}</ol>${again?`<p class="muted small">1回目の答え：${e(r.answer)} / もう一度の答え：${e(again.answer)}</p>`:''}</div><div class="feedback-actions row">${!r.ok&&!again?button('もう一度、自分で解く','retry','','btn secondary small'):''}${canVariant?button('数字をかえた類題を解く','variant','','btn secondary small'):''}${basic?button('基礎の1問にもどる','basic-step','','btn secondary small'):''}${button('例題を見直す','lesson',q.unit,'text-button small')}</div>`:''}${!feedback&&s.mode!=='test'?`${level<3?`<button class="text-button" data-action="hint" aria-expanded="${level>0}" aria-controls="hint-box">${hintLabel}</button>`:''}${hintBlock(q,level)}`:''}`
  
  +`<details class="scratch"><summary>考え方をメモする（採点の対象外）</summary><label class="visually-hidden" for="note">考え方のメモ</label><textarea id="note" maxlength="2000" placeholder="式や、考えたことを書いてみよう。" ${locked?'disabled':''}>${e(s.note)}</textarea></details><div class="quiz-actions row">${button(feedback?(s.cursor+1===s.ids.length?'結果を見る':'次の問題へ →'):(s.mode==='test'?'回答して次へ →':retrying?'もう一度、答えを確かめる':'答えを確かめる'),feedback?'next':'submit')}</div></section>`
  +`<p class="muted small">${s.mode==='test'?'答えと解説は最後にまとめて表示します。テストを終えると回答が記録されます。':'ヒントや解き方を使った問題は、あとで類題でもう一度確かめます。'}</p></div>`
