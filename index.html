@@ -200,7 +200,7 @@ body[data-subject="english"]{--accent:#3a6b5c;--accent-soft:#e2efea;--accent-ink
    画面からはみ出していたため、マス目を minmax(0,1fr) にし、しるしは折り返すようにした。
    （2026-11-10。360px幅で発生。今回足した単元だけの問題ではなく、以前からあった。） */
 .unit-card h3,.unit-card p,.dex-unit h3{overflow-wrap:anywhere;min-width:0}
-</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語・家庭科・英語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数18単元・理科8単元・社会9単元・国語12単元・家庭科10単元・英語5単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
+</style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語・家庭科・英語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数19単元・理科8単元・社会9単元・国語12単元・家庭科10単元・英語5単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'かずと計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'かわり方とくらべ方',color:'#e9effc',icon:'↗'},{id:'data',name:'表とグラフ',color:'#f3eafb',icon:'▥'}];
 const units=[];const questions=[];
@@ -212,7 +212,7 @@ q('place',2,'basic','0.001を270個集めた数は？','0.27',['0.001を100個�
 q('place',3,'standard','48.6を1/100にした数は？','0.486',['数字の位を右へ2けた移します。','48.6 ÷ 100 = 0.486。'],'100で割ります。',null,'',null,{op:'div',a:'48.6',b:'100'});
 q('place',4,'standard','7.08の「8」は、どの位の数字？','1/100の位',['小数点の右は、1/10の位、1/100の位と続きます。','7.08の8は、小数点から右へ2けた目にあります。'],'小数点から数えよう。',['1/10の位','1/100の位','1/1000の位']);
 q('place',5,'challenge','ある数を100倍すると52.3になりました。もとの数は？','0.523',['もとの数に戻すには、100で割ります。','52.3 ÷ 100 = 0.523。'],'100倍の逆を考えよう。',null,'',null,{op:'div',a:'52.3',b:'100'});
-unit('multiply','number','小数のかけ算','計算の意味・筆算・計算の工夫','A(3)(6)',['小数どうしのかけ算は、整数のかけ算に置きかえて考えられます。','かける数が1より小さいと、積はかけられる数より小さくなります（正の数の場合）。'],'2.4 × 1.3は？',['24 × 13 = 312と計算します。','2.4と1.3をそれぞれ10倍したので、積を100で割ります。','312 ÷ 100 = 3.12。'],'先におよその大きさを考え、小数点の位置を確かめましょう。',null);
+unit('multiply','number','小数のかけ算','計算の意味・筆算・計算の工夫','A(3)',['小数どうしのかけ算は、整数のかけ算に置きかえて考えられます。','かける数が1より小さいと、積はかけられる数より小さくなります（正の数の場合）。'],'2.4 × 1.3は？',['24 × 13 = 312と計算します。','2.4と1.3をそれぞれ10倍したので、積を100で割ります。','312 ÷ 100 = 3.12。'],'先におよその大きさを考え、小数点の位置を確かめましょう。',null);
 q('multiply',1,'basic','1.2 × 0.3は？','0.36',['12 × 3 = 36。','両方を10倍したので、36 ÷ 100 = 0.36。'],'小数点より右のけた数は、合わせて2けた。',null,'',null,{op:'mul',a:'1.2',b:'0.3'});
 q('multiply',2,'basic','6 × 0.5の答えは、6と比べてどうなる？','小さくなる',['0.5は1より小さい数です。','6の半分なので、答えは3。6より小さくなります。'],'0.5は半分という大きさ。',['大きくなる','同じになる','小さくなる']);
 q('multiply',3,'standard','2.4 × 1.3は？','3.12',['24 × 13 = 312。','積を100で割り、3.12になります。'],'24 × 13を利用します。',null,'',null,{op:'mul',a:'2.4',b:'1.3'});
@@ -318,6 +318,23 @@ q('percent',4,'standard','800円の品物を20％引きで買います。支払�
 q('percent',5,'challenge','ある数の25％が60です。もとの数はいくつ？','240',['25％ = 0.25。もとの数 × 0.25 = 60です。','もとの数 = 60 ÷ 0.25 = 240。'],'比べられる量を割合で割ります。',null,'',null,{op:'div',a:'60',b:'0.25'});
 q('percent',6,'standard','定価1200円の品物が15％引きです。いくら安くなる？','180',['安くなる金額 = 定価 × 割引の割合。','1200 × 0.15 = 180円。'],'「いくら安くなるか」を聞かれています。',null,'円',null,{op:'mul',a:'1200',b:'0.15'});
 q('percent',7,'challenge','去年200人だった人数が、今年は250人になりました。去年をもとにすると何％？','125',['もとにする量は去年の200人です。','250 ÷ 200 = 1.25 = 125％。'],'もとにするのは去年の人数です。',null,'％',null,{op:'percent',a:'250',b:'200'});
+/* ---------- 算数「式に表す」A(6) 2026-11-10 追加 ----------
+   指導要領 第5学年 A(6)「数量の関係を表す式」に当たる単元がなく、□を使う問題が
+   全106問中1問（m5-fraction-4）だけだった。抜けではなく薄さの手当て。 */
+unit('formula','number','式に表す','言葉の式・□や文字を使った式','A(6)',
+ ['数量の関係は、言葉の式や、□や文字を使った式で表せます。',
+  '分からない数を□や x とおいて式に書くと、何を求めればよいかがはっきりします。',
+  '公式も言葉の式です。長方形の面積 = たて × 横。代金 = 1個のねだん × 個数。',
+  '□に数をあてはめて計算すると、式が合っているか確かめられます。'],
+ '1本80円のえんぴつを□本買うときの代金は 80 × □ です。□ = 6 のとき代金は何円？',
+ ['式の□に6をあてはめます。','80 × 6 = 480円です。'],
+ '式は、答えを出すためだけのものではありません。何と何がどう関係しているかを表しています。',null);
+q('formula',1,'basic','1本80円のえんぴつを□本買うときの代金は 80 × □ 円です。□ = 6 のとき、代金は何円？','480',['式の□に6をあてはめます。','80 × 6 = 480円。'],'□に6を入れて計算します。',null,'円',null,{op:'mul',a:'80',b:'6'});
+q('formula',2,'basic','正方形のまわりの長さは、1辺 × 4 で求められます。1辺が7cmのとき、まわりの長さは何cm？','28',['言葉の式にあてはめます。','7 × 4 = 28cm。'],'1辺 × 4 を計算します。',null,'cm',null,{op:'mul',a:'7',b:'4'});
+q('formula',3,'standard','代金 = 1個のねだん × 個数 です。代金が600円、個数が5個のとき、1個のねだんは何円？','120',['1個のねだん = 代金 ÷ 個数 です。','600 ÷ 5 = 120円。'],'かけ算の式を、わり算に直して考えます。',null,'円',null,{op:'div',a:'600',b:'5'});
+q('formula',4,'standard','ノート1冊のねだんを x 円とします。3冊買ったときの代金を表す式はどれ？','x × 3',['1冊ぶんを、冊数だけ足します。','x + x + x なので、x × 3 です。'],'代金 = 1冊のねだん × 冊数 です。',['x × 3','x + 3','x − 3','x ÷ 3','3 ÷ x']);
+q('formula',5,'challenge','ひも□mから2.5m使うと、残りは7.5mになりました。□にあてはまる数は何？','10',['□ − 2.5 = 7.5 という式になります。','□ = 7.5 + 2.5 = 10mです。'],'使った分と残りを合わせると、もとの長さになります。',null,'m',null,{op:'add',a:'7.5',b:'2.5'});
+q('formula','4b','standard','おかし1個のねだんを a 円とします。4個買ったときの代金を表す式はどれ？','a × 4',['1個ぶんを、個数だけ足します。','a + a + a + a なので、a × 4 です。'],'代金 = 1個のねだん × 個数 です。',['a × 4','a + 4','a − 4','a ÷ 4','4 ÷ a']);
 unit('average','data','平均','ならして考える・全体量','D(2)',['平均は、いくつかの量を同じ大きさになるようにならした値です。平均 = 合計 ÷ 個数。','合計 = 平均 × 個数。0の記録も、対象の一つなら個数に含めます。'],'6個、8個、10個の平均は？',['合計は6 + 8 + 10 = 24個。','24 ÷ 3 = 8個です。'],'平均を使うときは、何の記録を何個集めたかも確かめましょう。',null);
 q('average',1,'basic','6、8、10の平均は？','8',['合計は6 + 8 + 10 = 24。','24 ÷ 3 = 8。'],'合計 ÷ 個数。',null,'',null,{op:'average',args:['6','8','10']});
 q('average',2,'basic','3日間の読書時間が20分、0分、40分。1日あたりの平均は何分？','20',['合計は60分。0分の日も1日として数えます。','60 ÷ 3 = 20分。'],'0分の日を忘れず、3日で割ります。',null,'分',null,{op:'average',args:['20','0','40']});
@@ -330,14 +347,20 @@ q('graphs',2,'basic','下の帯グラフで、徒歩の割合は何％？','50',
 q('graphs',3,'standard','40人のクラスで、徒歩が50％、自転車が30％、バスが20％。バスの人は何人？','8',['バスの割合20％を小数にすると0.2。','40 × 0.2 = 8人。'],'全体の人数 × バスの割合。',null,'人','graphs',{op:'mul',a:'40',b:'0.2'});
 q('graphs',4,'standard','ある円グラフでAが35％、Bが25％、残り全部がCです。Cは何％？','40',['全体は100％です。','100 − 35 − 25 = 40％。'],'全部で100％になるように考えます。',null,'％',null,{op:'sub',a:'100',b:'60'});
 q('graphs',5,'challenge','A組40人の25％と、B組30人の30％。人数が多いのはどちら？','A組',['A組は40 × 0.25 = 10人。','B組は30 × 0.3 = 9人。割合はB組が大きくても、人数はA組が多いです。'],'それぞれ、実際の人数を求めよう。',['A組','B組','同じ']);
+/* 単元が19になって1単元あたりの平均の重みが下がり、帯・円グラフ（重み55）が
+   「平均より重い単元」に入ったため、このアプリの決まりどおり5問→7問にした（2026-11-10）。 */
+q('graphs',6,'standard','80人に聞いたアンケートで、サッカーが25％でした。サッカーと答えたのは何人？','20',['25％を小数にすると0.25。','80 × 0.25 = 20人。'],'全体の人数 × 割合。',null,'人',null,{op:'mul',a:'80',b:'0.25'});
+q('graphs',7,'challenge','円グラフで、ある部分が全体の4分の1をしめています。これは何％？','25',['全体を1と見ると、4分の1は0.25。','0.25 = 25％です。'],'4分の1を小数に直してから、百分率にします。',null,'％',null,{op:'percent',a:'1',b:'4'});
 /* ---- Unit weight: how much class time a unit gets, as per-mille of the school year.
    Derived from two publishers' published annual teaching plans (東京書籍 令和6年度 / 日本文教出版 平成31年):
    each publisher's hours were turned into a share of that publisher's total, the two shares averaged,
    then converted to per-mille (sums to exactly 1000). Where a publisher merges units, the group was split
    using 東京書籍's split; 速さ and 単位量あたり are split half and half because neither publisher separates them (an estimate).
+   formula (A(6)) is carved out of multiply (77 -> 57 + 20) because publishers fold 数量の関係を表す式 into
+   other units and publish no separate hours for it. **That 62/15 split is my estimate, not a published figure.**
    Used to weight which questions a 確認テスト draws, and which unit the home screen suggests next.
    This is "how much time school spends on it", NOT "how likely it is to be on a test". See 00_START_HERE.md section 11. ---- */
-const weight={place:32,multiply:77,divide:77,integer:74,fraction:42,'fraction-add':74,volume:67,congruent:50,angles:38,area:81,circle:67,solid:46,proportion:25,rate:44,speed:44,percent:68,average:39,graphs:55};
+const weight={place:32,multiply:57,formula:20,divide:77,integer:74,fraction:42,'fraction-add':74,volume:67,congruent:50,angles:38,area:81,circle:67,solid:46,proportion:25,rate:44,speed:44,percent:68,average:39,graphs:55};
 for(const u of units)u.weight=weight[u.id]||0;
 /* ---------- Subjects ----------
    A subject is a label on units and groups, not a second app: the progress, review, reward
@@ -627,6 +650,19 @@ const makers={
   return {text:`1と${n}/${b} − ${m}/${c}は？`,answer:frText(s),steps:[`1と${n}/${b} = ${b+n}/${b} = ${(b+n)*(L/b)}/${L}。${m}/${c} = ${m*(L/c)}/${L}。`,`${(b+n)*(L/b)}/${L} − ${m*(L/c)}/${L} = ${mixText(s)}。`],hint:'帯分数を仮分数に直してみよう。',think:'帯分数は仮分数に直してから、分母をそろえます。'};},
  'm5-fraction-add-5':r=>{const half=pick(r,[[1,2,'0.5'],[1,4,'0.25'],[3,4,'0.75'],[1,5,'0.2']]),c=pick(r,[3,6,7]),x=fr(half[0],half[1]),y=fr(1,c),s=frAdd(x,y),L=half[1]*c/gcdOf(half[1],c);
   return {text:`${half[2]}Lのジュースに1/${c}Lを足します。全部で何L？`,answer:frText(s),steps:[`${half[2]} = ${half[0]}/${half[1]}なので、${half[0]}/${half[1]} + 1/${c}を計算します。`,`${half[0]*(L/half[1])}/${L} + ${L/c}/${L} = ${mixText(s)}L。`],hint:'小数を分数にそろえます。',think:'小数を分数に直してから、分母をそろえて足します。',suffix:'L'};}
+ ,/* 2026-11-10 追加。式に表す A(6) と、7問に増やした帯・円グラフの類題のもと。 */
+ 'm5-formula-1':r=>{const p=int(r,2,9)*10,n=int(r,3,9);
+  return {text:`1本${p}円のえんぴつを□本買うときの代金は ${p} × □ 円です。□ = ${n} のとき、代金は何円？`,answer:String(p*n),steps:[`式の□に${n}をあてはめます。`,`${p} × ${n} = ${p*n}円。`],hint:`□に${n}を入れて計算します。`,think:'□は、まだ決まっていない数を置いておくしるしです。数を入れれば、ふつうのかけ算になります。'};}
+ ,'m5-formula-2':r=>{const a=int(r,3,19);
+  return {text:`正方形のまわりの長さは、1辺 × 4 で求められます。1辺が${a}cmのとき、まわりの長さは何cm？`,answer:String(a*4),steps:['言葉の式にあてはめます。',`${a} × 4 = ${a*4}cm。`],hint:'1辺 × 4 を計算します。',think:'正方形は4つの辺が同じ長さなので、1辺を4つ分たします。'};}
+ ,'m5-formula-3':r=>{const one=int(r,2,9)*10,n=int(r,2,9);
+  return {text:`代金 = 1個のねだん × 個数 です。代金が${one*n}円、個数が${n}個のとき、1個のねだんは何円？`,answer:String(one),steps:['1個のねだん = 代金 ÷ 個数 です。',`${one*n} ÷ ${n} = ${one}円。`],hint:'かけ算の式を、わり算に直して考えます。',think:'かけ算の式のうち、分かっていないのはどこかを見ます。'};}
+ ,'m5-formula-5':r=>{const used=int(r,2,9),rest=int(r,3,15);
+  return {text:`ひも□mから${used}m使うと、残りは${rest}mになりました。□にあてはまる数は何？`,answer:String(used+rest),steps:[`□ − ${used} = ${rest} という式になります。`,`□ = ${rest} + ${used} = ${used+rest}mです。`],hint:'使った分と残りを合わせると、もとの長さになります。',think:'ひき算の式から□を求めるには、たし算にもどして考えます。'};}
+ ,'m5-graphs-6':r=>{const total=int(r,2,10)*20,pct=pick(r,[10,20,25,50]);
+  return {text:`${total}人に聞いたアンケートで、サッカーが${pct}％でした。サッカーと答えたのは何人？`,answer:String(total*pct/100),steps:[`${pct}％を小数にすると${pct/100}。`,`${total} × ${pct/100} = ${total*pct/100}人。`],hint:'全体の人数 × 割合。',think:'百分率を小数に直してから、全体にかけます。'};}
+ ,'m5-graphs-7':r=>{const d=pick(r,[2,4,5,8,10,20,25,50]);
+  return {text:`円グラフで、ある部分が全体の${d}分の1をしめています。これは何％？`,answer:String(100/d),steps:[`全体を1と見ると、${d}分の1は${1/d}。`,`${1/d} = ${100/d}％です。`],hint:`${d}分の1を小数に直してから、百分率にします。`,think:'全体を1としたときの大きさを、100倍すると百分率になります。'};}
 };
 const variants={};for(const id of Object.keys(makers))variants[id]={gen:1};
 function makeVariant(baseId,seed,gen){
@@ -835,7 +871,7 @@ const outfits=[
  {id:'moon',name:'つきのかざり',needUnits:22},
  {id:'flame',name:'ほのおのマント',needUnits:30},
  {id:'sky',name:'そらのつばさ',needUnits:39},
- {id:'sun',name:'たいようのかざり',needUnits:62}];
+ {id:'sun',name:'たいようのかざり',needUnits:63}];
 /* かざりの段は、全教科でとれるマーク（912）と単元（53）に合わせてのばした（2026-11-10）。
    既存のしきい値は1つも動かしていない。上げると、すでに開いていたかざりが閉じてしまい、
    お子さんから見れば「取り上げられた」ことになるため。足りない上の方に2段つけ足している。
@@ -4260,6 +4296,13 @@ missions.push(
   intro:'あしたの夕食を自分で考える。1食分としてそろっているか見ていこう。',
   scenes:['紙に料理名を書き出した。まず、中心になるものから。','書けた。次は、そえるおかずの番だ。','あと一つ。足りないものがないか見わたそう。'],
   done:'4つそろった夕食ができあがった。家の人に見せてみよう。'});
+/* 算数「式に表す」のミッション（2026-11-10）。場面の文は使い回さない。 */
+missions.push(
+ {id:'shiki',unit:'formula',title:'メモを式に直す',count:3,
+  intro:'買い出しのメモを、だれが見ても分かる形にしたい。順に整えよう。',
+  scenes:['メモを広げた。まず、1つぶんの数をはっきりさせよう。','はっきりした。次は、いくつ分かを決める番だ。','あと一つ。まだ決まっていない数を、しるしでおいてみよう。'],
+  done:'メモが式になった。数が変わっても、同じ式のまま計算できる。'});
+
 /* 英語のミッション（2026-11-10）。場面の文は使い回さない。 */
 missions.push(
  {id:'moji',unit:'alphabet',title:'かんばんの文字を読む',count:3,
