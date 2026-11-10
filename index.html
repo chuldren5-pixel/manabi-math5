@@ -200,6 +200,14 @@ body[data-subject="english"]{--accent:#3a6b5c;--accent-soft:#e2efea;--accent-ink
    画面からはみ出していたため、マス目を minmax(0,1fr) にし、しるしは折り返すようにした。
    （2026-11-10。360px幅で発生。今回足した単元だけの問題ではなく、以前からあった。） */
 .unit-card h3,.unit-card p,.dex-unit h3{overflow-wrap:anywhere;min-width:0}
+
+/* よみあげの声を選ぶ節（親の画面）。声の名前は長いので、縦にならべて折り返す。 */
+.voice-row{margin:18px 0}
+.voice-row h3{font-size:15px;margin:0 0 8px}
+.voice-list{display:grid;gap:8px}
+.voice-pick{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line,#e3e3df);border-radius:10px;background:#fff}
+.voice-pick span{overflow-wrap:anywhere;font-size:14px}
+.voice-pick input{width:20px;height:20px}
 </style></head><body><header><div class="header-inner"><button class="brand" data-action="home" aria-label="まなびステップ ホーム"><span class="brand-icon" aria-hidden="true">↗</span><span>まなびステップ<span class="brand-sub">小学5年生 算数・理科・社会・国語・家庭科・英語</span></span></button><nav aria-label="メインメニュー"><button data-action="home">ホーム</button><button data-action="units">まなぶ</button><button data-action="test">たしかめテスト</button><button data-action="review">ふくしゅう<span id="review-count"></span></button><button data-action="adventure">ぼうけん</button><button data-action="dex">ずかん</button><button data-action="records">きろく</button></nav></div></header><nav class="tabbar" aria-label="メインメニュー（スマートフォン）"><button data-action="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.4h4.4V20"/></svg>ホーム</button><button data-action="units"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.8h5.2A2.8 2.8 0 0 1 12 7.6V20a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.8h-5.2A2.8 2.8 0 0 0 12 7.6V20a2.4 2.4 0 0 1 2.4-2.4H20z"/></svg>まなぶ</button><button data-action="review"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.2A8 8 0 1 0 18.4 16"/><path d="M20 4.8v6.4h-6.4"/></svg>ふくしゅう<span class="tb-badge" id="tab-review-count"></span></button><button data-action="adventure"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.6 9 4.4l6 2.2 5.2-2.2v13l-5.2 2.2-6-2.2-5.2 2.2z"/><path d="M9 4.4v13M15 6.6v13"/></svg>ぼうけん</button><button data-action="records"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.8 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.9l5.8-.8z"/></svg>きろく</button></nav><div id="storage-warning" class="storage-warning" role="status" hidden></div><main id="app"></main><footer class="site-footer"><div><strong>まなびステップ</strong><span class="edition">小学5年生 / 学習・検証版</span></div><p>算数19単元・理科8単元・社会9単元・国語12単元・家庭科10単元・英語5単元のオリジナル問題。学校の実際のテストや特定の教科書には対応していません。作図・筆算の過程・自由記述の自動評価は対象外です。</p><p>学習記録はこのブラウザ内に保存します。端末間の同期はありません。ブラウザのデータ削除で記録が消えることがあります。</p><button class="text-button" data-action="about">保護者の方へ・収録範囲</button> · <a href="https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf" target="_blank" rel="noopener">学習範囲の基準：文部科学省</a></footer><dialog id="dialog"><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" hidden></div><script>/* Original content. Curriculum mapping: MEXT elementary mathematics, grade 5. */
 const MathContent = (() => {
 const groups=[{id:'number',name:'かずと計算',color:'#e8f2ea',icon:'＋'},{id:'shape',name:'図形',color:'#fff0da',icon:'△'},{id:'relation',name:'かわり方とくらべ方',color:'#e9effc',icon:'↗'},{id:'data',name:'表とグラフ',color:'#f3eafb',icon:'▥'}];
@@ -4451,7 +4459,7 @@ const settles=a=>!!(a&&a.ok&&!a.explained);
 function kindOf(a){if(!a.ok)return 'wrong';if(a.explained)return 'explained';return hintLevelOf(a)>0?'hinted':'solo';}
 
 /* ---------- state ---------- */
-const fresh=()=>({version:2,schema:SCHEMA,strictFrom:0,attempts:[],notes:{},active:null,lastResult:null,lastUnit:subjectUnits(DEFAULT_SUBJECT)[0].id,settings:{subject:DEFAULT_SUBJECT,size:5,keypad:true,companion:MathContent.companions[0].id,outfit:'none'}});
+const fresh=()=>({version:2,schema:SCHEMA,strictFrom:0,attempts:[],notes:{},active:null,lastResult:null,lastUnit:subjectUnits(DEFAULT_SUBJECT)[0].id,settings:{subject:DEFAULT_SUBJECT,size:5,keypad:true,companion:MathContent.companions[0].id,outfit:'none',voiceJa:'',voiceEn:''}});
 let state=fresh(),storageOk=true,storageMessage='',migrated=false;
 function cleanResponse(a){
  if(!a||typeof a.ok!=='boolean'||typeof a.answer!=='string'||typeof a.id!=='string')return null;
@@ -4495,7 +4503,10 @@ try{
   if(v.lastResult&&Array.isArray(v.lastResult.responses)&&v.lastResult.responses.every(validResponse))state.lastResult={...v.lastResult,mission:MathContent.missions.some(m=>m.id===v.lastResult.mission)?v.lastResult.mission:null,responses:v.lastResult.responses.map(cleanResponse)};
   if(v.settings&&typeof v.settings==='object'){if(subjectOk(v.settings.subject))state.settings.subject=v.settings.subject;if([3,5].includes(v.settings.size))state.settings.size=v.settings.size;if(typeof v.settings.keypad==='boolean')state.settings.keypad=v.settings.keypad;
    if(MathContent.companions.some(c=>c.id===v.settings.companion))state.settings.companion=v.settings.companion;
-   if(MathContent.outfits.some(o=>o.id===v.settings.outfit))state.settings.outfit=v.settings.outfit;}
+   if(MathContent.outfits.some(o=>o.id===v.settings.outfit))state.settings.outfit=v.settings.outfit;
+   /* 声の名前は端末ごとにちがうので、ここでは形だけ見る。その端末に無ければ、
+      読み上げるときに「おまかせ」に戻す（画面側の pickVoice がやる）。 */
+   for(const k of ['voiceJa','voiceEn'])if(typeof v.settings[k]==='string')state.settings[k]=v.settings[k].slice(0,150);}
  }
  // Check whether persistence is actually allowed, without touching other app data.
  localStorage.setItem(KEY,JSON.stringify(state));
@@ -4721,6 +4732,9 @@ function setSetting(key,value){
  else if(key==='keypad'&&typeof value==='boolean')state.settings.keypad=value;
  else if(key==='companion'&&MathContent.companions.some(c=>c.id===value))state.settings.companion=value;
  else if(key==='outfit'){const o=outfitsOpen().find(o=>o.id===value);if(!o||!o.open)return false;state.settings.outfit=value;}
+ /* 声は端末が持っているものの名前。アプリ側には一覧がないので、文字列として受け取る。
+    空文字は「おまかせ」。その端末に無い名前が入っていても、読み上げ側でおまかせに戻る。 */
+ else if((key==='voiceJa'||key==='voiceEn')&&typeof value==='string')state.settings[key]=value.slice(0,150);
  else return false;
  persist();return true;}
 /* A mission is a normal practice run on that unit's own questions. It grants nothing by itself. */
@@ -4832,9 +4846,15 @@ function speechReady(){return typeof window!=='undefined'&&'speechSynthesis'in w
 /* 端末の中の声だけを使う（社長の判断＝A案、通信なし）。
    端末内の声がないときに「あるもの」で代用すると、サーバー側の声になり通信が起きる。
    英語はPCに端末内の声がないことがあり、黙って通信してしまうので、代用はしない。 */
-function pickVoice(lang){const want=String(lang||'').slice(0,2).toLowerCase();
- const v=voicesNow().filter(x=>String(x.lang||'').slice(0,2).toLowerCase()===want);
- return v.find(x=>x.localService)||null;}
+/* 端末の中の声の一覧（その言語ぶん）。選びなおせるように、名前で区別できる形で返す。 */
+function localVoices(lang){const want=String(lang||'').slice(0,2).toLowerCase();
+ return voicesNow().filter(x=>x.localService&&String(x.lang||'').slice(0,2).toLowerCase()===want);}
+/* どの声で読むか。親が選んだ声があればそれを使う。その端末に無ければ、黙っておまかせに戻す
+   （端末を変えたり、声を消したりしても、読み上げが止まらないようにするため）。 */
+function voiceKey(lang){return String(lang||'').slice(0,2).toLowerCase()==='en'?'voiceEn':'voiceJa';}
+function pickVoice(lang){const v=localVoices(lang);
+ const want=M.state.settings[voiceKey(lang)];
+ return (want&&v.find(x=>x.name===want))||v[0]||null;}
 function hasLocalVoice(lang){return !!pickVoice(lang);}
 /* 声の一覧はあとから読みこまれる端末があるので、「声が0だから無理」とは決めつけない。
    いったん話させてみて、始まらなければそのときに伝える。押して無反応、をつくらないため。
@@ -4879,9 +4899,10 @@ function setSayLabel(key,speaking){
  }catch(err){}}
 function clearSayLabels(){
  try{for(const b of document.querySelectorAll('[data-action="speak"]'))setSayLabel(b.dataset.id,false);}catch(e){}}
-function speak(text,lang,key){
+/* forceVoice は、親の画面の「きく」で特定の声を試すときだけ渡す。 */
+function speak(text,lang,key,forceVoice){
  if(!speechReady()){toast('このたんまつでは よみあげが つかえないみたい。');return;}
- const voice=pickVoice(lang||'ja-JP');
+ const voice=forceVoice||pickVoice(lang||'ja-JP');
  if(!voice&&voicesNow().length){toast('このたんまつには、その言葉の よみあげの声が 入っていないみたい。');return;}
  try{
   speechSynthesis.cancel();clearSayLabels();
@@ -4896,7 +4917,7 @@ function speak(text,lang,key){
   const done=()=>{sayingKey=null;setSayLabel(key,false);};
   chunks.forEach((chunk,i)=>{
    const u=new SpeechSynthesisUtterance(chunk);
-   u.lang=lang||'ja-JP';u.rate=en?0.8:0.95;u.pitch=1;
+   u.lang=lang||'ja-JP';u.rate=en?0.9:0.95;u.pitch=1;
    if(voice)u.voice=voice;
    u.onstart=()=>{if(!started){started=true;sayingKey=key;setSayLabel(key,true);}};
    u.onend=()=>{started=true;finished++;if(finished>=chunks.length)done();};
@@ -5335,6 +5356,22 @@ function saveFile(name,text,type){
   a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
   setTimeout(()=>URL.revokeObjectURL(url),2000);return true;}catch(e){return false;}}
 const stamp=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'});
+/* よみあげの声を選ぶ（親の画面）。端末の中にある声しか並べない＝通信は起きない。
+   端末によって声の数も名前もちがうので、一覧はその場で読んで作る。 */
+function voiceSection(){
+ if(!speechReady())return `<section class="card"><h2>よみあげの声</h2><p class="muted small">この端末では読み上げが使えません。</p></section>`;
+ const rows=[['ja','日本語','voiceJa'],['en','英語','voiceEn']].map(([lang,label,key])=>{
+  const list=localVoices(lang),chosen=M.state.settings[key];
+  if(!list.length)return `<div class="voice-row"><h3>${label}</h3><p class="muted small">この端末には${label}の声が入っていません。端末の設定で声を追加すると、ここに出ます。</p></div>`;
+  const items=[{name:'',label:'おまかせ（はじめの声）'},...list.map(v=>({name:v.name,label:v.name}))].map(o=>
+   `<label class="voice-pick"><input type="radio" name="voice-${lang}" value="${e(o.name)}" ${((chosen||'')===o.name)?'checked':''} data-action="set-voice" data-id="${key}"><span>${e(o.label)}</span>${o.name?button('きく','try-voice',`${lang}|${o.name}`,'text-button small'):''}</label>`).join('');
+  return `<div class="voice-row"><h3>${label}（${list.length}個）</h3><div class="voice-list">${items}</div></div>`;
+ }).join('');
+ return `<section class="card"><h2>よみあげの声</h2>
+ <p class="muted small">この端末に入っている声だけを並べています。<strong>声を選んでも、文字が外に送られることはありません。</strong>抑揚は声そのものの性質なので、自然に聞こえる声を選ぶ以上のことはできません。</p>
+ ${rows}
+ <p class="muted small">声が少ないときは、端末の設定から声を追加できます（iPhoneなら 設定 → アクセシビリティ → 読み上げコンテンツ → 声）。追加するとこの一覧に出ます。</p></section>`;
+}
 function backupSection(){
  return `<section class="card"><h2>記録の保存と読みこみ</h2>
  <p class="muted small">学習記録は、この端末のこのブラウザにだけ保存されています。ブラウザのデータを消すと記録も消えます。<strong>ときどきバックアップを保存しておくと、消えても戻せます。</strong>保存はこの端末の中だけで行われ、どこにも送信しません。</p>
@@ -5412,7 +5449,7 @@ function parentRecords(){const attempts=M.state.attempts,correct=attempts.filter
  +`<div class="stat"><span>直近が「ヒントで正解」</span><strong>${totals.hinted}<small>問</small></strong></div><div class="stat"><span>直近が「解き方を読んで正解」</span><strong>${totals.explained}<small>問</small></strong></div></div><div class="callout">「自力で正解」は、ヒントも解き方も見ずに正解した問題です。解き方を読んだあとの正解は、まだ復習の対象として数えています。類題を自力で正解した問題：${totals.variantSolo}問。</div>`
  +`<section class="card"><div class="between"><h2>単元ごとの取り組み</h2>${M.state.lastResult?button('直近の結果を見る','last-result','','text-button small'):''}</div><div class="record-table"><table><thead><tr><th scope="col">単元</th><th scope="col">自力</th><th scope="col">ヒント</th><th scope="col">解き方</th><th scope="col">要復習</th><th scope="col">取り組んだ問題</th></tr></thead><tbody>${M.units.map(u=>{const s=M.unitStats(u.id);return `<tr><td><button class="text-button" data-action="lesson" data-id="${u.id}">${u.title}</button></td><td>${s.solo}問</td><td>${s.hinted}問</td><td>${s.explained}問</td><td>${s.wrong}問</td><td>${s.answered} / ${s.total}問</td></tr>`}).join('')}</tbody></table></div>`
  +`<p class="muted small">画面が狭いときは、表を横にスクロールできます。</p></section><div class="callout">累計正答率は同じ問題への再回答も含みます。各列は、その問題への直近の回答だけを使っています。学校の成績や習得の保証を示すものではありません。</div>${attempts.length?`<section class="card"><h2>最近の取り組み</h2>${attempts.slice(-5).reverse().map(a=>{const q=M.attemptQuestion(a);if(!q)return '';const [label,cls]=kindLabel(a);return `<div class="topic-row"><div><span class="muted small">${new Date(a.time).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})} · ${a.mode==='test'?'確認テスト':a.mode==='review'?'復習':'練習'}${q.variant?' · 類題':''}</span><p>${e(q.text)}</p></div><span class="pill ${cls}">${label}</span></div>`}).join('')}</section>`:''}`
- +`<p class="muted small" style="margin-top:25px">前の全教科試作版の記録は変更していません。この版は別の記録として保存します。</p>${backupSection()}<div class="callout">リセットすると、この端末の記録はすべて消えます。<strong>消す前にバックアップを保存してください。</strong>元には戻せません。</div>${button('この端末の学習記録をリセット','reset','','btn secondary small')}<div class="section-head"><h2>保護者の方へ</h2></div>${button('学習の振り返りを見る','parent','','btn secondary small')}`
+ +`<p class="muted small" style="margin-top:25px">前の全教科試作版の記録は変更していません。この版は別の記録として保存します。</p>${voiceSection()}${backupSection()}<div class="callout">リセットすると、この端末の記録はすべて消えます。<strong>消す前にバックアップを保存してください。</strong>元には戻せません。</div>${button('この端末の学習記録をリセット','reset','','btn secondary small')}<div class="section-head"><h2>保護者の方へ</h2></div>${button('学習の振り返りを見る','parent','','btn secondary small')}`
  ,'records');}
 /* Companions. Original creatures invented for this app: no existing character is referenced.
    Every one is built on the same frame — a head centred at (50,40) with eyes on y=40 — so the
@@ -5661,6 +5698,11 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]'
   'result-review':()=>launch(M.shuffled((M.state.lastResult?.responses||[]).filter(r=>!r.ok)).map(r=>r.id),'review','今回間違えた問題の復習'),
   'last-result':resultPage,
   'parent-records':()=>parentRecords(),
+  'set-voice':id=>{const el=$(`input[data-id="${id}"]:checked`);if(!el)return;M.setSetting(id,el.value);stopSpeaking();},
+  'try-voice':id=>{const [lang,name]=String(id).split('|');
+   const v=localVoices(lang).find(x=>x.name===name);if(!v)return;
+   const text=lang==='en'?'Nice to meet you. How are you today?':'こんにちは。きょうも いっしょに やってみよう。';
+   stopSpeaking();speak(text,v.lang,'try',v);},
   speak:id=>{if(speechReady()&&(speechSynthesis.speaking||speechSynthesis.pending)){stopSpeaking();return;}const t=sayables[id];if(t)speak(t.text,t.lang,id);},
   'export-json':()=>saveRecords('json'),
   'export-csv':()=>saveRecords('csv'),
